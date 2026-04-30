@@ -8,9 +8,18 @@ public class OpenAITester : MonoBehaviour
     
     [TextArea(3, 10)]
     public string promptDePrueba = "Crea un nivel en Marte con un guía que explique la gravedad.";
+    public static OpenAITester Instance;
+
+    private void Awake()
+    {
+        if(Instance == null)
+            Instance = this;
+        else
+            Destroy(this.gameObject);
+    }
 
     [ContextMenu("Probar Conexión OpenAI")]
-    public void TestearIA()
+    public void TestearIA(string textPromp)
     {
         if (connector == null)
         {
@@ -20,12 +29,13 @@ public class OpenAITester : MonoBehaviour
 
         Debug.Log("Enviando petición a OpenAI...");
         
-        StartCoroutine(connector.EnviarPromptALaIA(promptDePrueba, (resultado) => {
+        StartCoroutine(connector.EnviarPromptALaIA(textPromp, (resultado) => {
             Debug.Log("<color=green>¡Respuesta recibida con éxito!</color>");
             
             if (builder != null)
             {
                 builder.ConstruirMundo(resultado);
+                ManagerUI.Instance.StopTyping("Genere este mundo para ti");
             }
             else
             {

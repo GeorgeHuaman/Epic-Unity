@@ -10,6 +10,7 @@ public class OpenAIConnector : MonoBehaviour
 {
     // TODO: Move the API key to a secure location (e.g., environment variable or local config file)
     public string apiKey = string.Empty;
+    public string lastJsonReceived = string.Empty;
     private string apiUrl = "https://api.openai.com/v1/chat/completions";
 
     public IEnumerator EnviarPromptALaIA(string promptDocente, System.Action<WorldConfig> callback)
@@ -43,15 +44,28 @@ public class OpenAIConnector : MonoBehaviour
 
             if (request.result == UnityWebRequest.Result.Success)
             {
-                // Extraemos el JSON de la respuesta de OpenAI
-                JObject response = JObject.Parse(request.downloadHandler.text);
-                string content = response["choices"][0]["message"]["content"].ToString();
-                WorldConfig config = JsonConvert.DeserializeObject<WorldConfig>(content);
-                callback(config);
+                try
+                {
+                    // Extraemos el JSON de la respuesta de OpenAI
+                    JObject response = JObject.Parse(request.downloadHandler.text);
+                    string content = response["choices"][0]["message"]["content"].ToString();
+                    lastJsonReceived = content;
+                    WorldConfig config = JsonConvert.DeserializeObject<WorldConfig>(content);
+                    
+                    // Si todo salió bien, detenemos la animación de carga (podemos poner un mensaje de éxito o vacío)
+                    ManagerUI.Instance.StopTyping("¡Hecho!"); 
+                    callback(config);
+                }
+                catch (JsonException ex)
+                {
+                    Debug.LogError("Error al parsear el JSON de la IA: " + ex.Message);
+                    ManagerUI.Instance.StopTyping("No pude entenderte, explicalo mejor");
+                }
             }
             else
             {
                 Debug.LogError("Error en IA: " + request.error);
+                ManagerUI.Instance.StopTyping("Error de conexión con la IA.");
             }
         }
     }
