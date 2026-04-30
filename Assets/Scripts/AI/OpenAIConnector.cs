@@ -15,10 +15,22 @@ public class OpenAIConnector : MonoBehaviour
 
     public IEnumerator EnviarPromptALaIA(string promptDocente, System.Action<WorldConfig> callback)
     {
-        string systemPrompt = @"Eres un arquitecto de niveles para Unity. 
-        Responde SOLO con JSON. IDs de Skybox disponibles: 'sky_day', 'sky_mars', 'sky_night', 'sky_sunset'.
-        IDs de Prefabs: 'npc_guia', 'puerta_quiz'.
-        Formato: { 'sky_id': '...', 'elementos': [ { 'prefab_id': '...', 'pos_x': 0, 'pos_z': 0, 'data': {...} } ] }";
+        string systemPrompt = @"Eres un arquitecto de laboratorios semi-modulares en Unity. 
+        En lugar de construir pared por pared, usarás habitaciones completas (PRE-BUILT ROOMS).
+        
+        REGLAS DE CONSTRUCCIÓN (GRILLA DE 10 METROS):
+        1. GRILLA: Todas las posiciones (pos_x, pos_z) DEBEN ser múltiplos de 10 (0, 10, 20, -10, etc.) para que las habitaciones encajen perfectamente.
+        2. CONEXIÓN: Coloca las habitaciones una al lado de la otra. 
+           Ejemplo: Si pones una 'Room_Entrance' en (0,0), la siguiente 'Room_Corridor' debería estar en (10,0) o (0,10).
+        3. ROTACIÓN: Usa 'rot_y' (0, 90, 180, 270) para orientar las puertas de las habitaciones y que se conecten entre sí.
+        4. COHERENCIA: Empieza siempre con una 'Room_Entrance'. Usa 'Room_Corridor' para conectar salas grandes como 'Room_Laboratory' o 'Room_Tomograph'.
+
+        IDs DE HABITACIONES DISPONIBLES:
+        - Básicas: 'Room_Entrance', 'Room_Corridor', 'Room_Hall'.
+        - Especializadas: 'Room_Laboratory', 'Room_Laboratory_2', 'Room_Freezer', 'Room_Tomograph', 'Room_Tomograph_Control'.
+
+        Responde SOLO con JSON siguiendo este formato:
+        { 'sky_id': '...', 'elementos': [ { 'prefab_id': '...', 'pos_x': 0, 'pos_y': 0, 'pos_z': 0, 'rot_y': 0, 'data': {...} } ] }";
 
         var requestBody = new
         {

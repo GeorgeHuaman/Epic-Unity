@@ -1,13 +1,15 @@
 using UnityEngine;
 using System.Collections.Generic;
+
 public class WorldBuilder : MonoBehaviour
 {
-    public SkyboxManager skyboxManager;
-    public List<GameObject> prefabLibrary;
+    public SkyboxManager skyboxManager; 
+    public List<GameObject> prefabLibrary; 
 
     public void ConstruirMundo(WorldConfig config)
     {
-        skyboxManager.ChangeSkybox(config.sky_id);
+        if (skyboxManager != null)
+            skyboxManager.ChangeSkybox(config.sky_id);
 
         foreach (Transform child in transform)
         {
@@ -19,10 +21,10 @@ public class WorldBuilder : MonoBehaviour
             GameObject prefab = prefabLibrary.Find(p => p.name == item.prefab_id);
             if (prefab != null)
             {
-                Vector3 posicion = new Vector3(item.pos_x, 0, item.pos_z);
-                GameObject obj = Instantiate(prefab, posicion, Quaternion.identity, this.transform);
+                Vector3 posicion = new Vector3(item.pos_x, item.pos_y, item.pos_z);
+                Quaternion rotacion = Quaternion.Euler(0, item.rot_y, 0);
+                GameObject obj = Instantiate(prefab, posicion, rotacion, this.transform);
 
-                // Aqui se inyecta el texto del docente al objeto
                 if (obj.TryGetComponent<IConfigurable>(out var configurable))
                 {
                     configurable.Setup(item.data);
@@ -32,7 +34,6 @@ public class WorldBuilder : MonoBehaviour
     }
 }
 
-// Interfaz para que los prefabs sepan recibir datos
 public interface IConfigurable
 {
     void Setup(Dictionary<string, string> data);

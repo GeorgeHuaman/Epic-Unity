@@ -217,7 +217,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WorldBuilder
   skyboxManager: {fileID: 268783337}
-  prefabLibrary: []
+  prefabLibrary:
+  - {fileID: 792299533011248658, guid: 38a1da40ddc43784981e0d0e3073fda0, type: 3}
+  - {fileID: 3196632587332017110, guid: 9b1b40e8bb85dad4a8d2a580bdbc8b3a, type: 3}
+  - {fileID: 761922899826775559, guid: 3b5d73ab5c9f95642ab5c1e887c8511d, type: 3}
+  - {fileID: 4359978777457119645, guid: dd51d34afb2926c4e9ff0f005173bc72, type: 3}
+  - {fileID: 7889482079043561516, guid: 6a2db015b343135438470c5379c1475f, type: 3}
+  - {fileID: 5484074166967634650, guid: 307dbc263ff03244499edd2b047be3ed, type: 3}
+  - {fileID: 3214157824528101091, guid: 17dbb2327e30d034d9f56326e70b399e, type: 3}
+  - {fileID: 9035201243974685835, guid: 45b2ddb3f2a124c42905f64a24f852ec, type: 3}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
