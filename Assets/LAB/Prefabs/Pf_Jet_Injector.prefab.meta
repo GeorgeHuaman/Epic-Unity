@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 4c7e633dde174294a9cf9ff493c572a6
+timeCreated: 1493034665
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Prefabs/Pf_Jet_Injector.prefab
+  uploadId: 442406

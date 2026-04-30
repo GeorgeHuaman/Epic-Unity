@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: bb3cdf6d227184b429f1e68e185a9074
+timeCreated: 1489754396
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Animation/Hand_Wash.controller
+  uploadId: 442406

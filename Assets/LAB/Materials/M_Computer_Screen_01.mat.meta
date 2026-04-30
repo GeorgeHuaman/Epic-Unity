@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: aad0d9d547f96bb439e2b4e340e58d59
+timeCreated: 1490390468
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Materials/M_Computer_Screen_01.mat
+  uploadId: 442406

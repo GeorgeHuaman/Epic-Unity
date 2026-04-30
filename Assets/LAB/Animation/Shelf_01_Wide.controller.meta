@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 39714a1af3b82ad48b575fe8367b1ca0
+timeCreated: 1489669901
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Animation/Shelf_01_Wide.controller
+  uploadId: 442406

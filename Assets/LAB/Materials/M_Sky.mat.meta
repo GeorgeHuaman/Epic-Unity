@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: f7ad803c348aeab4a858f5c9e1aae60a
+timeCreated: 1497968887
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Materials/M_Sky.mat
+  uploadId: 442406

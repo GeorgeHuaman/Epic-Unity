@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 925caeababb0046b9b39a234e7db6444
+timeCreated: 1467169007
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Standard Assets/Effects/MotionBlur/Resources/Prefilter.cginc
+  uploadId: 442406

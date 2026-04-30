@@ -1,0 +1,149 @@
+fileFormatVersion: 2
+guid: d4e48627466125f41bc177bfcee62207
+timeCreated: 1492781236
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Btn_01
+    100002: Btn_02
+    100004: Btn_03
+    100006: Btn_04
+    100008: Btn_Down
+    100010: Btn_Left
+    100012: Btn_Menu
+    100014: Btn_Right
+    100016: Btn_Up
+    100018: Desk
+    100020: Desk_Lifter
+    100022: Slider
+    100024: //RootNode
+    400000: Btn_01
+    400002: Btn_02
+    400004: Btn_03
+    400006: Btn_04
+    400008: Btn_Down
+    400010: Btn_Left
+    400012: Btn_Menu
+    400014: Btn_Right
+    400016: Btn_Up
+    400018: Desk
+    400020: Desk_Lifter
+    400022: Slider
+    400024: //RootNode
+    2300000: Btn_01
+    2300002: Btn_02
+    2300004: Btn_03
+    2300006: Btn_04
+    2300008: Btn_Down
+    2300010: Btn_Left
+    2300012: Btn_Menu
+    2300014: Btn_Right
+    2300016: Btn_Up
+    2300018: Desk
+    2300020: Desk_Lifter
+    2300022: Slider
+    2300024: //RootNode
+    3300000: Btn_01
+    3300002: Btn_02
+    3300004: Btn_03
+    3300006: Btn_04
+    3300008: Btn_Down
+    3300010: Btn_Left
+    3300012: Btn_Menu
+    3300014: Btn_Right
+    3300016: Btn_Up
+    3300018: Desk
+    3300020: Desk_Lifter
+    3300022: Slider
+    3300024: //RootNode
+    4300000: Tomograph
+    4300002: Desk_Lifter
+    4300004: Desk
+    4300006: Slider
+    4300008: Btn_Menu
+    4300010: Btn_Left
+    4300012: Btn_Right
+    4300014: Btn_Up
+    4300016: Btn_Down
+    4300018: Btn_01
+    4300020: Btn_02
+    4300022: Btn_03
+    4300024: Btn_04
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Meshes/Tomograph.fbx
+  uploadId: 442406

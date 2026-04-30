@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7dc7135a0cf64dc488825de6a99f931b
+timeCreated: 1489754017
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Materials/M_Hand_Washer.mat
+  uploadId: 442406

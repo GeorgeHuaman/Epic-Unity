@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7f85a0a655e1f42418a6918668f9dd61
+timeCreated: 1488925394
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Materials/M_Centrifuge.mat
+  uploadId: 442406

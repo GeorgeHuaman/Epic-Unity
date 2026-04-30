@@ -1,0 +1,144 @@
+fileFormatVersion: 2
+guid: e25c1caa887c30d4394834710bb0dc4a
+timeCreated: 1493388638
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: BS_Btn_01
+    100004: BS_Btn_02
+    100006: BS_Btn_Down
+    100008: BS_Btn_Left
+    100010: BS_Btn_Menu
+    100012: BS_Btn_Power
+    100014: BS_Btn_Right
+    100016: BS_Btn_Up
+    100018: BS_Joint
+    100020: BS_Plunger
+    100022: BS_Scanner
+    400000: //RootNode
+    400002: BS_Btn_01
+    400004: BS_Btn_02
+    400006: BS_Btn_Down
+    400008: BS_Btn_Left
+    400010: BS_Btn_Menu
+    400012: BS_Btn_Power
+    400014: BS_Btn_Right
+    400016: BS_Btn_Up
+    400018: BS_Joint
+    400020: BS_Plunger
+    400022: BS_Scanner
+    2300000: //RootNode
+    2300002: BS_Btn_01
+    2300004: BS_Btn_02
+    2300006: BS_Btn_Down
+    2300008: BS_Btn_Left
+    2300010: BS_Btn_Menu
+    2300012: BS_Btn_Power
+    2300014: BS_Btn_Right
+    2300016: BS_Btn_Up
+    2300018: BS_Joint
+    2300020: BS_Plunger
+    2300022: BS_Scanner
+    3300000: //RootNode
+    3300002: BS_Btn_01
+    3300004: BS_Btn_02
+    3300006: BS_Btn_Down
+    3300008: BS_Btn_Left
+    3300010: BS_Btn_Menu
+    3300012: BS_Btn_Power
+    3300014: BS_Btn_Right
+    3300016: BS_Btn_Up
+    3300018: BS_Joint
+    3300020: BS_Plunger
+    3300022: BS_Scanner
+    4300000: Bio_Scanner
+    4300002: BS_Plunger
+    4300004: BS_Joint
+    4300006: BS_Scanner
+    4300008: BS_Btn_Menu
+    4300010: BS_Btn_Left
+    4300012: BS_Btn_Up
+    4300014: BS_Btn_Right
+    4300016: BS_Btn_Down
+    4300018: BS_Btn_01
+    4300020: BS_Btn_02
+    4300022: BS_Btn_Power
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Meshes/Bio_Scanner.fbx
+  uploadId: 442406

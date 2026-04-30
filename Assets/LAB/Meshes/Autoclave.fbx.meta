@@ -1,0 +1,134 @@
+fileFormatVersion: 2
+guid: d55c92d8c795d824493075c72173af63
+timeCreated: 1492789045
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Btn_01
+    100004: Btn_02
+    100006: Btn_03
+    100008: Btn_04
+    100010: Btn_05
+    100012: Btn_06
+    100014: Btn_07
+    100016: Door
+    100018: Rack
+    400000: //RootNode
+    400002: Btn_01
+    400004: Btn_02
+    400006: Btn_03
+    400008: Btn_04
+    400010: Btn_05
+    400012: Btn_06
+    400014: Btn_07
+    400016: Door
+    400018: Rack
+    2300000: //RootNode
+    2300002: Btn_01
+    2300004: Btn_02
+    2300006: Btn_03
+    2300008: Btn_04
+    2300010: Btn_05
+    2300012: Btn_06
+    2300014: Btn_07
+    2300016: Door
+    2300018: Rack
+    3300000: //RootNode
+    3300002: Btn_01
+    3300004: Btn_02
+    3300006: Btn_03
+    3300008: Btn_04
+    3300010: Btn_05
+    3300012: Btn_06
+    3300014: Btn_07
+    3300016: Door
+    3300018: Rack
+    4300000: Autoclave
+    4300002: Door
+    4300004: Rack
+    4300006: Btn_01
+    4300008: Btn_02
+    4300010: Btn_03
+    4300012: Btn_04
+    4300014: Btn_05
+    4300016: Btn_06
+    4300018: Btn_07
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15
+    secondaryUVHardAngle: 44
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Meshes/Autoclave.fbx
+  uploadId: 442406

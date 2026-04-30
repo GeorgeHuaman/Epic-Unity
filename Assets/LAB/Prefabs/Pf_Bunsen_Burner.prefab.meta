@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0135be9d329509d43865e7b9f6d647d6
+timeCreated: 1492854355
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Prefabs/Pf_Bunsen_Burner.prefab
+  uploadId: 442406

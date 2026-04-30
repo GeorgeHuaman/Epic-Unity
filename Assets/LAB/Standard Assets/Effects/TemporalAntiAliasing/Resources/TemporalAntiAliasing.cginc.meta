@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 1ce78d6225e3f9f43969204dbb7e3edb
+timeCreated: 1472218210
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Standard Assets/Effects/TemporalAntiAliasing/Resources/TemporalAntiAliasing.cginc
+  uploadId: 442406

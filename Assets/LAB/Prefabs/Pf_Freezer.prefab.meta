@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 831b286ec67871e46af220b9e3e67df6
+timeCreated: 1493720839
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Prefabs/Pf_Freezer.prefab
+  uploadId: 442406

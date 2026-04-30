@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 69db680eac1029a4995fffd4d44045b4
+timeCreated: 1497886807
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: -1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Materials/M_Lab_2_Yellow.mat
+  uploadId: 442406

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 43ba2b3116d229a498c7e65d4742441d
+timeCreated: 1493904667
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/VFX/Shader/SH_WaterFlow.shader
+  uploadId: 442406

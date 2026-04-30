@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: cb955f6c0fc3db14fb30378de9dd0c72
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Prefabs/Liquid_Container.prefab
+  uploadId: 442406

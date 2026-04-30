@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 0c932425027234047a3f68dcbfce0aec
+timeCreated: 1494242349
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Animation/Bio_Scanner_Off.anim
+  uploadId: 442406

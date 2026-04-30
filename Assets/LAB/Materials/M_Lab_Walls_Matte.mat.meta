@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ac9ff33839793fc4fb627b4927b06018
+timeCreated: 1488925486
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Materials/M_Lab_Walls_Matte.mat
+  uploadId: 442406

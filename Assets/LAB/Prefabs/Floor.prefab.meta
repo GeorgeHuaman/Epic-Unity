@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 65df385d9b7e16b4d8e260bdf83774aa
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Prefabs/Floor.prefab
+  uploadId: 442406

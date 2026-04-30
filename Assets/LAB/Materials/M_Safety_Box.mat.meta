@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 04375195146e169499754136f51f4c9f
+timeCreated: 1489506325
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Materials/M_Safety_Box.mat
+  uploadId: 442406

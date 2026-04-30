@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 5a771164d28180549910f7fcbdadd12e
+timeCreated: 1494246062
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Animation/PC_Screen_Loop_01.anim
+  uploadId: 442406

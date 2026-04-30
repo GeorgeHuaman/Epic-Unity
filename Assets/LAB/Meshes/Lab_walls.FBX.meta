@@ -1,0 +1,167 @@
+fileFormatVersion: 2
+guid: e1c769fe554c6574cb96afb07bd47617
+timeCreated: 1494951218
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Pipe
+    100004: Pipe_Corner
+    100006: Pipe_Joint
+    100008: Wall
+    100010: Wall_Air
+    100012: Wall_Connect
+    100014: Wall_Corner
+    100016: Wall_Corner_02
+    100018: Wall_Corner_03
+    100020: Wall_Corner_04
+    100022: Wall_Corner_05
+    100024: Wall_Corner_06
+    100026: Wall_Corner_07
+    100028: Wall_Lamp001
+    100030: Wall_Short
+    100032: Wall_Lamp
+    400000: //RootNode
+    400002: Pipe
+    400004: Pipe_Corner
+    400006: Pipe_Joint
+    400008: Wall
+    400010: Wall_Air
+    400012: Wall_Connect
+    400014: Wall_Corner
+    400016: Wall_Corner_02
+    400018: Wall_Corner_03
+    400020: Wall_Corner_04
+    400022: Wall_Corner_05
+    400024: Wall_Corner_06
+    400026: Wall_Corner_07
+    400028: Wall_Lamp001
+    400030: Wall_Short
+    400032: Wall_Lamp
+    2300000: Pipe
+    2300002: Pipe_Corner
+    2300004: Pipe_Joint
+    2300006: Wall
+    2300008: Wall_Air
+    2300010: Wall_Connect
+    2300012: Wall_Corner
+    2300014: Wall_Corner_02
+    2300016: Wall_Corner_03
+    2300018: Wall_Corner_04
+    2300020: Wall_Corner_05
+    2300022: Wall_Corner_06
+    2300024: Wall_Corner_07
+    2300026: Wall_Lamp001
+    2300028: Wall_Short
+    2300030: Wall_Lamp
+    3300000: Pipe
+    3300002: Pipe_Corner
+    3300004: Pipe_Joint
+    3300006: Wall
+    3300008: Wall_Air
+    3300010: Wall_Connect
+    3300012: Wall_Corner
+    3300014: Wall_Corner_02
+    3300016: Wall_Corner_03
+    3300018: Wall_Corner_04
+    3300020: Wall_Corner_05
+    3300022: Wall_Corner_06
+    3300024: Wall_Corner_07
+    3300026: Wall_Lamp001
+    3300028: Wall_Short
+    3300030: Wall_Lamp
+    4300000: Wall_Corner_02
+    4300002: Wall
+    4300004: Wall_Connect
+    4300006: Wall_Corner_03
+    4300008: Wall_Corner_04
+    4300010: Wall_Corner_07
+    4300012: Wall_Short
+    4300014: Wall_Corner_06
+    4300016: Wall_Corner
+    4300018: Wall_Corner_05
+    4300020: Wall_Air
+    4300022: Pipe_Joint
+    4300024: Pipe_Corner
+    4300026: Pipe
+    4300028: Wall_Lamp001
+    4300030: Wall_Lamp
+    9500000: //RootNode
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Meshes/Lab_walls.FBX
+  uploadId: 442406

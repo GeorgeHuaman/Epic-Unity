@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 1d9548d9a173a40e4b758ecf6e4fed49
+timeCreated: 1457326885
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Standard Assets/Effects/AmbientOcclusion/Helpers/PropertyObserver.cs
+  uploadId: 442406

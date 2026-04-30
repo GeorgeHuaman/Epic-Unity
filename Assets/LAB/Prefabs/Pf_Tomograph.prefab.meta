@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0e782db5329957b46a76e23a8baf437c
+timeCreated: 1492781692
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Prefabs/Pf_Tomograph.prefab
+  uploadId: 442406

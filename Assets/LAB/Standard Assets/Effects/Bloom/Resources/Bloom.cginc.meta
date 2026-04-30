@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 386a80fc77a074d2ca8e6f097dd68ea3
+timeCreated: 1463538726
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Standard Assets/Effects/Bloom/Resources/Bloom.cginc
+  uploadId: 442406

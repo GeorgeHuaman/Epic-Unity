@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 9a8e838691462194482a43a02e424876
+timeCreated: 1436173774
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Standard Assets/Effects/TonemappingColorGrading/Resources/HistogramRender.shader
+  uploadId: 442406

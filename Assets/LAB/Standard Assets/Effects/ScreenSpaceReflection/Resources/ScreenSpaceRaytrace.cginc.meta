@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 6f70a4658ebf5f947abc302c6b49a6ba
+timeCreated: 1449750676
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Standard Assets/Effects/ScreenSpaceReflection/Resources/ScreenSpaceRaytrace.cginc
+  uploadId: 442406

@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: eb0236f80884a1f4793c96b4d2da5c68
+timeCreated: 1446039760
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Standard Assets/Effects/ScreenSpaceReflection/Editor/ScreenSpaceReflectionEditor.cs
+  uploadId: 442406

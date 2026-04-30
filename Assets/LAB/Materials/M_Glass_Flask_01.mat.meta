@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2b7ec1f3efd98944e89394373e880aba
+timeCreated: 1470513412
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Materials/M_Glass_Flask_01.mat
+  uploadId: 442406

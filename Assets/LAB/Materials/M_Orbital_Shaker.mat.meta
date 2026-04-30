@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3e78ebae47b29c3499cf9dc93d805e3e
+timeCreated: 1488926140
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Materials/M_Orbital_Shaker.mat
+  uploadId: 442406

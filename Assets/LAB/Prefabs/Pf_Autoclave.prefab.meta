@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 449aa903ef523854c9060ff591354cbc
+timeCreated: 1492789336
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Prefabs/Pf_Autoclave.prefab
+  uploadId: 442406

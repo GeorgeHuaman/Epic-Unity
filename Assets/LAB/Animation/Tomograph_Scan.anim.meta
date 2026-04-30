@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: ed77b08e7a34378419c9732f2690978a
+timeCreated: 1493992661
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Animation/Tomograph_Scan.anim
+  uploadId: 442406

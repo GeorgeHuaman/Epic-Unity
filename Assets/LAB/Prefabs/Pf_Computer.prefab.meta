@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 97768906f29594b458a661d2fa8f1e18
+timeCreated: 1493380053
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Prefabs/Pf_Computer.prefab
+  uploadId: 442406

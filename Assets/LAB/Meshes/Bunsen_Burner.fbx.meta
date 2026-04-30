@@ -1,0 +1,181 @@
+fileFormatVersion: 2
+guid: 508427e21f541184fa9b8587967226ac
+timeCreated: 1492853696
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Arrow_01
+    100002: Arrow_02
+    100004: Btn_01
+    100006: Btn_02
+    100008: Btn_03
+    100010: //RootNode
+    100012: Burner
+    100014: Cable
+    100016: Cable_01
+    100018: Cable_02
+    100020: Glass
+    100022: Light_01
+    100024: Light_02
+    100026: Rack
+    100028: Regulator_01
+    100030: Regulator_02
+    100032: Regulator_03
+    100034: Stand
+    100036: Valve_01
+    100038: Valve_02
+    400000: Arrow_01
+    400002: Arrow_02
+    400004: Btn_01
+    400006: Btn_02
+    400008: Btn_03
+    400010: //RootNode
+    400012: Burner
+    400014: Cable
+    400016: Cable_01
+    400018: Cable_02
+    400020: Glass
+    400022: Light_01
+    400024: Light_02
+    400026: Rack
+    400028: Regulator_01
+    400030: Regulator_02
+    400032: Regulator_03
+    400034: Stand
+    400036: Valve_01
+    400038: Valve_02
+    2300000: Arrow_01
+    2300002: Arrow_02
+    2300004: Btn_01
+    2300006: Btn_02
+    2300008: Btn_03
+    2300010: //RootNode
+    2300012: Burner
+    2300014: Cable_01
+    2300016: Cable_02
+    2300018: Glass
+    2300020: Light_01
+    2300022: Light_02
+    2300024: Rack
+    2300026: Regulator_01
+    2300028: Regulator_02
+    2300030: Regulator_03
+    2300032: Stand
+    2300034: Valve_01
+    2300036: Valve_02
+    3300000: Arrow_01
+    3300002: Arrow_02
+    3300004: Btn_01
+    3300006: Btn_02
+    3300008: Btn_03
+    3300010: //RootNode
+    3300012: Burner
+    3300014: Cable_01
+    3300016: Cable_02
+    3300018: Glass
+    3300020: Light_01
+    3300022: Light_02
+    3300024: Rack
+    3300026: Regulator_01
+    3300028: Regulator_02
+    3300030: Regulator_03
+    3300032: Stand
+    3300034: Valve_01
+    3300036: Valve_02
+    4300000: Bunsen_Burner
+    4300002: Glass
+    4300004: Valve_01
+    4300006: Valve_02
+    4300008: Arrow_01
+    4300010: Arrow_02
+    4300012: Light_01
+    4300014: Light_02
+    4300016: Btn_01
+    4300018: Btn_02
+    4300020: Btn_03
+    4300022: Regulator_01
+    4300024: Regulator_02
+    4300026: Regulator_03
+    4300028: Cable_01
+    4300030: Cable_02
+    4300032: Burner
+    4300034: Stand
+    4300036: Rack
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Meshes/Bunsen_Burner.fbx
+  uploadId: 442406

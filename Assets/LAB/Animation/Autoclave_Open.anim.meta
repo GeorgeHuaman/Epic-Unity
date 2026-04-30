@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 0cc3c31d0465c514b9ef24ed491e5ba6
+timeCreated: 1493991358
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Animation/Autoclave_Open.anim
+  uploadId: 442406

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a8e1cac2b95bdf245a640f58b1f20e50
+timeCreated: 1493129165
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Prefabs/Pf_Light_Stand.prefab
+  uploadId: 442406

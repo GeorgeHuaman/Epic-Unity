@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 847c73e4df8e1144fa535fa9bffe7397
+timeCreated: 1494952108
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Prefabs/Pf_Pipe_Joint.prefab
+  uploadId: 442406

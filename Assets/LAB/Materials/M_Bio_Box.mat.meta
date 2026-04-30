@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ecf5751f6fdfca04cb3b429351b1d43b
+timeCreated: 1488925795
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Materials/M_Bio_Box.mat
+  uploadId: 442406

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 82244a03f886096419a49dd4d52581fc
+timeCreated: 1490623653
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Animation/Binder.controller
+  uploadId: 442406

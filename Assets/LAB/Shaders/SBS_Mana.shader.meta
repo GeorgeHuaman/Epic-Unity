@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 0084c698aed7cd3408b2a423a6d62d27
+timeCreated: 1493040505
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Shaders/SBS_Mana.shader
+  uploadId: 442406

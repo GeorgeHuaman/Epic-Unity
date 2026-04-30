@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: e34366e08b4c6034bbeaa37217e212ae
+timeCreated: 1496147123
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Prefabs/Pf_Wall_02.prefab
+  uploadId: 442406

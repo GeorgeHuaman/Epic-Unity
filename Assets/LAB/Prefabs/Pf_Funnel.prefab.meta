@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f48bc591ec728f94aac3c70352cdb386
+timeCreated: 1493379638
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Prefabs/Pf_Funnel.prefab
+  uploadId: 442406

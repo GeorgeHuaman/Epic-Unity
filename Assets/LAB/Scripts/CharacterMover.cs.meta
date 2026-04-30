@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 16a3801e9ae64d14582c5127c9720a19
+timeCreated: 1494327535
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Scripts/CharacterMover.cs
+  uploadId: 442406

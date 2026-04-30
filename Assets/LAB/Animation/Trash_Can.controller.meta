@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e898703a8670dc149950df9a84804b83
+timeCreated: 1493126965
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Animation/Trash_Can.controller
+  uploadId: 442406

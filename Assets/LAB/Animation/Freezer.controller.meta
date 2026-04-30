@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 451d7e83c7cef764f8e80bc3ee0551fd
+timeCreated: 1489678117
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Animation/Freezer.controller
+  uploadId: 442406

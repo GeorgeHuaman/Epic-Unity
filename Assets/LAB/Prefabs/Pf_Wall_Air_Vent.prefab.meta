@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 39e624273aae9444f8334095658ce379
+timeCreated: 1494952106
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Prefabs/Pf_Wall_Air_Vent.prefab
+  uploadId: 442406

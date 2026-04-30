@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 92dd16b551b79a74392ced04a42fa3fc
+timeCreated: 1494859283
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: -1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/VFX/Material/M_Smoke.mat
+  uploadId: 442406

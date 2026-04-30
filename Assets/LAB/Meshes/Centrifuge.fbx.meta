@@ -1,0 +1,129 @@
+fileFormatVersion: 2
+guid: 042a0a6020187d343a0b56a8216cdaec
+timeCreated: 1492859150
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Btn_01
+    100002: Btn_02
+    100004: Btn_Down
+    100006: Btn_Left
+    100008: Btn_Right
+    100010: Btn_Up
+    100012: //RootNode
+    100014: Cup
+    100016: Rotor
+    400000: Btn_01
+    400002: Btn_02
+    400004: Btn_Down
+    400006: Btn_Left
+    400008: Btn_Right
+    400010: Btn_Up
+    400012: //RootNode
+    400014: Cup
+    400016: Rotor
+    2300000: Btn_01
+    2300002: Btn_02
+    2300004: Btn_Down
+    2300006: Btn_Left
+    2300008: Btn_Right
+    2300010: Btn_Up
+    2300012: //RootNode
+    2300014: Cup
+    2300016: Rotor
+    3300000: Btn_01
+    3300002: Btn_02
+    3300004: Btn_Down
+    3300006: Btn_Left
+    3300008: Btn_Right
+    3300010: Btn_Up
+    3300012: //RootNode
+    3300014: Cup
+    3300016: Rotor
+    4300000: Centrifuge
+    4300002: Cup
+    4300004: Rotor
+    4300006: Btn_Up
+    4300008: Btn_Down
+    4300010: Btn_Left
+    4300012: Btn_Right
+    4300014: Btn_01
+    4300016: Btn_02
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 1
+    secondaryUVAreaDistortion: 26
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 15
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Meshes/Centrifuge.fbx
+  uploadId: 442406

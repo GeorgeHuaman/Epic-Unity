@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6d98006a8b10b104b870abab9e8c8729
+timeCreated: 1489065142
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Materials/M_Freezer.mat
+  uploadId: 442406

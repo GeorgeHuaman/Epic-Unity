@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: bc8b5ff7e8c6e3342ab1fa481d289b22
+timeCreated: 1490623326
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Materials/M_Binder_Black.mat
+  uploadId: 442406

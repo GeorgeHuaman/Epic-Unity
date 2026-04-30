@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7b50e5f740d20e14ab79542f146ea04c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Prefabs/Ceiling.prefab
+  uploadId: 442406

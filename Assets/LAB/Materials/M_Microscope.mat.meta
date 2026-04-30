@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 8a34cde3c09edeb42825c9307d9a7ab6
+timeCreated: 1489137633
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Materials/M_Microscope.mat
+  uploadId: 442406

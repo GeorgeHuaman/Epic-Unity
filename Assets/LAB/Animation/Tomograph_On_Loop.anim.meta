@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: fdc386909e209fc4797c0b2473dc586c
+timeCreated: 1493996392
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Animation/Tomograph_On_Loop.anim
+  uploadId: 442406

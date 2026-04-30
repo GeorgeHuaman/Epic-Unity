@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 01492c3be2bc4b1449f7e3b94d4e7969
+timeCreated: 1490183868
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Animation/Centrifuge.controller
+  uploadId: 442406

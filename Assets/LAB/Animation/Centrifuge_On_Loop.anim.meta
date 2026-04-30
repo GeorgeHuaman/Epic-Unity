@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1cb743bc8d0c58b4388b406c3aeca1dd
+timeCreated: 1491213928
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Animation/Centrifuge_On_Loop.anim
+  uploadId: 442406

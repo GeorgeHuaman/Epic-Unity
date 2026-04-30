@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: adc6a5d8c9d63db4888537ac2e38a8fa
+timeCreated: 1493904232
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: -1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/VFX/Material/M_WaterSplash_02.mat
+  uploadId: 442406

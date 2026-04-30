@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e0c82d938d1e9b14fa80006562618ea9
+timeCreated: 1493474044
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Prefabs/Pf_Bio_Scanner.prefab
+  uploadId: 442406

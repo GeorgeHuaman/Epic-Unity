@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3e4a1ec73d829d04d9510030b4e58007
+timeCreated: 1488925214
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Materials/M_Wireless_Microscope.mat
+  uploadId: 442406

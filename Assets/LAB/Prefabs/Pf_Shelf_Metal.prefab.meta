@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3b128fa7a0ef901489c8118eaf8cb06c
+timeCreated: 1488934813
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Prefabs/Pf_Shelf_Metal.prefab
+  uploadId: 442406

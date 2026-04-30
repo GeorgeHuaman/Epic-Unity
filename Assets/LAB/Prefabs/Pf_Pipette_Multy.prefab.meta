@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d55a0e2e9cab42a4389eecf9dd8a791c
+timeCreated: 1493046609
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Prefabs/Pf_Pipette_Multy.prefab
+  uploadId: 442406

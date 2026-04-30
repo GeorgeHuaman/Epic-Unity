@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: cff3dc6701232714ea84b44d9dfc4e28
+timeCreated: 1493132398
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Materials/M_Light_Beam.mat
+  uploadId: 442406

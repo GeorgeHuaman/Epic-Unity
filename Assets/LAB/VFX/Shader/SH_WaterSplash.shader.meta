@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 2e066891e32748143b38021f233c9578
+timeCreated: 1493904667
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/VFX/Shader/SH_WaterSplash.shader
+  uploadId: 442406

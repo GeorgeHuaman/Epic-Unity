@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: dd7f6068ca1705b4c81c9951852b3842
+timeCreated: 1490184209
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Animation/Centrifuge_Stop.anim
+  uploadId: 442406

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 42dd471590fe1894ab1c8d40431cff98
+timeCreated: 1493031642
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Prefabs/Pf_Scale.prefab
+  uploadId: 442406

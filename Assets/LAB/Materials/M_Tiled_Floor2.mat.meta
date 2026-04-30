@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: d57480abc9a9ba64691d931afd7a2459
+timeCreated: 1497030036
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Materials/M_Tiled_Floor2.mat
+  uploadId: 442406

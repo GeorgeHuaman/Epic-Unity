@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 5ee4b74fa28a3e74e89423dd49705fc5
+timeCreated: 1436170077
+licenseType: Store
+ComputeShaderImporter:
+  currentBuildTarget: 5
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Standard Assets/Effects/TonemappingColorGrading/Resources/HistogramCompute.compute
+  uploadId: 442406

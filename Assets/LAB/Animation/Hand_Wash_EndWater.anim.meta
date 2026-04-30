@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 0c1a20ea600883949adcc7e5cbb7fb14
+timeCreated: 1494672645
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Animation/Hand_Wash_EndWater.anim
+  uploadId: 442406

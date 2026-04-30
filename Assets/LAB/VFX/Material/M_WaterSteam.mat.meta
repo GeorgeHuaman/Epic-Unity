@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 486de8a3ff8038f4f9f66aff493c692e
+timeCreated: 1493904232
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: -1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/VFX/Material/M_WaterSteam.mat
+  uploadId: 442406

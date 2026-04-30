@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: c4c40993b71d2e2468352b4a9820f1b4
+timeCreated: 1493371405
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Shaders/Font.shader
+  uploadId: 442406

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b83f9e04f13af8643aeadc29064d11a0
+timeCreated: 1489243665
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Prefabs/Pf_Shelf_Stand_Small.prefab
+  uploadId: 442406

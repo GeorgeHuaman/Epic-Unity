@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 42c47455aad29d843987754669b6abc8
+timeCreated: 1493904232
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: -1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/VFX/Material/M_WaterNoise.mat
+  uploadId: 442406

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e6daf13730b978243bcfe10af794f60f
+timeCreated: 1493138434
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Prefabs/Pf_Flask_Holder.prefab
+  uploadId: 442406

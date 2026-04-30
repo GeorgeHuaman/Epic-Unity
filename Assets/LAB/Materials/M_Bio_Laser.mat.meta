@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b840d0fc1fc07b349b65844fb1334b0e
+timeCreated: 1490198396
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Materials/M_Bio_Laser.mat
+  uploadId: 442406

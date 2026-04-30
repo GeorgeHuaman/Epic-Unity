@@ -1,0 +1,129 @@
+fileFormatVersion: 2
+guid: 2369fb0978369a445b5a17c99c757235
+timeCreated: 1493034441
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: JI_Gas_Cylinder
+    100004: JI_Gas_Cylinder_Cover
+    100006: JI_LC_Glass
+    100008: JI_Liquid
+    100010: JI_Liquid_Container
+    100012: JI_Pump
+    100014: JI_Trigger
+    100016: JI_Trigger_Cilinder
+    400000: //RootNode
+    400002: JI_Gas_Cylinder
+    400004: JI_Gas_Cylinder_Cover
+    400006: JI_LC_Glass
+    400008: JI_Liquid
+    400010: JI_Liquid_Container
+    400012: JI_Pump
+    400014: JI_Trigger
+    400016: JI_Trigger_Cilinder
+    2300000: //RootNode
+    2300002: JI_Gas_Cylinder
+    2300004: JI_Gas_Cylinder_Cover
+    2300006: JI_LC_Glass
+    2300008: JI_Liquid
+    2300010: JI_Liquid_Container
+    2300012: JI_Pump
+    2300014: JI_Trigger
+    2300016: JI_Trigger_Cilinder
+    3300000: //RootNode
+    3300002: JI_Gas_Cylinder
+    3300004: JI_Gas_Cylinder_Cover
+    3300006: JI_LC_Glass
+    3300008: JI_Liquid
+    3300010: JI_Liquid_Container
+    3300012: JI_Pump
+    3300014: JI_Trigger
+    3300016: JI_Trigger_Cilinder
+    4300000: Jet_Injector
+    4300002: JI_Trigger
+    4300004: JI_Trigger_Cilinder
+    4300006: JI_Gas_Cylinder
+    4300008: JI_Gas_Cylinder_Cover
+    4300010: JI_Pump
+    4300012: JI_Liquid_Container
+    4300014: JI_LC_Glass
+    4300016: JI_Liquid
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Meshes/Jet_Injector.fbx
+  uploadId: 442406

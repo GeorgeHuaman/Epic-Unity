@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5a3bddeca1fe38a4c9f38a380aa84b04
+timeCreated: 1493049561
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Prefabs/Pf_Safety_Box.prefab
+  uploadId: 442406

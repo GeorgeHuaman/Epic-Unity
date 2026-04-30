@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 5b995f06a3ed14d449823cf7ab1c5a58
+timeCreated: 1454681943
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Standard Assets/Effects/Common/Editor/EditorGUIHelper.cs
+  uploadId: 442406

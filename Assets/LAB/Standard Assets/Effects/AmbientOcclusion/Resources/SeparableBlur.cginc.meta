@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 483977aca491d9148948f49af8947971
+timeCreated: 1473309240
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Standard Assets/Effects/AmbientOcclusion/Resources/SeparableBlur.cginc
+  uploadId: 442406

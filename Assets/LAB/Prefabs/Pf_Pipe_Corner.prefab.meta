@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 36a5c2d9cf9c90b439213a55c8746ee7
+timeCreated: 1494952111
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Prefabs/Pf_Pipe_Corner.prefab
+  uploadId: 442406

@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 9c615a85f13c6764fa4496d1d7f75f52
+timeCreated: 1453220014
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Standard Assets/Effects/Common/Editor/MinDrawer.cs
+  uploadId: 442406

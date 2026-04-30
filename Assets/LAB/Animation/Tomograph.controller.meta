@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e19bca004652a6343aa7c757ad8f2614
+timeCreated: 1492782217
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Animation/Tomograph.controller
+  uploadId: 442406

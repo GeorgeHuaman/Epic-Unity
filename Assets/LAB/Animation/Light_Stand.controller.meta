@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ff93016afe5f1e24f9ac749ebd22c9e8
+timeCreated: 1493133365
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93810
+  packageName: Modern Sci-Fi Modular Laboratory PBR
+  packageVersion: 1.1
+  assetPath: Assets/LAB/Animation/Light_Stand.controller
+  uploadId: 442406
