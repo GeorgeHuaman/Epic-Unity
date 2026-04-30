@@ -60,13 +60,13 @@ public class ManagerUI : MonoBehaviour
 
     IEnumerator AnimateDots()
     {
-        string baseText = "";
-        int dots = 0;
+        int dots = 1;
 
         while (true)
         {
-            dots = (dots + 1) % 4; // 0,1,2,3
-            textAI.text = baseText + new string('.', dots);
+            textAI.text = new string('.', dots);
+            dots = dots % 3 + 1;
+
             yield return new WaitForSeconds(speed);
         }
     }

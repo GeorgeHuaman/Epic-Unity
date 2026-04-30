@@ -64,7 +64,24 @@
     <Analyzer Include="C:\Users\salas\Documents\Repositorios\Epic-Unity\Library\PackageCache\com.unity.dt.app-ui@8ac7e730dd5d\Runtime\MVVM\SourceGenerators\netstandard2.0\MVVMSourceGenerators.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\LAB\Standard Assets\Effects\MotionBlur\Editor\MotionBlurGraphDrawer.cs" />
+    <Compile Include="Assets\LAB\Standard Assets\Effects\DepthOfField\Editor\DepthOfFieldEditor.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
+    <Compile Include="Assets\LAB\Standard Assets\Effects\AmbientOcclusion\Editor\AmbientOcclusionEditor.cs" />
+    <Compile Include="Assets\LAB\Standard Assets\Effects\Common\Editor\FieldFinder.cs" />
+    <Compile Include="Assets\LAB\Standard Assets\Effects\AntiAliasing\Editor\IAntiAliasingEditor.cs" />
+    <Compile Include="Assets\LAB\Standard Assets\Effects\TemporalAntiAliasing\Editor\TemporalAntiAliasingEditor.cs" />
+    <Compile Include="Assets\LAB\Standard Assets\Effects\Bloom\Editor\BloomGraphDrawer.cs" />
+    <Compile Include="Assets\LAB\Standard Assets\Effects\LensAberrations\Editor\LensAberrationsEditor.cs" />
+    <Compile Include="Assets\LAB\Standard Assets\Effects\ScreenSpaceReflection\Editor\ScreenSpaceReflectionEditor.cs" />
+    <Compile Include="Assets\LAB\Standard Assets\Effects\AntiAliasing\SMAA\Editor\SMAAEditor.cs" />
+    <Compile Include="Assets\LAB\Standard Assets\Effects\TonemappingColorGrading\Editor\TonemappingColorGradingEditor.cs" />
+    <Compile Include="Assets\LAB\Standard Assets\Effects\MotionBlur\Editor\MotionBlurEditor.cs" />
+    <Compile Include="Assets\LAB\Standard Assets\Effects\Bloom\Editor\BloomEditor.cs" />
+    <Compile Include="Assets\LAB\Standard Assets\Effects\Common\Editor\MinDrawer.cs" />
+    <Compile Include="Assets\LAB\Standard Assets\Effects\AntiAliasing\FXAA\Editor\FXAAEditor.cs" />
+    <Compile Include="Assets\LAB\Standard Assets\Effects\AntiAliasing\Editor\AntiAliasingEditor.cs" />
+    <Compile Include="Assets\LAB\Standard Assets\Effects\Common\Editor\EditorGUIHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
