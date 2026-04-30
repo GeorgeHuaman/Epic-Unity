@@ -64,9 +64,12 @@
     <Analyzer Include="E:\Proyectos\Epic-Unity\Library\PackageCache\com.unity.dt.app-ui@8ac7e730dd5d\Runtime\MVVM\SourceGenerators\netstandard2.0\MVVMSourceGenerators.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Logic\WorldBuilder.cs" />
+    <Compile Include="Assets\Scripts\AI\OpenAITester.cs" />
     <Compile Include="Assets\Scripts\Logic\WorldDataModels.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\Scripts\AI\OpenAiExample.cs" />
+    <Compile Include="Assets\Scripts\Logic\SkyboxManager.cs" />
     <Compile Include="Assets\Scripts\AI\OpenAIConnector.cs" />
   </ItemGroup>
   <ItemGroup>
