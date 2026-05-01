@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23597458329222664}
   - component: {fileID: 64859634845334748}
   m_Layer: 0
-  m_Name: Pf_Wall_Corner_03
+  m_Name: Struct_Wall_Corner_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

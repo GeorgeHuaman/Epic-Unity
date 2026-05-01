@@ -15,22 +15,40 @@ public class OpenAIConnector : MonoBehaviour
 
     public IEnumerator EnviarPromptALaIA(string promptDocente, System.Action<WorldConfig> callback)
     {
-        string systemPrompt = @"Eres un arquitecto de laboratorios semi-modulares en Unity. 
-        En lugar de construir pared por pared, usarás habitaciones completas (PRE-BUILT ROOMS).
-        
-        REGLAS DE CONSTRUCCIÓN (GRILLA DE 10 METROS):
-        1. GRILLA: Todas las posiciones (pos_x, pos_z) DEBEN ser múltiplos de 10 (0, 10, 20, -10, etc.) para que las habitaciones encajen perfectamente.
-        2. CONEXIÓN: Coloca las habitaciones una al lado de la otra. 
-           Ejemplo: Si pones una 'Room_Entrance' en (0,0), la siguiente 'Room_Corridor' debería estar en (10,0) o (0,10).
-        3. ROTACIÓN: Usa 'rot_y' (0, 90, 180, 270) para orientar las puertas de las habitaciones y que se conecten entre sí.
-        4. COHERENCIA: Empieza siempre con una 'Room_Entrance'. Usa 'Room_Corridor' para conectar salas grandes como 'Room_Laboratory' o 'Room_Tomograph'.
+        string systemPrompt = @"Eres un arquitecto de precisión en Unity. Tu misión es crear layouts modulares donde los pasillos se conecten de forma lógica a los salones, evitando conexiones débiles en las esquinas.
 
-        IDs DE HABITACIONES DISPONIBLES:
-        - Básicas: 'Room_Entrance', 'Room_Corridor', 'Room_Hall'.
-        - Especializadas: 'Room_Laboratory', 'Room_Laboratory_2', 'Room_Freezer', 'Room_Tomograph', 'Room_Tomograph_Control'.
+    DATOS TÉCNICOS:
+    - Piezas (Pivote en esquina +X, +Z): 'Struct_Floor_1x1', 'Struct_Floor_2x2', 'Struct_Floor_3x3', 'Struct_Floor_4x4'.
+    - REGLA DE POSICIÓN: Para cubrir [Xmin, Zmin] a [Xmax, Zmax], la posición es (Xmax, Zmax).
 
-        Responde SOLO con JSON siguiendo este formato:
-        { 'sky_id': '...', 'elementos': [ { 'prefab_id': '...', 'pos_x': 0, 'pos_y': 0, 'pos_z': 0, 'rot_y': 0, 'data': {...} } ] }";
+    REGLAS DE CONEXIÓN (IMPORTANTE):
+    1. RELLENAR EL COSTADO: No basta con que el pasillo toque un vértice. El pasillo debe compartir un segmento de línea con el salón.
+    2. CENTRADO ARQUITECTÓNICO: 
+       - Los pasillos deben estar CENTRADOS en el lado del salón al que se conectan, o estar alineados de forma que cubran una sección significativa del muro.
+       - Ejemplo: Si un salón de 8x8 va de X=0 a 8, y el pasillo mide 4m de ancho, sitúa el pasillo entre X=2 y X=6 para que esté centrado.
+    3. PRECISIÓN DE 0.01 CM: Para cumplir el deseo del usuario de 'estar a 0.01cm', usa un margen de 0.0001 unidades en la coordenada de contacto.
+       Ejemplo: Si el salón termina en X=8, el pasillo empieza en X=8.0001.
+    4. TILING: Divide áreas rectangulares en las piezas cuadradas más grandes posibles.
+
+    PROCESO DE DISEÑO:
+    - Paso 1: Definir salones.
+    - Paso 2: Trazar pasillos centrados en las caras de los salones.
+    - Paso 3: Calcular coordenadas exactas (pos_x, pos_z) para cada pieza del tiling.
+
+    Responde en JSON:
+    {
+      ""sky_id"": ""..."",
+      ""elementos"": [
+        { 
+          ""reasoning"": ""..."",
+          ""prefab_id"": ""..."", 
+          ""pos_x"": ..., 
+          ""pos_z"": ..., 
+          ""pos_y"": 0, 
+          ""rot_y"": 0 
+        }
+      ]
+    }";
 
         var requestBody = new
         {

@@ -11,9 +11,10 @@ public class WorldConfig
 [Serializable]
 public class ElementoEscena
 {
+    public string reasoning; // Pensamiento de la IA para cada pieza
     public string prefab_id; 
     public float pos_x;
-    public float pos_y; // Añadido
+    public float pos_y; 
     public float pos_z;
     public float rot_y; 
     public Dictionary<string, string> data; 

@@ -218,14 +218,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WorldBuilder
   skyboxManager: {fileID: 268783337}
   prefabLibrary:
-  - {fileID: 792299533011248658, guid: 38a1da40ddc43784981e0d0e3073fda0, type: 3}
-  - {fileID: 3196632587332017110, guid: 9b1b40e8bb85dad4a8d2a580bdbc8b3a, type: 3}
-  - {fileID: 761922899826775559, guid: 3b5d73ab5c9f95642ab5c1e887c8511d, type: 3}
-  - {fileID: 4359978777457119645, guid: dd51d34afb2926c4e9ff0f005173bc72, type: 3}
-  - {fileID: 7889482079043561516, guid: 6a2db015b343135438470c5379c1475f, type: 3}
-  - {fileID: 5484074166967634650, guid: 307dbc263ff03244499edd2b047be3ed, type: 3}
-  - {fileID: 3214157824528101091, guid: 17dbb2327e30d034d9f56326e70b399e, type: 3}
-  - {fileID: 9035201243974685835, guid: 45b2ddb3f2a124c42905f64a24f852ec, type: 3}
+  - {fileID: 1275995413080792, guid: 0466800068ff12d45b3ecc24536d85c6, type: 3}
+  - {fileID: 2436355958352626451, guid: d0e30f3d1687c98498bd106cba2e2736, type: 3}
+  - {fileID: 5193836908250120246, guid: 745d3a25d8ff78b4eb24be4a7b303f4e, type: 3}
+  - {fileID: 5064382635072283308, guid: 4a6d4b4c42ced544f91420e847e7eeee, type: 3}
+  - {fileID: 1204653291853272, guid: 0a1627c4e22207f4b825c6b4c3395158, type: 3}
+  - {fileID: 1797166151993522, guid: 829ace3d30349ef4aa6d1bc621549cda, type: 3}
+  - {fileID: 1803824176698432, guid: 3952c4cd7611cc94d8c2c3e40dfdd53a, type: 3}
+  - {fileID: 1462165577381890, guid: 53e0bfd08c8bfe2488588e48996dd06d, type: 3}
+  - {fileID: 1621662289360624, guid: 992dca68325f1f64e9acc409e7db63a3, type: 3}
+  - {fileID: 1732826039816436, guid: 4702c9629469f8c4689da80a3ccb99dd, type: 3}
+  - {fileID: 1470933146390886, guid: dc9212ed578e82640a455eacf898da47, type: 3}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
