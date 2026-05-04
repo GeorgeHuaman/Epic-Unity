@@ -8,29 +8,46 @@ using Newtonsoft.Json.Linq;
 
 public class OpenAIConnector : MonoBehaviour
 {
-    // TODO: Move the API key to a secure location (e.g., environment variable or local config file)
     public string apiKey = string.Empty;
     public string lastJsonReceived = string.Empty;
     private string apiUrl = "https://api.openai.com/v1/chat/completions";
 
     public IEnumerator EnviarPromptALaIA(string promptDocente, System.Action<WorldConfig> callback)
     {
-        string systemPrompt = @"Eres un arquitecto de laboratorios semi-modulares en Unity. 
-        En lugar de construir pared por pared, usarás habitaciones completas (PRE-BUILT ROOMS).
-        
-        REGLAS DE CONSTRUCCIÓN (GRILLA DE 10 METROS):
-        1. GRILLA: Todas las posiciones (pos_x, pos_z) DEBEN ser múltiplos de 10 (0, 10, 20, -10, etc.) para que las habitaciones encajen perfectamente.
-        2. CONEXIÓN: Coloca las habitaciones una al lado de la otra. 
-           Ejemplo: Si pones una 'Room_Entrance' en (0,0), la siguiente 'Room_Corridor' debería estar en (10,0) o (0,10).
-        3. ROTACIÓN: Usa 'rot_y' (0, 90, 180, 270) para orientar las puertas de las habitaciones y que se conecten entre sí.
-        4. COHERENCIA: Empieza siempre con una 'Room_Entrance'. Usa 'Room_Corridor' para conectar salas grandes como 'Room_Laboratory' o 'Room_Tomograph'.
+        string systemPrompt = @"Eres un arquitecto de niveles experto en Unity. Tu objetivo es diseñar escenarios usando Plantillas (Templates) o cargando Niveles Base pre-construidos.
 
-        IDs DE HABITACIONES DISPONIBLES:
-        - Básicas: 'Room_Entrance', 'Room_Corridor', 'Room_Hall'.
-        - Especializadas: 'Room_Laboratory', 'Room_Laboratory_2', 'Room_Freezer', 'Room_Tomograph', 'Room_Tomograph_Control'.
+        PRIORIDAD DE CARGA:
+        1. NIVELES BASE: Si el usuario pide un nivel estándar (como un laboratorio base), usa el campo 'template' con el nombre del nivel base. 
+           - 'PFB_Lab': Laboratorio completo pre-construido.
+        2. PLANTILLAS PROCEDURALES: Si el usuario pide una estructura personalizada, usa las plantillas:
+           - 'linear': Crea un pasillo recto con habitaciones a los lados.
+             Parámetros en 'parameters':
+             - 'length': Segmentos de pasillo (10m c/u).
+             - 'room_prefab': ID de la habitación ('Room_Tomograph').
+             - 'side': 'left', 'right' o 'both'.
+
+        IDs DE RECURSOS:
+        - Niveles Base: 'PFB_Lab'.
+        - Habitaciones: 'Room_Tomograph', 'Room_Corridor'.
+        - Cielos: 'sky_day', 'sky_mars', 'sky_night', 'sky_sunset'.
+        - Personajes: 'npc_guia'.
+
+        EJEMPLO DE RESPUESTA PARA NIVEL BASE:
+        Si el usuario pide 'Carga el laboratorio base', responde:
+        {
+          'sky_id': 'sky_day',
+          'template': 'PFB_Lab',
+          'parameters': {},
+          'elementos': []
+        }
 
         Responde SOLO con JSON siguiendo este formato:
-        { 'sky_id': '...', 'elementos': [ { 'prefab_id': '...', 'pos_x': 0, 'pos_y': 0, 'pos_z': 0, 'rot_y': 0, 'data': {...} } ] }";
+        { 
+          'sky_id': '...', 
+          'template': '...', 
+          'parameters': { 'key': 'value' },
+          'elementos': [ { 'prefab_id': '...', 'pos_x': 0, 'pos_y': 0, 'pos_z': 0, 'rot_y': 0, 'data': {...} } ] 
+        }";
 
         var requestBody = new
         {
@@ -58,13 +75,11 @@ public class OpenAIConnector : MonoBehaviour
             {
                 try
                 {
-                    // Extraemos el JSON de la respuesta de OpenAI
                     JObject response = JObject.Parse(request.downloadHandler.text);
                     string content = response["choices"][0]["message"]["content"].ToString();
                     lastJsonReceived = content;
                     WorldConfig config = JsonConvert.DeserializeObject<WorldConfig>(content);
                     
-                    // Si todo salió bien, detenemos la animación de carga (podemos poner un mensaje de éxito o vacío)
                     ManagerUI.Instance.StopTyping("¡Hecho!"); 
                     callback(config);
                 }

@@ -5,6 +5,8 @@ using System.Collections.Generic;
 public class WorldConfig
 {
     public string sky_id; 
+    public string template;
+    public Dictionary<string, string> parameters; 
     public List<ElementoEscena> elementos;
 }
 
@@ -13,7 +15,7 @@ public class ElementoEscena
 {
     public string prefab_id; 
     public float pos_x;
-    public float pos_y; // Añadido
+    public float pos_y;
     public float pos_z;
     public float rot_y; 
     public Dictionary<string, string> data; 

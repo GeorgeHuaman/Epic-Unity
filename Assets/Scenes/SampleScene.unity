@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 3e5399bd195de7649b874f58c1b9f8a3, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -132,6 +132,8 @@ GameObject:
   - component: {fileID: 268783335}
   - component: {fileID: 268783338}
   - component: {fileID: 268783337}
+  - component: {fileID: 268783339}
+  - component: {fileID: 268783340}
   m_Layer: 0
   m_Name: IA
   m_TagString: Untagged
@@ -218,14 +220,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WorldBuilder
   skyboxManager: {fileID: 268783337}
   prefabLibrary:
-  - {fileID: 792299533011248658, guid: 38a1da40ddc43784981e0d0e3073fda0, type: 3}
-  - {fileID: 3196632587332017110, guid: 9b1b40e8bb85dad4a8d2a580bdbc8b3a, type: 3}
-  - {fileID: 761922899826775559, guid: 3b5d73ab5c9f95642ab5c1e887c8511d, type: 3}
-  - {fileID: 4359978777457119645, guid: dd51d34afb2926c4e9ff0f005173bc72, type: 3}
-  - {fileID: 7889482079043561516, guid: 6a2db015b343135438470c5379c1475f, type: 3}
-  - {fileID: 5484074166967634650, guid: 307dbc263ff03244499edd2b047be3ed, type: 3}
-  - {fileID: 3214157824528101091, guid: 17dbb2327e30d034d9f56326e70b399e, type: 3}
-  - {fileID: 9035201243974685835, guid: 45b2ddb3f2a124c42905f64a24f852ec, type: 3}
+  - {fileID: 2656167702231621940, guid: 17dbb2327e30d034d9f56326e70b399e, type: 3}
+  - {fileID: 3780560425319430102, guid: 271bd522905388547ae13fc4d62a1b35, type: 3}
+  - {fileID: 5139273201840187770, guid: 310db1e093a8de24590b2969728a5a55, type: 3}
+--- !u!114 &268783339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268783332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83fadac6d75993478da620986c6f667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProceduralArchitect
+--- !u!114 &268783340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268783332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83fadac6d75993478da620986c6f667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProceduralArchitect
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
