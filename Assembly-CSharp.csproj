@@ -65,17 +65,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\LAB\Standard Assets\Effects\ScreenSpaceReflection\ScreenSpaceReflection.cs" />
+    <Compile Include="Assets\Scripts\Mechanic\Quiz\Mechanic_QuizDoor.cs" />
     <Compile Include="Assets\Scripts\Logic\WorldBuilder.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\Common\ImageEffectHelper.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\MotionBlur\Helpers\FrameBlendingFilter.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\Common\MinAttribute.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\AntiAliasing\AntiAliasing.cs" />
-    <Compile Include="Assets\Scripts\Quiz\QuizUIManager.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\AmbientOcclusion\Helpers\Settings.cs" />
     <Compile Include="Assets\Scripts\UI\ManagerUI.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\AntiAliasing\FXAA\FXAA.cs" />
     <Compile Include="Assets\Scripts\AI\OpenAITester.cs" />
-    <Compile Include="Assets\Scripts\Quiz\NPCQuiz.cs" />
     <Compile Include="Assets\Scripts\Logic\WorldDataModels.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\TonemappingColorGrading\TonemappingColorGrading.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\AmbientOcclusion\AmbientOcclusion.cs" />
@@ -84,9 +83,11 @@
     <Compile Include="Assets\Scripts\Logic\ProceduralArchitect.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\Common\RenderTextureUtility.cs" />
     <Compile Include="Assets\LAB\Scripts\CharacterMover.cs" />
+    <Compile Include="Assets\Scripts\Mechanic\Quiz\NPCQuiz.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\TemporalAntiAliasing\TemporalAntiAliasing.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\Bloom\Bloom.cs" />
+    <Compile Include="Assets\Scripts\Mechanic\Quiz\QuizUIManager.cs" />
     <Compile Include="Assets\Scripts\AI\OpenAiExample.cs" />
     <Compile Include="Assets\Scripts\Logic\WorldPersistenceManager.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\AmbientOcclusion\Helpers\PropertyObserver.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="Assets\LAB\Standard Assets\Effects\MotionBlur\Helpers\Settings.cs" />
     <Compile Include="Assets\Scripts\AI\OpenAIConnector.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\AntiAliasing\IAntiAliasing.cs" />
+    <Compile Include="Assets\Scripts\NPC\Mechanic_NPC.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\DepthOfField\DepthOfField.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\LensAberrations\LensAberrations.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\AntiAliasing\SMAA\SMAA.cs" />

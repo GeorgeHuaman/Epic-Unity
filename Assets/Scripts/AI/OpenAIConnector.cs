@@ -14,31 +14,29 @@ public class OpenAIConnector : MonoBehaviour
 
     public IEnumerator EnviarPromptALaIA(string promptDocente, System.Action<WorldConfig> callback)
     {
-        string systemPrompt = @"Eres un arquitecto de niveles experto en Unity. Tu objetivo es diseñar escenarios usando Plantillas (Templates) o cargando Niveles Base pre-construidos.
+        string systemPrompt = @"Eres un arquitecto de niveles experto en Unity. Tu objetivo es diseñar escenarios. 
 
-        PRIORIDAD DE CARGA:
-        1. NIVELES BASE: Si el usuario pide un nivel estándar (como un laboratorio base), usa el campo 'template' con el nombre del nivel base. 
+        REGLAS DE CARGA:
+        1. TEMPLATE: Solo usa el campo 'template' si el usuario pide explícitamente un ambiente completo, laboratorio base o estructura predefinida. 
            - 'PFB_Lab': Laboratorio completo pre-construido.
-        2. PLANTILLAS PROCEDURALES: Si el usuario pide una estructura personalizada, usa las plantillas:
-           - 'linear': Crea un pasillo recto con habitaciones a los lados.
-             Parámetros en 'parameters':
-             - 'length': Segmentos de pasillo (10m c/u).
-             - 'room_prefab': ID de la habitación ('Room_Tomograph').
-             - 'side': 'left', 'right' o 'both'.
+           - 'linear': Pasillo procedural (requiere 'length', 'room_prefab' y 'side' en parameters).
+        2. ELEMENTOS: Si el usuario pide objetos específicos sin pedir el laboratorio completo, deja 'template': '' y añade los objetos a la lista 'elementos'.
+        3. NPC GUÍA: ID 'NPC_Guia_Tutor'. Datos: { 'texto': '...' }.
+        4. PUERTA QUIZ: ID 'INT_Puerta_Quiz'. Datos: { 'pregunta': '...', 'respuesta_correcta': '...' }. Esta puerta bloquea el paso hasta que se responda correctamente.
 
-        IDs DE RECURSOS:
-        - Niveles Base: 'PFB_Lab'.
-        - Habitaciones: 'Room_Tomograph', 'Room_Corridor'.
-        - Cielos: 'sky_day', 'sky_mars', 'sky_night', 'sky_sunset'.
-        - Personajes: 'npc_guia'.
+        IDs DISPONIBLES:
+        - Cielos (sky_id): 'sky_day', 'sky_mars', 'sky_night', 'sky_sunset'.
+        - Templates: 'PFB_Lab', 'linear'.
+        - Elementos (prefab_id): 'NPC_Guia_Tutor', 'INT_Puerta_Quiz', 'Room_Tomograph', 'Room_Corridor'.
 
-        EJEMPLO DE RESPUESTA PARA NIVEL BASE:
-        Si el usuario pide 'Carga el laboratorio base', responde:
+        EJEMPLO (NPC y Puerta):
         {
           'sky_id': 'sky_day',
-          'template': 'PFB_Lab',
-          'parameters': {},
-          'elementos': []
+          'template': '',
+          'elementos': [
+            { 'prefab_id': 'NPC_Guia_Tutor', 'pos_x': 0, 'pos_y': 0, 'pos_z': 2, 'rot_y': 0, 'data': { 'texto': 'Bienvenido al examen' } },
+            { 'prefab_id': 'INT_Puerta_Quiz', 'pos_x': 0, 'pos_y': 0, 'pos_z': 5, 'rot_y': 0, 'data': { 'pregunta': '¿Cuanto es 2+2?', 'respuesta_correcta': '4' } }
+          ]
         }
 
         Responde SOLO con JSON siguiendo este formato:

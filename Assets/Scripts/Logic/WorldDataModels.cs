@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 [Serializable]
 public class WorldConfig
 {
-    public string sky_id; 
+    public string sky_id; //ID del skybox que elegirá la IA
     public string template;
     public Dictionary<string, string> parameters; 
     public List<ElementoEscena> elementos;
@@ -13,10 +14,11 @@ public class WorldConfig
 [Serializable]
 public class ElementoEscena
 {
-    public string prefab_id; 
+    public string prefab_id; // "npc_guia", "puerta_quiz", etc.
     public float pos_x;
     public float pos_y;
     public float pos_z;
     public float rot_y; 
-    public Dictionary<string, string> data; 
+    public Dictionary<string, string> data; // Para textos de diálogos o preguntas
+
 }
