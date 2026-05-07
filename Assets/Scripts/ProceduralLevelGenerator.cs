@@ -31,7 +31,7 @@ public class ProceduralLevelGenerator : MonoBehaviour
             return;
         }
 
-        // 1. Crear Sala Inicial en la posición del Generador
+        // 1. Crear Sala Inicial usando la posición y rotación del objeto Generador
         GameObject startRoom = Instantiate(salaInicialPrefab, transform.position, transform.rotation, transform);
         startRoom.name = "SALA_INICIAL";
         generatedPieces.Add(startRoom);
@@ -42,29 +42,36 @@ public class ProceduralLevelGenerator : MonoBehaviour
 
     private void SpawnLevel(GameObject parentPiece, int iteration, PieceType parentType)
     {
-        // Detenerse si alcanzamos el máximo de iteraciones
         if (iteration >= maxIterations)
         {
             PlaceFinalRooms(parentPiece);
             return;
         }
 
+        // Buscamos pivots solo en el nivel inmediatamente inferior para evitar recursiones infinitas o errores de jerarquía
         List<Transform> pivots = FindPivots(parentPiece.transform);
         
         foreach (Transform pivot in pivots)
         {
-            // REGLA DE ORO: Alternar tipos
+            // Alternar tipos: Sala -> Pasillo -> Sala
             PieceType nextType = (parentType == PieceType.Sala) ? PieceType.Pasillo : PieceType.Sala;
             
             GameObject prefabToSpawn = GetRandomPrefab(nextType);
             if (prefabToSpawn == null) continue;
 
-            // Instanciar usando la posición y rotación del Pivot
+            // INSTANCIACIÓN CRÍTICA: Se usa la posición y rotación DEL PIVOT.
+            // Si el pivot está en un lateral y rotado 90°, el nuevo objeto se creará con esa rotación.
             GameObject nextPiece = Instantiate(prefabToSpawn, pivot.position, pivot.rotation, transform);
+            
+            // Opcional: Si el prefab tiene un "Pivot_Entrada", podríamos ajustar la posición para que coincidan.
+            // Por defecto, asumimos que el (0,0,0) del prefab es su punto de entrada.
+            
             nextPiece.name = $"{nextType}_{iteration}_{prefabToSpawn.name}";
             generatedPieces.Add(nextPiece);
             
-            // RECURSIÓN: Ahora el 'parentType' es el tipo que acabamos de crear
+            // Debug para verificar en consola que la rotación se está aplicando
+            // Debug.Log($"Generando {nextPiece.name} en {pivot.position} con rotación {pivot.rotation.eulerAngles}");
+            
             SpawnLevel(nextPiece, iteration + 1, nextType);
         }
     }
@@ -86,23 +93,30 @@ public class ProceduralLevelGenerator : MonoBehaviour
     private List<Transform> FindPivots(Transform root)
     {
         List<Transform> found = new List<Transform>();
-        FindPivotsRecursive(root, found);
-        return found;
-    }
-
-    private void FindPivotsRecursive(Transform t, List<Transform> found)
-    {
-        foreach (Transform child in t)
+        // Buscamos solo en hijos para evitar encontrar pivots de piezas que ya están conectadas a este padre
+        foreach (Transform child in root)
         {
-            // Buscamos "Pivot" o "Pivote"
             if (child.name.Contains("Pivot", System.StringComparison.OrdinalIgnoreCase))
             {
                 found.Add(child);
             }
             else
             {
-                FindPivotsRecursive(child, found);
+                // Si el pivot no es hijo directo (está dentro de un sub-objeto), lo buscamos
+                CheckForPivotsRecursive(child, found);
             }
+        }
+        return found;
+    }
+
+    private void CheckForPivotsRecursive(Transform t, List<Transform> found)
+    {
+        foreach (Transform child in t)
+        {
+            if (child.name.Contains("Pivot", System.StringComparison.OrdinalIgnoreCase))
+                found.Add(child);
+            else
+                CheckForPivotsRecursive(child, found);
         }
     }
 
@@ -118,7 +132,10 @@ public class ProceduralLevelGenerator : MonoBehaviour
     {
         foreach (var p in generatedPieces) if (p != null) DestroyImmediate(p);
         generatedPieces.Clear();
-        while (transform.childCount > 0) DestroyImmediate(transform.GetChild(0).gameObject);
+        // Limpieza extra de hijos directos
+        List<GameObject> toDestroy = new List<GameObject>();
+        foreach (Transform child in transform) toDestroy.Add(child.gameObject);
+        toDestroy.ForEach(c => DestroyImmediate(c));
     }
 
     #if UNITY_EDITOR
@@ -152,13 +169,16 @@ public class ProceduralLevelGenerator : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        // Visualización de la dirección de los pivots
         Gizmos.color = Color.cyan;
         foreach (var piece in generatedPieces)
         {
             if (piece == null) continue;
-            List<Transform> pivots = FindPivots(piece.transform);
-            foreach (var p in pivots)
+            // Dibujamos los pivots de esta pieza
+            List<Transform> pList = FindPivots(piece.transform);
+            foreach (var p in pList)
             {
+                // Dibujamos una línea indicando el frente (Forward) del pivot
                 Gizmos.DrawRay(p.position, p.forward * 1.5f);
                 Gizmos.DrawSphere(p.position, 0.1f);
             }
