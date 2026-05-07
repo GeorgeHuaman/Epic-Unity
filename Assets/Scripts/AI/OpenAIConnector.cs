@@ -78,20 +78,17 @@ public class OpenAIConnector : MonoBehaviour
                     lastJsonReceived = content;
                     WorldConfig config = JsonConvert.DeserializeObject<WorldConfig>(content);
                     
-                    ManagerUI.Instance.StopTyping("¡Hecho!"); 
                     callback(config);
-                }
-                catch (JsonException ex)
-                {
+                    }
+                    catch (JsonException ex)
+                    {
                     Debug.LogError("Error al parsear el JSON de la IA: " + ex.Message);
-                    ManagerUI.Instance.StopTyping("No pude entenderte, explicalo mejor");
-                }
-            }
-            else
-            {
-                Debug.LogError("Error en IA: " + request.error);
-                ManagerUI.Instance.StopTyping("Error de conexión con la IA.");
-            }
-        }
-    }
-}
+                    }
+                    }
+                    else
+                    {
+                    Debug.LogError("Error en IA: " + request.error);
+                    }
+                    }
+                    }
+                    }

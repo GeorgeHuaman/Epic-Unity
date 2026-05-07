@@ -1,7 +1,6 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 using System.Collections.Generic;
 using GLTFast.Schema;
 using System.Collections;
@@ -29,7 +28,7 @@ public class ManagerUI : MonoBehaviour
     private void OnEnable()
     {
         GameObject chat = Instantiate(chatAI, textArea.transform);
-        chat.GetComponent<TextMeshProUGUI>().text = "¿Que construiremos hoy?";
+        chat.GetComponent<TextMeshProUGUI>().text = "ï¿½Que construiremos hoy?";
     }
 
     private void Start()
@@ -47,7 +46,7 @@ public class ManagerUI : MonoBehaviour
         textAI = chatAi.GetComponent<TextMeshProUGUI>();
         StartTyping();
     }
-    private void StartTyping()
+    public void StartTyping()
     {
         if (anim != null) StopCoroutine(anim);
         anim = StartCoroutine(AnimateDots());
@@ -55,7 +54,7 @@ public class ManagerUI : MonoBehaviour
     public void StopTyping(string finalText = "")
     {
         if (anim != null) StopCoroutine(anim);
-        textAI.text = finalText;
+        if (textAI != null) textAI.text = finalText;
     }
 
     IEnumerator AnimateDots()
@@ -64,8 +63,11 @@ public class ManagerUI : MonoBehaviour
 
         while (true)
         {
-            textAI.text = new string('.', dots);
-            dots = dots % 3 + 1;
+            if (textAI != null)
+            {
+                textAI.text = new string('.', dots);
+                dots = dots % 3 + 1;
+            }
 
             yield return new WaitForSeconds(speed);
         }
