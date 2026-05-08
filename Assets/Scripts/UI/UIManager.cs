@@ -88,6 +88,57 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    [Header("UI Historial")]
+    public GameObject panelHistorial;
+    public Transform contenedorHistorial;
+    public GameObject prefabBotonHistorial;
+
+    public void MostrarHistorial()
+    {
+        if (panelHistorial == null) return;
+        
+        panelHistorial.SetActive(true);
+
+        // Limpiar lista anterior
+        foreach (Transform child in contenedorHistorial)
+        {
+            Destroy(child.gameObject);
+        }
+
+        // Obtener códigos
+        string[] codigos = saveManager.ObtenerHistorialDeClases();
+
+        foreach (string cod in codigos)
+        {
+            GameObject btnObj = Instantiate(prefabBotonHistorial, contenedorHistorial);
+            btnObj.GetComponentInChildren<TMP_Text>().text = cod;
+            
+            // Al hacer clic, cargar esa clase
+            string codigoParaBoton = cod; // Copia local para el closure
+            btnObj.GetComponent<Button>().onClick.AddListener(() => {
+                CargarDesdeHistorial(codigoParaBoton);
+            });
+        }
+    }
+
+    private void CargarDesdeHistorial(string codigo)
+    {
+        WorldConfig config = saveManager.CargarClase(codigo);
+        if (config != null)
+        {
+            configuracionActual = config;
+            worldBuilder.ConstruirMundo(config);
+            if (textoCodigoGenerado != null) 
+                textoCodigoGenerado.text = "Cargado desde historial: " + codigo;
+            panelHistorial.SetActive(false);
+        }
+    }
+
+    public void CerrarHistorial()
+    {
+        panelHistorial.SetActive(false);
+    }
+
     public void ToggleModoJuego()
     {
         bool esModoJugador = !jugador.activeSelf;
@@ -98,4 +149,4 @@ public class UIManager : MonoBehaviour
         Cursor.lockState = esModoJugador ? CursorLockMode.Locked : CursorLockMode.None;
         Cursor.visible = !esModoJugador;
     }
-}
+    }
