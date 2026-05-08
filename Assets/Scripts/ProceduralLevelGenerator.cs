@@ -8,6 +8,7 @@ public class ProceduralLevelGenerator : MonoBehaviour
     [Header("Prefabs Principales")]
     public GameObject salaInicialPrefab;
     public GameObject salaFinalPrefab;
+    public List<GameObject> blockingPrefabs;
 
     [Header("Colecciones")]
     public List<GameObject> salaPrefabs;
@@ -46,41 +47,54 @@ public class ProceduralLevelGenerator : MonoBehaviour
     {
         if (iteration >= mainPathLength)
         {
-            PlaceFinalRooms(parentPiece);
+            PlaceFinalRoomsOrWalls(parentPiece);
             return;
         }
 
         List<Transform> pivots = FindPivots(parentPiece.transform);
         if (pivots.Count == 0) return;
 
-        // Estrategia 5: Priorizamos un pivot para que sea el "Camino Principal"
-        // Los demás pivots serán "Ramas Secundarias" con probabilidad de fallo si chocan
         for (int i = 0; i < pivots.Count; i++)
         {
             Transform pivot = pivots[i];
-            bool isMainPath = (i == 0); // El primer pivot encontrado se considera camino principal
+            bool isMainPath = (i == 0); 
             
-            // Si no es camino principal, aplicamos probabilidad de rama
-            if (!isMainPath && Random.value > branchProbability) continue;
+            bool shouldAttemptSpawn = isMainPath || (Random.value <= branchProbability);
+            bool spawned = false;
 
-            PieceType nextType = (parentType == PieceType.Sala) ? PieceType.Pasillo : PieceType.Sala;
-            GameObject prefabToSpawn = GetRandomPrefab(nextType);
-            if (prefabToSpawn == null) continue;
-
-            // COMPROBACIÓN DE SOLAPAMIENTO (Idea 1 combinada con 5)
-            // Antes de instanciar, verificamos si el espacio está libre
-            if (!IsSpaceClear(pivot.position, pivot.rotation))
+            if (shouldAttemptSpawn)
             {
-                // Si el camino principal choca, intentamos cerrarlo con una sala final
-                if (isMainPath) PlaceFinalRooms(parentPiece);
-                continue; 
+                PieceType nextType = (parentType == PieceType.Sala) ? PieceType.Pasillo : PieceType.Sala;
+                GameObject prefabToSpawn = GetRandomPrefab(nextType);
+                
+                if (prefabToSpawn != null && IsSpaceClear(pivot.position, pivot.rotation))
+                {
+                    GameObject nextPiece = Instantiate(prefabToSpawn, pivot.position, pivot.rotation, transform);
+                    nextPiece.name = $"{nextType}_{iteration}_{prefabToSpawn.name}";
+                    generatedPieces.Add(nextPiece);
+                    
+                    Physics.SyncTransforms();
+                    
+                    SpawnNextLevel(nextPiece, iteration + 1, nextType);
+                    spawned = true;
+                }
             }
 
-            GameObject nextPiece = Instantiate(prefabToSpawn, pivot.position, pivot.rotation, transform);
-            nextPiece.name = $"{nextType}_{iteration}_{prefabToSpawn.name}";
-            generatedPieces.Add(nextPiece);
-            
-            SpawnNextLevel(nextPiece, iteration + 1, nextType);
+            if (!spawned)
+            {
+                PlaceBlockingObject(pivot);
+            }
+        }
+    }
+
+    private void PlaceBlockingObject(Transform pivot)
+    {
+        if (blockingPrefabs != null && blockingPrefabs.Count > 0)
+        {
+            GameObject prefab = blockingPrefabs[Random.Range(0, blockingPrefabs.Count)];
+            GameObject block = Instantiate(prefab, pivot.position, pivot.rotation, transform);
+            block.name = "BLOCKING_" + prefab.name;
+            generatedPieces.Add(block);
         }
     }
 
@@ -94,20 +108,20 @@ public class ProceduralLevelGenerator : MonoBehaviour
         return hitColliders.Length == 0;
     }
 
-    private void PlaceFinalRooms(GameObject parentPiece)
+    private void PlaceFinalRoomsOrWalls(GameObject parentPiece)
     {
         List<Transform> pivots = FindPivots(parentPiece.transform);
         foreach (Transform pivot in pivots)
         {
-            // Solo ponemos sala final si el espacio está libre
-            if (IsSpaceClear(pivot.position, pivot.rotation))
+            if (IsSpaceClear(pivot.position, pivot.rotation) && salaFinalPrefab != null)
             {
-                if (salaFinalPrefab != null)
-                {
-                    GameObject final = Instantiate(salaFinalPrefab, pivot.position, pivot.rotation, transform);
-                    final.name = "SALA_FINAL";
-                    generatedPieces.Add(final);
-                }
+                GameObject final = Instantiate(salaFinalPrefab, pivot.position, pivot.rotation, transform);
+                final.name = "SALA_FINAL";
+                generatedPieces.Add(final);
+            }
+            else
+            {
+                PlaceBlockingObject(pivot);
             }
         }
     }
@@ -158,16 +172,25 @@ public class ProceduralLevelGenerator : MonoBehaviour
     public void AutoAssignPrefabs()
     {
         string folderPath = "Assets/Prefabs/Library/Props/Colegio";
-        string[] guids = UnityEditor.AssetDatabase.FindAssets("t:Prefab", new[] { folderPath });
+        string blocksPath = folderPath + "/Bloques";
+        
+        string[] allGuids = UnityEditor.AssetDatabase.FindAssets("t:Prefab", new[] { folderPath });
         
         salaPrefabs = new List<GameObject>();
         pasilloPrefabs = new List<GameObject>();
+        blockingPrefabs = new List<GameObject>();
 
-        foreach (string guid in guids)
+        foreach (string guid in allGuids)
         {
             string path = UnityEditor.AssetDatabase.GUIDToAssetPath(guid);
             GameObject prefab = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>(path);
             
+            if (path.StartsWith(blocksPath))
+            {
+                blockingPrefabs.Add(prefab);
+                continue;
+            }
+
             if (prefab.name.Equals("Sala_Incial", System.StringComparison.OrdinalIgnoreCase))
                 salaInicialPrefab = prefab;
             else if (prefab.name.Equals("Sala_Final", System.StringComparison.OrdinalIgnoreCase))
