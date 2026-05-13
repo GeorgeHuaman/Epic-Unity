@@ -72,6 +72,7 @@
     <Compile Include="Assets\LAB\Standard Assets\Effects\Common\MinAttribute.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\AntiAliasing\AntiAliasing.cs" />
     <Compile Include="Assets\Scripts\ProceduralLevelGenerator.cs" />
+    <Compile Include="Assets\Scripts\Mechanic\TotemInfo\Mechanic_InfoTotem.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\AmbientOcclusion\Helpers\Settings.cs" />
     <Compile Include="Assets\Scripts\UI\ManagerUI.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\AntiAliasing\FXAA\FXAA.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Assets\Scripts\Logic\WorldDataModels.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\TonemappingColorGrading\TonemappingColorGrading.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\AmbientOcclusion\AmbientOcclusion.cs" />
+    <Compile Include="Assets\Scripts\Mechanic\Player\PlayerMovement.cs" />
     <Compile Include="Assets\LAB\Scripts\MouseLook.cs" />
     <Compile Include="Assets\LAB\Scripts\ActionController.cs" />
     <Compile Include="Assets\Scripts\Logic\ProceduralArchitect.cs" />

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -30,14 +31,36 @@ public class Mechanic_QuizDoor : MonoBehaviour, IConfigurable
         canvasQuiz.SetActive(false); // Ocultar UI al inicio
     }
 
+    private Coroutine deactivationCoroutine;
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) canvasQuiz.SetActive(true);
+        if (other.CompareTag("Player"))
+        {
+            if (deactivationCoroutine != null)
+            {
+                StopCoroutine(deactivationCoroutine);
+                deactivationCoroutine = null;
+            }
+            canvasQuiz.SetActive(true);
+            other.GetComponent<PlayerMovement>().SetMovement(false);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player")) canvasQuiz.SetActive(false);
+        if (other.CompareTag("Player"))
+        {
+            deactivationCoroutine = StartCoroutine(DesactivarQuizAlFinalDelFrame());
+            other.GetComponent<PlayerMovement>().SetMovement(true);
+        }
+    }
+
+    private IEnumerator DesactivarQuizAlFinalDelFrame()
+    {
+        yield return new WaitForEndOfFrame();
+        canvasQuiz.SetActive(false);
+        deactivationCoroutine = null;
     }
 
     private void VerificarRespuesta()
@@ -69,6 +92,9 @@ public class Mechanic_QuizDoor : MonoBehaviour, IConfigurable
 
         // Desactivamos este Trigger para que el quiz no vuelva a aparecer
         GetComponent<Collider>().enabled = false;
+
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().SetMovement(true);
+
     }
 
 }
