@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\Logic\WorldBuilder.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\Common\ImageEffectHelper.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\MotionBlur\Helpers\FrameBlendingFilter.cs" />
+    <Compile Include="Assets\Scripts\Mechanic\Victory\Mechanic_Victory.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\Common\MinAttribute.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\AntiAliasing\AntiAliasing.cs" />
     <Compile Include="Assets\Scripts\ProceduralLevelGenerator.cs" />
