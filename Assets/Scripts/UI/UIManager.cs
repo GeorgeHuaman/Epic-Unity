@@ -21,7 +21,7 @@ public class UIManager : MonoBehaviour
 
     [Header("Configuración de Cámaras")]
     public GameObject camaraEditor;
-    public GameObject jugador;
+    public GameObject player;
 
     // Guardar la configuración actual temporalmente
     private WorldConfig configuracionActual; 
@@ -141,10 +141,12 @@ public class UIManager : MonoBehaviour
 
     public void ToggleModoJuego()
     {
-        bool esModoJugador = !jugador.activeSelf;
-        jugador.SetActive(esModoJugador);
+        bool esModoJugador = !player.activeSelf;
+        player.SetActive(esModoJugador);
         camaraEditor.SetActive(!esModoJugador);
-        
+
+        player.transform.position = GameObject.Find("Slot_Inicio").transform.position;
+
         // Ocultar Cursor si estamos en modo jugador
         Cursor.lockState = esModoJugador ? CursorLockMode.Locked : CursorLockMode.None;
         Cursor.visible = !esModoJugador;
