@@ -29,11 +29,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8998204436592373580}
   - {fileID: 1786966613271397677}
   - {fileID: 987368818331305219}
   - {fileID: 3248896392211855858}
   - {fileID: 3365597743291595620}
-  - {fileID: 8998204436592373580}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &497553932416695598
@@ -118,7 +118,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5.960906, y: 2.9765809, z: 7.9304047}
+  m_Size: {x: 5.1, y: 3, z: 7}
   m_Center: {x: -0.027870178, y: 0.9882904, z: -0.027870655}
 --- !u!1 &4853815674890268056
 GameObject:
