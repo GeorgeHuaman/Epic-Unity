@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
     public void SetMovement(bool state)
     {
         //canMove = state;
-        Cursor.lockState = state ? CursorLockMode.Locked : CursorLockMode.None;
-        Cursor.visible = !state;
+        //Cursor.lockState = state ? CursorLockMode.Locked : CursorLockMode.None;
+        //Cursor.visible = !state;
     }
 }
