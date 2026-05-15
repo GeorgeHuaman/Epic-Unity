@@ -4,12 +4,11 @@ using System.Collections.Generic;
 public class WorldBuilder : MonoBehaviour
 {
     public SkyboxManager skyboxManager; 
-    public List<GameObject> prefabLibrary; 
-    private ProceduralArchitect architect;
+    public List<GameObject> prefabLibrary;
+    public ProceduralLevelGenerator proceduralGenerator;
 
     void Awake()
     {
-        architect = GetComponent<ProceduralArchitect>();
     }
 
     public void ConstruirMundo(WorldConfig config)
@@ -29,6 +28,21 @@ public class WorldBuilder : MonoBehaviour
                 DestroyImmediate(child);
         }
 
+        // TEMPLATE PROCEDURAL
+        if (config.template == "linear")
+        {
+            if (proceduralGenerator != null)
+            {
+                ApplyProceduralParameters(config);
+
+                proceduralGenerator.Generate();
+
+                Debug.Log("Nivel procedural generado.");
+
+                return;
+            }
+        }
+
         // Si hay un template, primero revisamos si existe un prefab con ese nombre (Nivel base)
         if (!string.IsNullOrEmpty(config.template))
         {
@@ -37,12 +51,6 @@ public class WorldBuilder : MonoBehaviour
             {
                 Instantiate(baseLevelPrefab, Vector3.zero, Quaternion.identity, transform);
                 Debug.Log($"Cargado nivel base desde prefab: {config.template}");
-            }
-            else
-            {
-                // Si no es un prefab, usamos el arquitecto procedural
-                if (architect == null) architect = gameObject.AddComponent<ProceduralArchitect>();
-                architect.GenerateFromTemplate(config);
             }
         }
 
@@ -65,6 +73,21 @@ public class WorldBuilder : MonoBehaviour
                 }
             }
         }
+    }
+
+    void ApplyProceduralParameters(WorldConfig config)
+    {
+        if (config.parameters == null)
+            return;
+
+        proceduralGenerator.mainPathLength =
+            config.parameters.length;
+
+        proceduralGenerator.branchProbability =
+            config.parameters.branch_probability;
+
+        proceduralGenerator.forcedRoomPrefabName =
+            config.parameters.room_prefab;
     }
 }
 

@@ -26,7 +26,9 @@ public class ProceduralLevelGenerator : MonoBehaviour
 
     private List<GameObject> generatedPieces = new List<GameObject>();
 
-    void Start() => Generate();
+    [Header("AI")]
+    public string forcedRoomPrefabName;
+
 
     [ContextMenu("Generate")]
     public void Generate()
@@ -153,9 +155,24 @@ public class ProceduralLevelGenerator : MonoBehaviour
     private GameObject GetRandomPrefab(PieceType type)
     {
         if (type == PieceType.Pasillo)
-            return (pasilloPrefabs.Count > 0) ? pasilloPrefabs[Random.Range(0, pasilloPrefabs.Count)] : null;
-        else
-            return (salaPrefabs.Count > 0) ? salaPrefabs[Random.Range(0, salaPrefabs.Count)] : null;
+        {
+            return (pasilloPrefabs.Count > 0)
+                ? pasilloPrefabs[Random.Range(0, pasilloPrefabs.Count)]
+                : null;
+        }
+
+        if (!string.IsNullOrEmpty(forcedRoomPrefabName))
+        {
+            GameObject forced =
+                salaPrefabs.Find(x => x.name == forcedRoomPrefabName);
+
+            if (forced != null)
+                return forced;
+        }
+
+        return (salaPrefabs.Count > 0)
+            ? salaPrefabs[Random.Range(0, salaPrefabs.Count)]
+            : null;
     }
 
     public void Clear()

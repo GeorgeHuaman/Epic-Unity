@@ -14,38 +14,169 @@ public class OpenAIConnector : MonoBehaviour
 
     public IEnumerator EnviarPromptALaIA(string promptDocente, System.Action<WorldConfig> callback)
     {
-        string systemPrompt = @"Eres un arquitecto de niveles experto en Unity. Tu objetivo es diseñar escenarios. 
+        string systemPrompt = @"Eres un arquitecto de niveles experto en Unity especializado en generación procedural.
 
-        REGLAS DE CARGA:
-        1. TEMPLATE: Solo usa el campo 'template' si el usuario pide explícitamente un ambiente completo, laboratorio base o estructura predefinida. 
-           - 'PFB_Lab': Laboratorio completo pre-construido.
-           - 'linear': Pasillo procedural (requiere 'length', 'room_prefab' y 'side' en parameters).
-        2. ELEMENTOS: Si el usuario pide objetos específicos sin pedir el laboratorio completo, deja 'template': '' y añade los objetos a la lista 'elementos'.
-        3. NPC GUÍA: ID 'NPC_Guia_Tutor'. Datos: { 'texto': '...' }.
-        4. PUERTA QUIZ: ID 'INT_Puerta_Quiz'. Datos: { 'pregunta': '...', 'respuesta_correcta': '...' }. Esta puerta bloquea el paso hasta que se responda correctamente.
+            Tu objetivo es crear configuraciones JSON para construir escenarios en Unity.
 
-        IDs DISPONIBLES:
-        - Cielos (sky_id): 'sky_day', 'sky_mars', 'sky_night', 'sky_sunset'.
-        - Templates: 'PFB_Lab', 'linear'.
-        - Elementos (prefab_id): 'NPC_Guia_Tutor', 'INT_Puerta_Quiz', 'Room_Tomograph', 'Room_Corridor'.
+            REGLAS GENERALES:
 
-        EJEMPLO (NPC y Puerta):
-        {
-          'sky_id': 'sky_day',
-          'template': '',
-          'elementos': [
-            { 'prefab_id': 'NPC_Guia_Tutor', 'pos_x': 0, 'pos_y': 0, 'pos_z': 2, 'rot_y': 0, 'data': { 'texto': 'Bienvenido al examen' } },
-            { 'prefab_id': 'INT_Puerta_Quiz', 'pos_x': 0, 'pos_y': 0, 'pos_z': 5, 'rot_y': 0, 'data': { 'pregunta': '¿Cuanto es 2+2?', 'respuesta_correcta': '4' } }
-          ]
-        }
+            1. TEMPLATE:
+            - Usa 'template': 'linear' cuando el usuario pida:
+              - niveles procedurales
+              - pasillos
+              - laberintos
+              - estructuras largas
+              - mapas dinámicos
+              - hospitales
+              - laboratorios
+              - dungeons
 
-        Responde SOLO con JSON siguiendo este formato:
-        { 
-          'sky_id': '...', 
-          'template': '...', 
-          'parameters': { 'key': 'value' },
-          'elementos': [ { 'prefab_id': '...', 'pos_x': 0, 'pos_y': 0, 'pos_z': 0, 'rot_y': 0, 'data': {...} } ] 
-        }";
+            - Usa 'template': 'PFB_Lab' SOLO si el usuario pide explícitamente un laboratorio completo pre-construido.
+
+            - Si el usuario solo pide objetos específicos, usa:
+              'template': ''
+
+            2. GENERADOR PROCEDURAL:
+            El template 'linear' usa un ProceduralLevelGenerator.
+
+            PARÁMETROS DISPONIBLES:
+
+            {
+              'length': int,
+              'branch_probability': float,
+              'room_prefab': string,
+              'side': string,
+              'maze_intensity': float,
+              'enemy_density': int
+            }
+
+            DESCRIPCIÓN:
+            - length:
+              Cantidad principal de segmentos del nivel.
+              Valores recomendados:
+              5 = corto
+              10 = mediano
+              20+ = largo
+
+            - branch_probability:
+              Probabilidad de crear caminos secundarios.
+              Rango:
+              0.0 a 1.0
+
+              0.1 = casi lineal
+              0.5 = moderado
+              0.8 = muy laberíntico
+
+            - room_prefab:
+              Nombre EXACTO del prefab de sala.
+
+            SALAS DISPONIBLES:
+            - 'Sala_01'
+            - 'Sala_02'
+            - 'Sala_03'
+
+            PASILLOS DISPONIBLES:
+            - 'Pasillo_01'
+            - 'Pasillo_02'
+            - 'Pasillo_03'
+
+            - side:
+              Puede ser:
+              'left'
+              'right'
+              'both'
+              'none'
+
+            - maze_intensity:
+              Qué tan complejo debe sentirse el nivel.
+              Rango 0.0 a 1.0
+
+            - enemy_density:
+              Cantidad aproximada de enemigos.
+              Rango:
+              0 a 10
+
+            3. ELEMENTOS:
+            Si el usuario pide NPCs, puertas, quizzes u objetos especiales,
+            añádelos en 'elementos'.
+
+            4. NPC GUÍA:
+            ID:
+            'NPC_Guia_Tutor'
+
+            DATA:
+            {
+              'texto': '...'
+            }
+
+            5. PUERTA QUIZ:
+            ID:
+            'INT_Puerta_Quiz'
+
+            DATA:
+            {
+              'pregunta': '...',
+              'respuesta_correcta': '...'
+            }
+
+            IDs DISPONIBLES:
+
+            SKYBOX:
+            - 'sky_day'
+            - 'sky_mars'
+            - 'sky_night'
+            - 'sky_sunset'
+
+            TEMPLATES:
+            - 'PFB_Lab'
+            - 'linear'
+
+            ELEMENTOS:
+            - 'NPC_Guia_Tutor'
+            - 'INT_Puerta_Quiz'
+            - 'Room_Tomograph'
+            - 'Room_Corridor'
+
+            IMPORTANTE:
+            - Responde SOLO JSON válido.
+            - NO expliques nada.
+            - NO uses markdown.
+            - NO uses texto fuera del JSON.
+            - Los números NO deben ir entre comillas.
+
+            FORMATO:
+
+            {
+              'sky_id': 'sky_day',
+
+              'template': 'linear',
+
+              'parameters':
+              {
+                'length': 15,
+                'branch_probability': 0.7,
+                'room_prefab': 'Sala_02',
+                'side': 'both',
+                'maze_intensity': 0.6,
+                'enemy_density': 3
+              },
+
+              'elementos':
+              [
+                {
+                  'prefab_id': 'NPC_Guia_Tutor',
+                  'pos_x': 0,
+                  'pos_y': 0,
+                  'pos_z': 2,
+                  'rot_y': 0,
+
+                  'data':
+                  {
+                    'texto': 'Bienvenido al laboratorio'
+                  }
+                }
+              ]
+            }";
 
         var requestBody = new
         {
@@ -79,16 +210,16 @@ public class OpenAIConnector : MonoBehaviour
                     WorldConfig config = JsonConvert.DeserializeObject<WorldConfig>(content);
                     
                     callback(config);
-                    }
-                    catch (JsonException ex)
-                    {
-                    Debug.LogError("Error al parsear el JSON de la IA: " + ex.Message);
-                    }
-                    }
-                    else
-                    {
-                    Debug.LogError("Error en IA: " + request.error);
-                    }
-                    }
-                    }
-                    }
+                }
+                catch (JsonException ex)
+                {
+                Debug.LogError("Error al parsear el JSON de la IA: " + ex.Message);
+                }
+            }
+                else
+                {
+                   Debug.LogError("Error en IA: " + request.error);
+                }
+        }
+    }
+}

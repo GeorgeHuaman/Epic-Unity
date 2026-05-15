@@ -5,9 +5,11 @@ using UnityEngine;
 [Serializable]
 public class WorldConfig
 {
-    public string sky_id; //ID del skybox que elegirá la IA
+    public string sky_id;
     public string template;
-    public Dictionary<string, string> parameters; 
+
+    public WorldParameters parameters;
+
     public List<ElementoEscena> elementos;
 }
 
@@ -21,4 +23,19 @@ public class ElementoEscena
     public float rot_y; 
     public Dictionary<string, string> data; // Para textos de diálogos o preguntas
 
+}
+[Serializable]
+public class WorldParameters
+{
+    public int length = 10;
+
+    public float branch_probability = 0.3f;
+
+    public string room_prefab = "";
+
+    public string side = "both";
+
+    public float maze_intensity = 0.5f;
+
+    public int enemy_density = 0;
 }
