@@ -93,6 +93,7 @@
     <Compile Include="Assets\LAB\Standard Assets\Effects\Bloom\Bloom.cs" />
     <Compile Include="Assets\Scripts\AI\AiLevelManager.cs" />
     <Compile Include="Assets\Scripts\Mechanic\Quiz\QuizUIManager.cs" />
+    <Compile Include="Assets\Scripts\Mechanic\Player\SetPositionPlayer.cs" />
     <Compile Include="Assets\Scripts\AI\OpenAiExample.cs" />
     <Compile Include="Assets\Scripts\Logic\WorldPersistenceManager.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\AmbientOcclusion\Helpers\PropertyObserver.cs" />

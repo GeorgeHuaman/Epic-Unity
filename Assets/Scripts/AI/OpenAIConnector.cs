@@ -176,7 +176,26 @@ public class OpenAIConnector : MonoBehaviour
                   }
                 }
               ]
-            }";
+            }
+
+        REGLA CRÍTICA:
+
+        Si el usuario especifica valores numéricos explícitos
+        para:
+        - length
+        - branch_probability
+        - enemy_density
+        - maze_intensity
+
+        DEBES usar EXACTAMENTE esos valores.
+
+        NO los modifiques.
+        NO los aumentes.
+        NO los reduzcas.
+        NO los reinterpretas según palabras como:
+        'enorme', 'laberíntico', 'complejo', etc.
+
+        Los números escritos por el usuario tienen prioridad absoluta.";
 
         var requestBody = new
         {

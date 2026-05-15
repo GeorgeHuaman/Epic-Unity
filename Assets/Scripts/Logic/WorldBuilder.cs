@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class WorldBuilder : MonoBehaviour
 {
-    public SkyboxManager skyboxManager; 
+    public SkyboxManager skyboxManager;
     public List<GameObject> prefabLibrary;
     public ProceduralLevelGenerator proceduralGenerator;
 
@@ -19,7 +19,7 @@ public class WorldBuilder : MonoBehaviour
         // 2. Limpiar mundo anterior
         List<GameObject> children = new List<GameObject>();
         foreach (Transform child in transform) children.Add(child.gameObject);
-        
+
         foreach (GameObject child in children)
         {
             if (Application.isPlaying)
@@ -27,6 +27,8 @@ public class WorldBuilder : MonoBehaviour
             else
                 DestroyImmediate(child);
         }
+
+        bool proceduralGenerated = false;
 
         // TEMPLATE PROCEDURAL
         if (config.template == "linear")
@@ -37,34 +39,51 @@ public class WorldBuilder : MonoBehaviour
 
                 proceduralGenerator.Generate();
 
-                Debug.Log("Nivel procedural generado.");
+                proceduralGenerated = true;
 
-                return;
+                Debug.Log("Nivel procedural generado.");
             }
         }
 
-        // Si hay un template, primero revisamos si existe un prefab con ese nombre (Nivel base)
-        if (!string.IsNullOrEmpty(config.template))
+        // TEMPLATE PREFAB
+        if (!proceduralGenerated &&
+            !string.IsNullOrEmpty(config.template))
         {
-            GameObject baseLevelPrefab = prefabLibrary.Find(p => p != null && p.name == config.template);
+            GameObject baseLevelPrefab =
+                prefabLibrary.Find(p => p != null && p.name == config.template);
+
             if (baseLevelPrefab != null)
             {
-                Instantiate(baseLevelPrefab, Vector3.zero, Quaternion.identity, transform);
+                Instantiate(baseLevelPrefab,
+                    Vector3.zero,
+                    Quaternion.identity,
+                    transform);
+
                 Debug.Log($"Cargado nivel base desde prefab: {config.template}");
             }
         }
-
-        // Spawning de objetos individuales (fallback o extras)
+        
+        // ELEMENTOS
         if (config.elementos != null)
         {
             foreach (var item in config.elementos)
             {
-                GameObject prefab = prefabLibrary.Find(p => p != null && p.name == item.prefab_id);
+                GameObject prefab =
+                    prefabLibrary.Find(p => p != null && p.name == item.prefab_id);
+
                 if (prefab != null)
                 {
-                    Vector3 posicion = new Vector3(item.pos_x, item.pos_y, item.pos_z);
-                    Quaternion rotacion = Quaternion.Euler(0, item.rot_y, 0);
-                    GameObject obj = Instantiate(prefab, posicion, rotacion, this.transform);
+                    Vector3 posicion =
+                        new Vector3(item.pos_x, item.pos_y, item.pos_z);
+
+                    Quaternion rotacion =
+                        Quaternion.Euler(0, item.rot_y, 0);
+
+                    GameObject obj =
+                        Instantiate(prefab,
+                            posicion,
+                            rotacion,
+                            this.transform);
 
                     if (obj.TryGetComponent<IConfigurable>(out var configurable))
                     {
@@ -73,6 +92,9 @@ public class WorldBuilder : MonoBehaviour
                 }
             }
         }
+
+        SetPositionPlayer.Instance.Set();
+
     }
 
     void ApplyProceduralParameters(WorldConfig config)
@@ -89,8 +111,8 @@ public class WorldBuilder : MonoBehaviour
         proceduralGenerator.forcedRoomPrefabName =
             config.parameters.room_prefab;
     }
-}
 
+}
 public interface IConfigurable
 {
     void Setup(Dictionary<string, string> data);
