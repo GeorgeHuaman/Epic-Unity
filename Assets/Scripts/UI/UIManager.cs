@@ -24,7 +24,7 @@ public class UIManager : MonoBehaviour
     public GameObject player;
 
     // Guardar la configuración actual temporalmente
-    private WorldConfig configuracionActual; 
+    [HideInInspector]public WorldConfig configuracionActual; 
 
     public static UIManager Instance;
 

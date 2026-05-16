@@ -56,6 +56,7 @@ public class SaveManager : MonoBehaviour
         {
             string json = File.ReadAllText(filePath);
             WorldConfig config = JsonConvert.DeserializeObject<WorldConfig>(json);
+            ProceduralLevelGenerator.Instance.LoadJsonFromFile( config.ordenSala);
             return config;
         }
         else

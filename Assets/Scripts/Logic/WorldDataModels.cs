@@ -11,6 +11,7 @@ public class WorldConfig
     public WorldParameters parameters;
 
     public List<ElementoEscena> elementos;
+    public string ordenSala;
 }
 
 [Serializable]

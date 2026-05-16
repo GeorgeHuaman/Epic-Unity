@@ -56,45 +56,24 @@ public class ProceduralLevelGenerator : MonoBehaviour
     [Header("AI")]
     public string forcedRoomPrefabName;
 
+    public static ProceduralLevelGenerator Instance;
+
     private List<GameObject> generatedPieces =
         new List<GameObject>();
 
     private LevelData currentLevelData =
         new LevelData();
 
+    private void Start()
+    {
+        Instance = this;
+    }
+
     [ContextMenu("Generate")]
     public void Generate()
     {
         StopAllCoroutines();
         StartCoroutine(GenerateCoroutine());
-    }
-
-    [ContextMenu("Build From JSON")]
-    public void BuildFromJson()
-    {
-        StopAllCoroutines();
-        StartCoroutine(
-            BuildLevelFromJsonCoroutine(generatedJson)
-        );
-    }
-
-    [ContextMenu("Save JSON")]
-    public void SaveJsonButton()
-    {
-        SaveJsonToFile();
-    }
-
-    [ContextMenu("Load JSON")]
-    public void LoadJsonButton()
-    {
-        LoadJsonFromFile();
-    }
-
-    [ContextMenu("Build Loaded JSON")]
-    public void BuildLoadedJson()
-    {
-        LoadJsonFromFile();
-        BuildFromJson();
     }
 
     private IEnumerator GenerateCoroutine()
@@ -134,12 +113,7 @@ public class ProceduralLevelGenerator : MonoBehaviour
             true
         );
 
-        if (autoSaveJson)
-        {
-            SaveJsonToFile();
-        }
-
-        Debug.Log(generatedJson);
+        UIManager.Instance.configuracionActual.ordenSala = generatedJson;
     }
 
     private IEnumerator SpawnNextLevelCoroutine(
@@ -353,48 +327,9 @@ public class ProceduralLevelGenerator : MonoBehaviour
         }
     }
 
-    public void SaveJsonToFile()
+    public void LoadJsonFromFile(string json)
     {
-        string path = Path.Combine(
-            Application.persistentDataPath,
-            jsonFileName
-        );
-
-        generatedJson = JsonUtility.ToJson(
-            currentLevelData,
-            true
-        );
-
-        File.WriteAllText(path, generatedJson);
-
-        Debug.Log(
-            "JSON Guardado en: " + path
-        );
-    }
-
-    public void LoadJsonFromFile()
-    {
-        string path = Path.Combine(
-       Application.persistentDataPath,
-       jsonFileName
-   );
-
-        if (!File.Exists(path))
-        {
-            Debug.LogWarning(
-                "No existe archivo JSON"
-            );
-
-            return;
-        }
-
-        generatedJson =
-            File.ReadAllText(path);
-
-        Debug.Log(
-            "JSON Cargado desde: " + path
-        );
-
+        generatedJson = json;
         // GENERAR NIVEL AUTOMÁTICAMENTE
         StopAllCoroutines();
 
