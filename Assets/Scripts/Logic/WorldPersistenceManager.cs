@@ -52,27 +52,30 @@ public class WorldPersistenceManager : MonoBehaviour
     [ContextMenu("Exportar Último JSON")]
     public void ExportarUltimoJSON()
     {
-        if (connector == null || string.IsNullOrEmpty(connector.lastJsonReceived))
+        // Usamos la configuración actual del UIManager, que ya incluye el ordenSala (procedural)
+        if (UIManager.Instance == null || UIManager.Instance.configuracionActual == null)
         {
-            Debug.LogWarning("No hay un JSON previo para exportar.");
+            Debug.LogWarning("No hay un mundo generado para exportar.");
             return;
         }
 
         string path = "";
 
-#if UNITY_EDITOR
+    #if UNITY_EDITOR
         path = UnityEditor.EditorUtility.SaveFilePanel("Guardar Configuración de Mundo", "", "mundo_generado.json", "json");
-#elif UNITY_STANDALONE_WIN
+    #elif UNITY_STANDALONE_WIN
         path = SaveFileWindows("Guardar Configuración de Mundo", "mundo_generado.json", "JSON Files\0*.json\0All Files\0*.*\0\0");
-#else
+    #else
         path = Path.Combine(Application.persistentDataPath, "mundo_generado.json");
-#endif
+    #endif
 
         if (!string.IsNullOrEmpty(path))
         {
             try
             {
-                File.WriteAllText(path, connector.lastJsonReceived);
+                // Serializamos la configuración actual con formato legible
+                string jsonToExport = JsonConvert.SerializeObject(UIManager.Instance.configuracionActual, Formatting.Indented);
+                File.WriteAllText(path, jsonToExport);
                 Debug.Log($"<color=cyan>JSON exportado correctamente en: {path}</color>");
             }
             catch (Exception ex)

@@ -59,8 +59,19 @@ public class UIManager : MonoBehaviour
     {
         if (configuracionActual != null)
         {
-            string codigo = saveManager.GuardarClase(configuracionActual);
-            textoCodigoGenerado.text = "¡Comparte este código con tus alumnos!: " + codigo;
+            textoCodigoGenerado.text = "Publicando en la nube...";
+            
+            // Usamos la nueva función de nube del SaveManager
+            saveManager.GuardarClaseEnNube(configuracionActual, (codigo) => {
+                if (codigo != "ERROR")
+                {
+                    textoCodigoGenerado.text = "¡Publicado! Comparte este código: " + codigo;
+                }
+                else
+                {
+                    textoCodigoGenerado.text = "Error al publicar. Intenta de nuevo.";
+                }
+            });
         }
         else
         {
@@ -72,29 +83,50 @@ public class UIManager : MonoBehaviour
     public void AlPresionarJugarAlumno()
     {
         string codigoInput = inputCodigoAlumno.text.Trim().ToUpper();
-        WorldConfig configCargada = saveManager.CargarClase(codigoInput);
+        
+        if (string.IsNullOrEmpty(codigoInput)) return;
 
-        if (configCargada != null)
-        {
-            panelAlumno.SetActive(false); // Ocultar UI de alumno
-            worldBuilder.ConstruirMundo(configCargada); // Construir el mundo
-            ToggleModoJuego(); // Activar al jugador y esconder la cámara de editor
+        btnJugarAlumno.interactable = false;
+        inputCodigoAlumno.placeholder.GetComponent<TMP_Text>().text = "Buscando...";
+
+        // Intentamos cargar de la nube primero
+        saveManager.CargarClaseDeNube(codigoInput, (configCargada) => {
+            btnJugarAlumno.interactable = true;
+
+            if (configCargada != null)
+            {
+                Debug.Log("Cargando nivel exitosamente desde la NUBE: " + codigoInput);
+                panelAlumno.SetActive(false); // Ocultar UI de alumno
+                worldBuilder.ConstruirMundo(configCargada); // Construir el mundo visual
+                ToggleModoJuego(); // Activar al jugador
+            }
+            else
+            {
+                // Si falla la nube, intentamos local (opcional)
+                WorldConfig localConfig = saveManager.CargarClaseLocal(codigoInput);
+                if (localConfig != null)
+                {
+                    Debug.Log("Cargando nivel exitosamente desde LOCAL: " + codigoInput);
+                    panelAlumno.SetActive(false);
+                    worldBuilder.ConstruirMundo(localConfig);
+                    ToggleModoJuego();
+                }
+                else
+                {
+                    inputCodigoAlumno.text = "";
+                    inputCodigoAlumno.placeholder.GetComponent<TMP_Text>().text = "Código no encontrado";
+                }
+            }
+        });
         }
-        else
+
+        [Header("UI Historial")]
+        public GameObject panelHistorial;
+        public Transform contenedorHistorial;
+        public GameObject prefabBotonHistorial;
+
+        public void MostrarHistorial()
         {
-            // Mostrar feedback de error al alumno
-            inputCodigoAlumno.text = "";
-            inputCodigoAlumno.placeholder.GetComponent<TMP_Text>().text = "Código inválido";
-        }
-    }
-
-    [Header("UI Historial")]
-    public GameObject panelHistorial;
-    public Transform contenedorHistorial;
-    public GameObject prefabBotonHistorial;
-
-    public void MostrarHistorial()
-    {
         if (panelHistorial == null) return;
         
         panelHistorial.SetActive(true);
@@ -105,7 +137,7 @@ public class UIManager : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        // Obtener códigos
+        // Obtener códigos guardados localmente
         string[] codigos = saveManager.ObtenerHistorialDeClases();
 
         foreach (string cod in codigos)
@@ -119,20 +151,22 @@ public class UIManager : MonoBehaviour
                 CargarDesdeHistorial(codigoParaBoton);
             });
         }
-    }
+        }
 
-    private void CargarDesdeHistorial(string codigo)
-    {
-        WorldConfig config = saveManager.CargarClase(codigo);
+        private void CargarDesdeHistorial(string codigo)
+        {
+        // El historial local lo cargamos localmente
+        WorldConfig config = saveManager.CargarClaseLocal(codigo);
         if (config != null)
         {
+            Debug.Log("Cargando desde el HISTORIAL LOCAL: " + codigo);
             configuracionActual = config;
             worldBuilder.ConstruirMundo(config);
             if (textoCodigoGenerado != null) 
                 textoCodigoGenerado.text = "Cargado desde historial: " + codigo;
             panelHistorial.SetActive(false);
         }
-    }
+        }
 
     public void CerrarHistorial()
     {

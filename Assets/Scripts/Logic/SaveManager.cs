@@ -4,12 +4,13 @@ using Newtonsoft.Json;
 
 public class SaveManager : MonoBehaviour
 {
+    [Header("Referencias")]
+    public CloudManager cloudManager;
     private string savePath;
 
     void Start()
     {
         // persistentDataPath es una carpeta segura que Unity crea automáticamente
-        // Funciona en Windows, Mac, Android y iOS sin problemas de permisos.
         savePath = Path.Combine(Application.persistentDataPath, "ClasesDocentes");
         
         if (!Directory.Exists(savePath))
@@ -18,14 +19,14 @@ public class SaveManager : MonoBehaviour
         }
     }
 
-    // 1. Guardar la clase (Usado por el Docente)
-    public string GuardarClase(WorldConfig config)
+    // --- GUARDADO LOCAL ---
+
+    public string GuardarClaseLocal(WorldConfig config)
     {
         string codigoClase = "";
         string filePath = "";
         bool codigoValido = false;
 
-        // Bucle para asegurar que el código no exista previamente
         int intentos = 0;
         while (!codigoValido && intentos < 100)
         {
@@ -39,16 +40,14 @@ public class SaveManager : MonoBehaviour
             intentos++;
         }
 
-        // Convertir el objeto a JSON y guardarlo
         string json = JsonConvert.SerializeObject(config, Formatting.Indented);
         File.WriteAllText(filePath, json);
 
-        Debug.Log("Clase guardada en: " + filePath);
+        Debug.Log("Clase guardada localmente en: " + filePath);
         return codigoClase; 
     }
 
-    // 2. Cargar la clase (Usado por el Alumno)
-    public WorldConfig CargarClase(string codigoClase)
+    public WorldConfig CargarClaseLocal(string codigoClase)
     {
         string filePath = Path.Combine(savePath, codigoClase + ".json");
 
@@ -56,30 +55,75 @@ public class SaveManager : MonoBehaviour
         {
             string json = File.ReadAllText(filePath);
             WorldConfig config = JsonConvert.DeserializeObject<WorldConfig>(json);
-            ProceduralLevelGenerator.Instance.LoadJsonFromFile( config.ordenSala);
+            
+            // Sincronizar con el generador procedural
+            if (config != null && !string.IsNullOrEmpty(config.ordenSala))
+            {
+                ProceduralLevelGenerator.Instance.LoadJsonFromFile(config.ordenSala);
+            }
+            
             return config;
         }
-        else
-        {
-            Debug.LogError("Error: No se encontró la clase con el código " + codigoClase);
-            return null;
-        }
+        return null;
     }
 
-    // 3. Obtener lista de códigos guardados (Para el Historial)
+    // --- GUARDADO EN LA NUBE ---
+
+    public void GuardarClaseEnNube(WorldConfig config, System.Action<string> onComplete)
+    {
+        if (cloudManager == null)
+        {
+            Debug.LogError("CloudManager no asignado en SaveManager");
+            onComplete?.Invoke("ERROR");
+            return;
+        }
+
+        StartCoroutine(cloudManager.GuardarClaseEnNube(config, (codigo) => {
+            if (codigo != "ERROR")
+            {
+                // Opcional: Guardar una copia local también
+                string json = JsonConvert.SerializeObject(config, Formatting.Indented);
+                File.WriteAllText(Path.Combine(savePath, codigo + ".json"), json);
+            }
+            onComplete?.Invoke(codigo);
+        }));
+    }
+
+    public void CargarClaseDeNube(string codigo, System.Action<WorldConfig> onComplete)
+    {
+        if (cloudManager == null)
+        {
+            Debug.LogError("CloudManager no asignado en SaveManager");
+            onComplete?.Invoke(null);
+            return;
+        }
+
+        StartCoroutine(cloudManager.CargarClaseDeNube(codigo, (config) => {
+            if (config != null)
+            {
+                // Sincronizar con el generador procedural
+                if (!string.IsNullOrEmpty(config.ordenSala))
+                {
+                    ProceduralLevelGenerator.Instance.LoadJsonFromFile(config.ordenSala);
+                }
+                
+                // Opcional: Guardar copia local para caché
+                string json = JsonConvert.SerializeObject(config, Formatting.Indented);
+                File.WriteAllText(Path.Combine(savePath, codigo + ".json"), json);
+            }
+            onComplete?.Invoke(config);
+        }));
+    }
+
     public string[] ObtenerHistorialDeClases()
     {
         if (!Directory.Exists(savePath)) return new string[0];
-
-        // Obtener todos los archivos .json en la carpeta
         string[] files = Directory.GetFiles(savePath, "*.json");
         string[] codigos = new string[files.Length];
-
         for (int i = 0; i < files.Length; i++)
         {
             codigos[i] = Path.GetFileNameWithoutExtension(files[i]);
         }
-
         return codigos;
     }
 }

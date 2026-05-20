@@ -174,8 +174,7 @@ public class ProceduralLevelGenerator : MonoBehaviour
                         transform
                     );
 
-                    nextPiece.name =
-                       nextPiece.name = prefabToSpawn.name;
+                    nextPiece.name = prefabToSpawn.name;
 
                     generatedPieces.Add(nextPiece);
 
@@ -342,6 +341,26 @@ public class ProceduralLevelGenerator : MonoBehaviour
         string prefabName
     )
     {
+        // Caso especial: Sala Inicial
+        if (prefabName == "SALA_INICIAL")
+            return salaInicialPrefab;
+
+        // Caso especial: Sala Final
+        if (prefabName == "SALA_FINAL")
+            return salaFinalPrefab;
+
+        // Caso especial: Objetos de Bloqueo (tienen prefijo BLOCKING_)
+        if (prefabName.StartsWith("BLOCKING_"))
+        {
+            string originalName = prefabName.Replace("BLOCKING_", "");
+            foreach (GameObject g in blockingPrefabs)
+            {
+                if (g.name == originalName)
+                    return g;
+            }
+        }
+
+        // Búsqueda estándar por nombre de asset
         if (salaInicialPrefab != null &&
             salaInicialPrefab.name == prefabName)
             return salaInicialPrefab;

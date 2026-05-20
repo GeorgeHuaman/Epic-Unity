@@ -93,8 +93,6 @@ public class WorldBuilder : MonoBehaviour
             }
         }
 
-        SetPositionPlayer.Instance.Set();
-
     }
 
     void ApplyProceduralParameters(WorldConfig config)
