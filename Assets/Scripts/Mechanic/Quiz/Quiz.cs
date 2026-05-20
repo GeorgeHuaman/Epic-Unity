@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 
-public class NPCQuiz : MonoBehaviour
+public class Quiz : MonoBehaviour
 {
     [Header("Datos del Quiz")]
     public string pregunta = "¿Cuál es la capital de Francia?";
@@ -10,7 +10,6 @@ public class NPCQuiz : MonoBehaviour
     public int indiceCorrecto = 1;
 
     [Header("Configuración")]
-    public float distanciaInteraccion = 3f;
     private bool jugadorCerca = false;
 
     private void Update()

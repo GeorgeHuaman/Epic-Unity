@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 3e5399bd195de7649b874f58c1b9f8a3, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 5d133deeaa66ed445853e946ff25e073, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -429,6 +429,7 @@ MonoBehaviour:
       side: both
       maze_intensity: 0.5
       enemy_density: 0
+      use_corridors: 1
     elementos: []
     ordenSala: 
   panelHistorial: {fileID: 850894848}
@@ -951,6 +952,39 @@ Transform:
   - {fileID: 1115699713}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &512634646
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 512634647}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &512634647
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512634646}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 856429072}
+  - {fileID: 663355189}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &527795616
 GameObject:
   m_ObjectHideFlags: 0
@@ -1058,6 +1092,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 527795616}
   m_CullTransparentMesh: 1
+--- !u!1 &663355188
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 663355189}
+  - component: {fileID: 663355190}
+  m_Layer: 0
+  m_Name: NPC
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &663355189
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663355188}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 512634647}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &663355190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663355188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c994cd4d14b1c54f8ce6f515e96a00c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCFinder
+  npcPositions: []
 --- !u!1 &669736222
 GameObject:
   m_ObjectHideFlags: 0
@@ -1661,6 +1740,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 850894848}
   m_CullTransparentMesh: 1
+--- !u!1 &856429070
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 856429072}
+  - component: {fileID: 856429071}
+  m_Layer: 0
+  m_Name: SetPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &856429071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856429070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f31c4a345aee2f40b33b727cde44de2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SetPositionPlayer
+  player: {fileID: 882716804}
+--- !u!4 &856429072
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856429070}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -28.58777, y: 0, z: -30.29353}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 512634647}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &861169959
 GameObject:
   m_ObjectHideFlags: 0
@@ -4273,15 +4397,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5960022236008455155, guid: 59d7be9900a71f542a88913130721d74, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -38.01637
+      value: -5.0390005
       objectReference: {fileID: 0}
     - target: {fileID: 5960022236008455155, guid: 59d7be9900a71f542a88913130721d74, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 5960022236008455155, guid: 59d7be9900a71f542a88913130721d74, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.86438
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5960022236008455155, guid: 59d7be9900a71f542a88913130721d74, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4652,8 +4776,9 @@ MonoBehaviour:
   - {fileID: 6399775371926674129, guid: 6e0b9d3001c68dc47ba4d64fe728f476, type: 3}
   - {fileID: 4567507745010600640, guid: 3844953e75a2b234e9eddbe9e8dcc491, type: 3}
   - {fileID: 503265448557475518, guid: e838d51d7dec9514e9f8f88ff2398b17, type: 3}
-  mainPathLength: 20
-  branchProbability: 1
+  mainPathLength: 3
+  branchProbability: 0.3
+  useCorridors: 0
   buildDelay: 0
   detectionLayer:
     serializedVersion: 2
@@ -4664,755 +4789,20 @@ MonoBehaviour:
     \"x\": -4.010000228881836,\n                \"y\": 0.0,\n                \"z\":
     0.0\n            },\n            \"rotation\": {\n                \"x\": 0.0,\n               
     \"y\": 0.0,\n                \"z\": 0.0\n            }\n        },\n        {\n           
-    \"prefabName\": \"Pasillo_03\",\n            \"pieceType\": \"Pasillo\",\n           
+    \"prefabName\": \"Sala_03\",\n            \"pieceType\": \"Sala\",\n           
     \"position\": {\n                \"x\": -7.010000228881836,\n               
     \"y\": 0.0,\n                \"z\": 0.0\n            },\n            \"rotation\":
     {\n                \"x\": 0.0,\n                \"y\": 0.0,\n               
     \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Sala_03\",\n            \"pieceType\": \"Sala\",\n            \"position\":
+    \"SALA_FINAL\",\n            \"pieceType\": \"SalaFinal\",\n            \"position\":
     {\n                \"x\": -13.010000228881836,\n                \"y\": 0.0,\n               
     \"z\": 0.0\n            },\n            \"rotation\": {\n                \"x\":
     0.0,\n                \"y\": 0.0,\n                \"z\": 0.0\n            }\n       
-    },\n        {\n            \"prefabName\": \"Pasillo_02\",\n            \"pieceType\":
-    \"Pasillo\",\n            \"position\": {\n                \"x\": -19.010000228881837,\n               
-    \"y\": 0.0,\n                \"z\": 0.0\n            },\n            \"rotation\":
-    {\n                \"x\": 0.0,\n                \"y\": 0.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Sala_02\",\n            \"pieceType\": \"Sala\",\n            \"position\":
-    {\n                \"x\": -23.010000228881837,\n                \"y\": 0.0,\n               
-    \"z\": 0.0\n            },\n            \"rotation\": {\n                \"x\":
-    0.0,\n                \"y\": 0.0,\n                \"z\": 0.0\n            }\n       
-    },\n        {\n            \"prefabName\": \"Pasillo_03\",\n            \"pieceType\":
-    \"Pasillo\",\n            \"position\": {\n                \"x\": -29.010000228881837,\n               
-    \"y\": 0.0,\n                \"z\": 0.0\n            },\n            \"rotation\":
-    {\n                \"x\": 0.0,\n                \"y\": 0.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Sala_03\",\n            \"pieceType\": \"Sala\",\n            \"position\":
-    {\n                \"x\": -35.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": 0.0\n            },\n            \"rotation\": {\n                \"x\":
-    0.0,\n                \"y\": 0.0,\n                \"z\": 0.0\n            }\n       
-    },\n        {\n            \"prefabName\": \"Pasillo_02\",\n            \"pieceType\":
-    \"Pasillo\",\n            \"position\": {\n                \"x\": -41.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": 0.0\n            },\n            \"rotation\":
-    {\n                \"x\": 0.0,\n                \"y\": 0.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Sala_02\",\n            \"pieceType\": \"Sala\",\n            \"position\":
-    {\n                \"x\": -45.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": 0.0\n            },\n            \"rotation\": {\n                \"x\":
-    0.0,\n                \"y\": 0.0,\n                \"z\": 0.0\n            }\n       
-    },\n        {\n            \"prefabName\": \"Pasillo_03\",\n            \"pieceType\":
-    \"Pasillo\",\n            \"position\": {\n                \"x\": -51.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": 0.0\n            },\n            \"rotation\":
-    {\n                \"x\": 0.0,\n                \"y\": 0.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Sala_02\",\n            \"pieceType\": \"Sala\",\n            \"position\":
-    {\n                \"x\": -57.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": 0.0\n            },\n            \"rotation\": {\n                \"x\":
-    0.0,\n                \"y\": 0.0,\n                \"z\": 0.0\n            }\n       
-    },\n        {\n            \"prefabName\": \"Pasillo_01\",\n            \"pieceType\":
-    \"Pasillo\",\n            \"position\": {\n                \"x\": -63.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": 0.0\n            },\n            \"rotation\":
-    {\n                \"x\": 0.0,\n                \"y\": 0.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Sala_01\",\n            \"pieceType\": \"Sala\",\n            \"position\":
-    {\n                \"x\": -65.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": 0.0\n            },\n            \"rotation\": {\n                \"x\":
-    0.0,\n                \"y\": 0.0,\n                \"z\": 0.0\n            }\n       
-    },\n        {\n            \"prefabName\": \"Pasillo_03\",\n            \"pieceType\":
-    \"Pasillo\",\n            \"position\": {\n                \"x\": -71.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": 0.0\n            },\n            \"rotation\":
-    {\n                \"x\": 0.0,\n                \"y\": 0.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Sala_03\",\n            \"pieceType\": \"Sala\",\n            \"position\":
-    {\n                \"x\": -77.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": 0.0\n            },\n            \"rotation\": {\n                \"x\":
-    0.0,\n                \"y\": 0.0,\n                \"z\": 0.0\n            }\n       
-    },\n        {\n            \"prefabName\": \"Pasillo_03\",\n            \"pieceType\":
-    \"Pasillo\",\n            \"position\": {\n                \"x\": -83.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": 0.0\n            },\n            \"rotation\":
-    {\n                \"x\": 0.0,\n                \"y\": 0.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Sala_02\",\n            \"pieceType\": \"Sala\",\n            \"position\":
-    {\n                \"x\": -89.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": 0.0\n            },\n            \"rotation\": {\n                \"x\":
-    0.0,\n                \"y\": 0.0,\n                \"z\": 0.0\n            }\n       
-    },\n        {\n            \"prefabName\": \"Pasillo_02\",\n            \"pieceType\":
-    \"Pasillo\",\n            \"position\": {\n                \"x\": -95.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": 0.0\n            },\n            \"rotation\":
-    {\n                \"x\": 0.0,\n                \"y\": 0.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Sala_01\",\n            \"pieceType\": \"Sala\",\n            \"position\":
-    {\n                \"x\": -99.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": 0.0\n            },\n            \"rotation\": {\n                \"x\":
-    0.0,\n                \"y\": 0.0,\n                \"z\": 0.0\n            }\n       
-    },\n        {\n            \"prefabName\": \"Pasillo_01\",\n            \"pieceType\":
-    \"Pasillo\",\n            \"position\": {\n                \"x\": -105.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": 0.0\n            },\n            \"rotation\":
-    {\n                \"x\": 0.0,\n                \"y\": 0.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Sala_01\",\n            \"pieceType\": \"Sala\",\n            \"position\":
-    {\n                \"x\": -107.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": 0.0\n            },\n            \"rotation\": {\n                \"x\":
-    0.0,\n                \"y\": 0.0,\n                \"z\": 0.0\n            }\n       
     },\n        {\n            \"prefabName\": \"SALA_FINAL\",\n            \"pieceType\":
-    \"SalaFinal\",\n            \"position\": {\n                \"x\": -113.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": 0.0\n            },\n            \"rotation\":
-    {\n                \"x\": 0.0,\n                \"y\": 0.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Pasillo_02\",\n            \"pieceType\": \"Pasillo\",\n            \"position\":
-    {\n                \"x\": -92.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": 4.0\n            },\n            \"rotation\": {\n                \"x\":
-    0.0,\n                \"y\": 90.0,\n                \"z\": 0.0\n            }\n       
-    },\n        {\n            \"prefabName\": \"Sala_01\",\n            \"pieceType\":
-    \"Sala\",\n            \"position\": {\n                \"x\": -92.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": 8.0\n            },\n            \"rotation\":
-    {\n                \"x\": 0.0,\n                \"y\": 90.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Pasillo_03\",\n            \"pieceType\": \"Pasillo\",\n            \"position\":
-    {\n                \"x\": -92.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": 14.000000953674317\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 90.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"Sala_03\",\n           
-    \"pieceType\": \"Sala\",\n            \"position\": {\n                \"x\":
-    -92.01000213623047,\n                \"y\": 0.0,\n                \"z\": 20.000001907348634\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 90.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"SALA_FINAL\",\n            \"pieceType\": \"SalaFinal\",\n           
-    \"position\": {\n                \"x\": -92.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": 26.000003814697267\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 90.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"SALA_FINAL\",\n            \"pieceType\": \"SalaFinal\",\n            \"position\":
-    {\n                \"x\": -96.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": 23.000003814697267\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 0.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"Pasillo_03\",\n           
-    \"pieceType\": \"Pasillo\",\n            \"position\": {\n                \"x\":
-    -80.01000213623047,\n                \"y\": 0.0,\n                \"z\": -4.0\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 270.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"Sala_03\",\n            \"pieceType\": \"Sala\",\n           
-    \"position\": {\n                \"x\": -80.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": -10.000000953674317\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 270.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Pasillo_01\",\n            \"pieceType\": \"Pasillo\",\n            \"position\":
-    {\n                \"x\": -80.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": -16.000001907348634\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 270.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"Sala_01\",\n           
-    \"pieceType\": \"Sala\",\n            \"position\": {\n                \"x\":
-    -80.01000213623047,\n                \"y\": 0.0,\n                \"z\": -18.000001907348634\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 270.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"Pasillo_03\",\n            \"pieceType\": \"Pasillo\",\n           
-    \"position\": {\n                \"x\": -80.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": -24.000003814697267\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 270.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Sala_03\",\n            \"pieceType\": \"Sala\",\n            \"position\":
-    {\n                \"x\": -80.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": -30.000003814697267\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 270.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"SALA_FINAL\",\n           
-    \"pieceType\": \"SalaFinal\",\n            \"position\": {\n                \"x\":
-    -80.01000213623047,\n                \"y\": 0.0,\n                \"z\": -36.000003814697269\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 270.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"SALA_FINAL\",\n            \"pieceType\": \"SalaFinal\",\n           
-    \"position\": {\n                \"x\": -76.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": -33.000003814697269\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 180.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Pasillo_01\",\n            \"pieceType\": \"Pasillo\",\n            \"position\":
-    {\n                \"x\": -76.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": -13.000000953674317\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 180.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"Sala_01\",\n           
-    \"pieceType\": \"Sala\",\n            \"position\": {\n                \"x\":
-    -74.01000213623047,\n                \"y\": 0.0,\n                \"z\": -13.000000953674317\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 180.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"Pasillo_03\",\n            \"pieceType\": \"Pasillo\",\n           
-    \"position\": {\n                \"x\": -68.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": -13.000000953674317\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 180.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Sala_03\",\n            \"pieceType\": \"Sala\",\n            \"position\":
-    {\n                \"x\": -62.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": -13.000000953674317\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 180.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"SALA_FINAL\",\n           
-    \"pieceType\": \"SalaFinal\",\n            \"position\": {\n                \"x\":
-    -56.01000213623047,\n                \"y\": 0.0,\n                \"z\": -13.000000953674317\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 180.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"BLOCKING_Wall\",\n            \"pieceType\":
-    \"Blocking\",\n            \"position\": {\n                \"x\": -59.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": -9.000000953674317\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 90.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Pasillo_02\",\n            \"pieceType\": \"Pasillo\",\n            \"position\":
-    {\n                \"x\": -60.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": 4.0\n            },\n            \"rotation\": {\n                \"x\":
-    0.0,\n                \"y\": 90.0,\n                \"z\": 0.0\n            }\n       
-    },\n        {\n            \"prefabName\": \"Sala_03\",\n            \"pieceType\":
-    \"Sala\",\n            \"position\": {\n                \"x\": -60.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": 8.0\n            },\n            \"rotation\":
-    {\n                \"x\": 0.0,\n                \"y\": 90.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Pasillo_01\",\n            \"pieceType\": \"Pasillo\",\n            \"position\":
-    {\n                \"x\": -60.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": 14.000000953674317\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 90.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"Sala_02\",\n           
-    \"pieceType\": \"Sala\",\n            \"position\": {\n                \"x\":
-    -60.01000213623047,\n                \"y\": 0.0,\n                \"z\": 16.000001907348634\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 90.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"Pasillo_02\",\n            \"pieceType\": \"Pasillo\",\n           
-    \"position\": {\n                \"x\": -60.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": 22.000003814697267\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 90.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Sala_02\",\n            \"pieceType\": \"Sala\",\n            \"position\":
-    {\n                \"x\": -60.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": 26.000003814697267\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 90.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"Pasillo_01\",\n           
-    \"pieceType\": \"Pasillo\",\n            \"position\": {\n                \"x\":
-    -60.01000213623047,\n                \"y\": 0.0,\n                \"z\": 32.000003814697269\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 90.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"Sala_03\",\n            \"pieceType\": \"Sala\",\n           
-    \"position\": {\n                \"x\": -60.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": 34.000003814697269\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 90.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Pasillo_03\",\n            \"pieceType\": \"Pasillo\",\n            \"position\":
-    {\n                \"x\": -60.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": 40.000003814697269\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 90.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"Sala_01\",\n           
-    \"pieceType\": \"Sala\",\n            \"position\": {\n                \"x\":
-    -60.01000213623047,\n                \"y\": 0.0,\n                \"z\": 46.000003814697269\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 90.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"SALA_FINAL\",\n            \"pieceType\": \"SalaFinal\",\n           
-    \"position\": {\n                \"x\": -60.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": 52.000003814697269\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 90.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Pasillo_03\",\n            \"pieceType\": \"Pasillo\",\n            \"position\":
-    {\n                \"x\": -64.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": 37.000003814697269\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 0.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"Sala_03\",\n           
-    \"pieceType\": \"Sala\",\n            \"position\": {\n                \"x\":
-    -70.01000213623047,\n                \"y\": 0.0,\n                \"z\": 37.000003814697269\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 0.0,\n                \"z\": 0.0\n            }\n        },\n        {\n           
-    \"prefabName\": \"SALA_FINAL\",\n            \"pieceType\": \"SalaFinal\",\n           
-    \"position\": {\n                \"x\": -76.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": 37.000003814697269\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 0.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"SALA_FINAL\",\n            \"pieceType\": \"SalaFinal\",\n            \"position\":
-    {\n                \"x\": -73.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": 33.000003814697269\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 270.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"Pasillo_02\",\n           
-    \"pieceType\": \"Pasillo\",\n            \"position\": {\n                \"x\":
-    -56.01000213623047,\n                \"y\": 0.0,\n                \"z\": 29.000003814697267\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 180.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"Sala_01\",\n            \"pieceType\": \"Sala\",\n           
-    \"position\": {\n                \"x\": -52.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": 29.000003814697267\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 180.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Pasillo_03\",\n            \"pieceType\": \"Pasillo\",\n            \"position\":
-    {\n                \"x\": -46.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": 29.000003814697267\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 180.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"Sala_03\",\n           
-    \"pieceType\": \"Sala\",\n            \"position\": {\n                \"x\":
-    -40.01000213623047,\n                \"y\": 0.0,\n                \"z\": 29.000003814697267\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 180.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"SALA_FINAL\",\n            \"pieceType\": \"SalaFinal\",\n           
-    \"position\": {\n                \"x\": -34.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": 29.000003814697267\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 180.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"SALA_FINAL\",\n            \"pieceType\": \"SalaFinal\",\n            \"position\":
-    {\n                \"x\": -37.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": 33.000003814697269\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 90.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"Pasillo_03\",\n           
-    \"pieceType\": \"Pasillo\",\n            \"position\": {\n                \"x\":
-    -56.01000213623047,\n                \"y\": 0.0,\n                \"z\": 19.000001907348634\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 180.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"Sala_03\",\n            \"pieceType\": \"Sala\",\n           
-    \"position\": {\n                \"x\": -50.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": 19.000001907348634\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 180.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Pasillo_03\",\n            \"pieceType\": \"Pasillo\",\n            \"position\":
-    {\n                \"x\": -44.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": 19.000001907348634\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 180.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"Sala_03\",\n           
-    \"pieceType\": \"Sala\",\n            \"position\": {\n                \"x\":
-    -38.01000213623047,\n                \"y\": 0.0,\n                \"z\": 19.000001907348634\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 180.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"Pasillo_03\",\n            \"pieceType\": \"Pasillo\",\n           
-    \"position\": {\n                \"x\": -32.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": 19.000001907348634\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 180.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Sala_01\",\n            \"pieceType\": \"Sala\",\n            \"position\":
-    {\n                \"x\": -26.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": 19.000001907348634\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 180.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"SALA_FINAL\",\n           
-    \"pieceType\": \"SalaFinal\",\n            \"position\": {\n                \"x\":
-    -20.01000213623047,\n                \"y\": 0.0,\n                \"z\": 19.000001907348634\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 180.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"BLOCKING_Wall\",\n            \"pieceType\":
-    \"Blocking\",\n            \"position\": {\n                \"x\": -35.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": 23.000001907348634\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 90.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"BLOCKING_Wall\",\n            \"pieceType\": \"Blocking\",\n            \"position\":
-    {\n                \"x\": -47.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": 23.000001907348634\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 90.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"Pasillo_01\",\n           
-    \"pieceType\": \"Pasillo\",\n            \"position\": {\n                \"x\":
-    -64.01000213623047,\n                \"y\": 0.0,\n                \"z\": 11.000000953674317\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 0.0,\n                \"z\": 0.0\n            }\n        },\n        {\n           
-    \"prefabName\": \"Sala_02\",\n            \"pieceType\": \"Sala\",\n           
-    \"position\": {\n                \"x\": -66.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": 11.000000953674317\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 0.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Pasillo_02\",\n            \"pieceType\": \"Pasillo\",\n            \"position\":
-    {\n                \"x\": -72.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": 11.000000953674317\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 0.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"Sala_01\",\n           
-    \"pieceType\": \"Sala\",\n            \"position\": {\n                \"x\":
-    -76.01000213623047,\n                \"y\": 0.0,\n                \"z\": 11.000000953674317\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 0.0,\n                \"z\": 0.0\n            }\n        },\n        {\n           
-    \"prefabName\": \"BLOCKING_Wall\",\n            \"pieceType\": \"Blocking\",\n           
-    \"position\": {\n                \"x\": -82.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": 11.000000953674317\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 0.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Pasillo_02\",\n            \"pieceType\": \"Pasillo\",\n            \"position\":
-    {\n                \"x\": -69.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": 15.000000953674317\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 90.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"Sala_03\",\n           
-    \"pieceType\": \"Sala\",\n            \"position\": {\n                \"x\":
-    -69.01000213623047,\n                \"y\": 0.0,\n                \"z\": 19.000001907348634\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 90.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"BLOCKING_Wall\",\n            \"pieceType\":
-    \"Blocking\",\n            \"position\": {\n                \"x\": -69.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": 25.000003814697267\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 90.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Pasillo_03\",\n            \"pieceType\": \"Pasillo\",\n            \"position\":
-    {\n                \"x\": -73.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": 22.000003814697267\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 0.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"Sala_03\",\n           
-    \"pieceType\": \"Sala\",\n            \"position\": {\n                \"x\":
-    -79.01000213623047,\n                \"y\": 0.0,\n                \"z\": 22.000003814697267\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 0.0,\n                \"z\": 0.0\n            }\n        },\n        {\n           
-    \"prefabName\": \"BLOCKING_Wall\",\n            \"pieceType\": \"Blocking\",\n           
-    \"position\": {\n                \"x\": -85.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": 22.000003814697267\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 0.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"BLOCKING_Wall\",\n            \"pieceType\": \"Blocking\",\n            \"position\":
-    {\n                \"x\": -82.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": 18.000003814697267\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 270.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"Pasillo_03\",\n           
-    \"pieceType\": \"Pasillo\",\n            \"position\": {\n                \"x\":
-    -48.01000213623047,\n                \"y\": 0.0,\n                \"z\": 4.0\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 90.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"BLOCKING_Wall\",\n            \"pieceType\":
-    \"Blocking\",\n            \"position\": {\n                \"x\": -48.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": 10.000000953674317\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 90.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Pasillo_03\",\n            \"pieceType\": \"Pasillo\",\n            \"position\":
-    {\n                \"x\": -38.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": -4.0\n            },\n            \"rotation\": {\n                \"x\":
-    0.0,\n                \"y\": 270.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"Sala_03\",\n           
-    \"pieceType\": \"Sala\",\n            \"position\": {\n                \"x\":
-    -38.01000213623047,\n                \"y\": 0.0,\n                \"z\": -10.000000953674317\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 270.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"Pasillo_01\",\n            \"pieceType\": \"Pasillo\",\n           
-    \"position\": {\n                \"x\": -38.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": -16.000001907348634\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 270.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Sala_03\",\n            \"pieceType\": \"Sala\",\n            \"position\":
-    {\n                \"x\": -38.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": -18.000001907348634\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 270.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"Pasillo_01\",\n           
-    \"pieceType\": \"Pasillo\",\n            \"position\": {\n                \"x\":
-    -38.01000213623047,\n                \"y\": 0.0,\n                \"z\": -24.000003814697267\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 270.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"Sala_02\",\n            \"pieceType\": \"Sala\",\n           
-    \"position\": {\n                \"x\": -38.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": -26.000003814697267\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 270.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Pasillo_01\",\n            \"pieceType\": \"Pasillo\",\n            \"position\":
-    {\n                \"x\": -38.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": -32.000003814697269\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 270.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"Sala_02\",\n           
-    \"pieceType\": \"Sala\",\n            \"position\": {\n                \"x\":
-    -38.01000213623047,\n                \"y\": 0.0,\n                \"z\": -34.000003814697269\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 270.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"Pasillo_02\",\n            \"pieceType\": \"Pasillo\",\n           
-    \"position\": {\n                \"x\": -38.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": -40.000003814697269\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 270.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Sala_01\",\n            \"pieceType\": \"Sala\",\n            \"position\":
-    {\n                \"x\": -38.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": -44.000003814697269\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 270.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"Pasillo_01\",\n           
-    \"pieceType\": \"Pasillo\",\n            \"position\": {\n                \"x\":
-    -38.01000213623047,\n                \"y\": 0.0,\n                \"z\": -50.000003814697269\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 270.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"Sala_01\",\n            \"pieceType\": \"Sala\",\n           
-    \"position\": {\n                \"x\": -38.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": -52.000003814697269\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 270.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Pasillo_01\",\n            \"pieceType\": \"Pasillo\",\n            \"position\":
-    {\n                \"x\": -38.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": -58.000003814697269\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 270.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"Sala_02\",\n           
-    \"pieceType\": \"Sala\",\n            \"position\": {\n                \"x\":
-    -38.01000213623047,\n                \"y\": 0.0,\n                \"z\": -60.000003814697269\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 270.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"SALA_FINAL\",\n            \"pieceType\": \"SalaFinal\",\n           
-    \"position\": {\n                \"x\": -38.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": -66.00000762939453\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 270.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"SALA_FINAL\",\n            \"pieceType\": \"SalaFinal\",\n            \"position\":
-    {\n                \"x\": -42.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": -63.000003814697269\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 0.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"Pasillo_02\",\n           
-    \"pieceType\": \"Pasillo\",\n            \"position\": {\n                \"x\":
-    -42.01000213623047,\n                \"y\": 0.0,\n                \"z\": -37.000003814697269\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 0.0,\n                \"z\": 0.0\n            }\n        },\n        {\n           
-    \"prefabName\": \"Sala_03\",\n            \"pieceType\": \"Sala\",\n           
-    \"position\": {\n                \"x\": -46.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": -37.000003814697269\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 0.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Pasillo_03\",\n            \"pieceType\": \"Pasillo\",\n            \"position\":
-    {\n                \"x\": -52.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": -37.000003814697269\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 0.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"Sala_01\",\n           
-    \"pieceType\": \"Sala\",\n            \"position\": {\n                \"x\":
-    -58.01000213623047,\n                \"y\": 0.0,\n                \"z\": -37.000003814697269\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 0.0,\n                \"z\": 0.0\n            }\n        },\n        {\n           
-    \"prefabName\": \"BLOCKING_Wall\",\n            \"pieceType\": \"Blocking\",\n           
-    \"position\": {\n                \"x\": -64.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": -37.000003814697269\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 0.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Pasillo_01\",\n            \"pieceType\": \"Pasillo\",\n            \"position\":
-    {\n                \"x\": -49.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": -41.000003814697269\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 270.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"Sala_01\",\n           
-    \"pieceType\": \"Sala\",\n            \"position\": {\n                \"x\":
-    -49.01000213623047,\n                \"y\": 0.0,\n                \"z\": -43.000003814697269\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 270.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"Pasillo_01\",\n            \"pieceType\": \"Pasillo\",\n           
-    \"position\": {\n                \"x\": -49.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": -49.000003814697269\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 270.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Sala_03\",\n            \"pieceType\": \"Sala\",\n            \"position\":
-    {\n                \"x\": -49.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": -51.000003814697269\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 270.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"BLOCKING_Wall\",\n           
-    \"pieceType\": \"Blocking\",\n            \"position\": {\n                \"x\":
-    -49.01000213623047,\n                \"y\": 0.0,\n                \"z\": -57.000003814697269\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 270.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"BLOCKING_Wall\",\n            \"pieceType\":
-    \"Blocking\",\n            \"position\": {\n                \"x\": -45.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": -54.000003814697269\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 180.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Pasillo_03\",\n            \"pieceType\": \"Pasillo\",\n            \"position\":
-    {\n                \"x\": -42.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": -29.000003814697267\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 0.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"Sala_02\",\n           
-    \"pieceType\": \"Sala\",\n            \"position\": {\n                \"x\":
-    -48.01000213623047,\n                \"y\": 0.0,\n                \"z\": -29.000003814697267\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 0.0,\n                \"z\": 0.0\n            }\n        },\n        {\n           
-    \"prefabName\": \"Pasillo_03\",\n            \"pieceType\": \"Pasillo\",\n           
-    \"position\": {\n                \"x\": -54.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": -29.000003814697267\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 0.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Sala_02\",\n            \"pieceType\": \"Sala\",\n            \"position\":
-    {\n                \"x\": -60.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": -29.000003814697267\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 0.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"BLOCKING_Wall\",\n           
-    \"pieceType\": \"Blocking\",\n            \"position\": {\n                \"x\":
-    -66.01000213623047,\n                \"y\": 0.0,\n                \"z\": -29.000003814697267\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 0.0,\n                \"z\": 0.0\n            }\n        },\n        {\n           
-    \"prefabName\": \"Pasillo_03\",\n            \"pieceType\": \"Pasillo\",\n           
-    \"position\": {\n                \"x\": -63.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": -25.000003814697267\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 90.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"BLOCKING_Wall\",\n            \"pieceType\": \"Blocking\",\n            \"position\":
-    {\n                \"x\": -63.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": -19.000003814697267\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 90.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"Pasillo_02\",\n           
-    \"pieceType\": \"Pasillo\",\n            \"position\": {\n                \"x\":
-    -51.01000213623047,\n                \"y\": 0.0,\n                \"z\": -25.000003814697267\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 90.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"BLOCKING_Wall\",\n            \"pieceType\":
-    \"Blocking\",\n            \"position\": {\n                \"x\": -51.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": -21.000003814697267\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 90.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Pasillo_02\",\n            \"pieceType\": \"Pasillo\",\n            \"position\":
-    {\n                \"x\": -34.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": -21.000001907348634\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 180.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"Sala_03\",\n           
-    \"pieceType\": \"Sala\",\n            \"position\": {\n                \"x\":
-    -30.01000213623047,\n                \"y\": 0.0,\n                \"z\": -21.000001907348634\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 180.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"Pasillo_02\",\n            \"pieceType\": \"Pasillo\",\n           
-    \"position\": {\n                \"x\": -24.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": -21.000001907348634\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 180.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Sala_02\",\n            \"pieceType\": \"Sala\",\n            \"position\":
-    {\n                \"x\": -20.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": -21.000001907348634\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 180.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"Pasillo_01\",\n           
-    \"pieceType\": \"Pasillo\",\n            \"position\": {\n                \"x\":
-    -14.010002136230469,\n                \"y\": 0.0,\n                \"z\": -21.000001907348634\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 180.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"Sala_01\",\n            \"pieceType\": \"Sala\",\n           
-    \"position\": {\n                \"x\": -12.010002136230469,\n               
-    \"y\": 0.0,\n                \"z\": -21.000001907348634\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 180.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Pasillo_01\",\n            \"pieceType\": \"Pasillo\",\n            \"position\":
-    {\n                \"x\": -6.010002136230469,\n                \"y\": 0.0,\n               
-    \"z\": -21.000001907348634\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 180.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"Sala_03\",\n           
-    \"pieceType\": \"Sala\",\n            \"position\": {\n                \"x\":
-    -4.010002136230469,\n                \"y\": 0.0,\n                \"z\": -21.000001907348634\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 180.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"Pasillo_02\",\n            \"pieceType\": \"Pasillo\",\n           
-    \"position\": {\n                \"x\": 1.9899978637695313,\n               
-    \"y\": 0.0,\n                \"z\": -21.000001907348634\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 180.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Sala_01\",\n            \"pieceType\": \"Sala\",\n            \"position\":
-    {\n                \"x\": 5.989997863769531,\n                \"y\": 0.0,\n               
-    \"z\": -21.000001907348634\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 180.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"SALA_FINAL\",\n           
-    \"pieceType\": \"SalaFinal\",\n            \"position\": {\n                \"x\":
-    11.989997863769532,\n                \"y\": 0.0,\n                \"z\": -21.000001907348634\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 180.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"Pasillo_03\",\n            \"pieceType\": \"Pasillo\",\n           
-    \"position\": {\n                \"x\": -1.0100021362304688,\n               
-    \"y\": 0.0,\n                \"z\": -17.000001907348634\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 90.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Sala_01\",\n            \"pieceType\": \"Sala\",\n            \"position\":
-    {\n                \"x\": -1.0100011825561524,\n                \"y\": 0.0,\n               
-    \"z\": -11.000000953674317\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 90.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"BLOCKING_Wall\",\n           
-    \"pieceType\": \"Blocking\",\n            \"position\": {\n                \"x\":
-    -1.010000228881836,\n                \"y\": 0.0,\n                \"z\": -5.0\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 90.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"Pasillo_03\",\n            \"pieceType\": \"Pasillo\",\n           
-    \"position\": {\n                \"x\": -17.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": -25.000001907348634\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 270.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Sala_02\",\n            \"pieceType\": \"Sala\",\n            \"position\":
-    {\n                \"x\": -17.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": -31.000003814697267\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 270.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"Pasillo_01\",\n           
-    \"pieceType\": \"Pasillo\",\n            \"position\": {\n                \"x\":
-    -17.01000213623047,\n                \"y\": 0.0,\n                \"z\": -37.000003814697269\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 270.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"Sala_03\",\n            \"pieceType\": \"Sala\",\n           
-    \"position\": {\n                \"x\": -17.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": -39.000003814697269\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 270.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Pasillo_01\",\n            \"pieceType\": \"Pasillo\",\n            \"position\":
-    {\n                \"x\": -17.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": -45.000003814697269\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 270.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"Sala_02\",\n           
-    \"pieceType\": \"Sala\",\n            \"position\": {\n                \"x\":
-    -17.01000213623047,\n                \"y\": 0.0,\n                \"z\": -47.000003814697269\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 270.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"SALA_FINAL\",\n            \"pieceType\": \"SalaFinal\",\n           
-    \"position\": {\n                \"x\": -17.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": -53.000003814697269\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 270.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"SALA_FINAL\",\n            \"pieceType\": \"SalaFinal\",\n            \"position\":
-    {\n                \"x\": -21.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": -50.000003814697269\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 0.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"Pasillo_01\",\n           
-    \"pieceType\": \"Pasillo\",\n            \"position\": {\n                \"x\":
-    -13.010001182556153,\n                \"y\": 0.0,\n                \"z\": -42.000003814697269\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 180.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"Sala_03\",\n            \"pieceType\": \"Sala\",\n           
-    \"position\": {\n                \"x\": -11.010001182556153,\n               
-    \"y\": 0.0,\n                \"z\": -42.000003814697269\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 180.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"SALA_FINAL\",\n            \"pieceType\": \"SalaFinal\",\n            \"position\":
-    {\n                \"x\": -5.010001182556152,\n                \"y\": 0.0,\n               
-    \"z\": -42.000003814697269\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 180.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"SALA_FINAL\",\n           
-    \"pieceType\": \"SalaFinal\",\n            \"position\": {\n                \"x\":
-    -8.010001182556153,\n                \"y\": 0.0,\n                \"z\": -38.000003814697269\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 90.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"Pasillo_01\",\n            \"pieceType\": \"Pasillo\",\n           
-    \"position\": {\n                \"x\": -21.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": -34.000003814697269\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 0.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Sala_01\",\n            \"pieceType\": \"Sala\",\n            \"position\":
-    {\n                \"x\": -23.01000213623047,\n                \"y\": 0.0,\n               
-    \"z\": -34.000003814697269\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 0.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"BLOCKING_Wall\",\n           
-    \"pieceType\": \"Blocking\",\n            \"position\": {\n                \"x\":
-    -29.01000213623047,\n                \"y\": 0.0,\n                \"z\": -34.000003814697269\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 0.0,\n                \"z\": 0.0\n            }\n        },\n        {\n           
-    \"prefabName\": \"Pasillo_03\",\n            \"pieceType\": \"Pasillo\",\n           
-    \"position\": {\n                \"x\": -27.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": -17.000001907348634\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 90.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Sala_01\",\n            \"pieceType\": \"Sala\",\n            \"position\":
-    {\n                \"x\": -27.010000228881837,\n                \"y\": 0.0,\n               
-    \"z\": -11.000000953674317\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 90.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"BLOCKING_Wall\",\n           
-    \"pieceType\": \"Blocking\",\n            \"position\": {\n                \"x\":
-    -27.010000228881837,\n                \"y\": 0.0,\n                \"z\": -5.0\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 90.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"BLOCKING_Wall\",\n            \"pieceType\":
-    \"Blocking\",\n            \"position\": {\n                \"x\": -34.01000213623047,\n               
-    \"y\": 0.0,\n                \"z\": -13.000000953674317\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 180.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Pasillo_03\",\n            \"pieceType\": \"Pasillo\",\n            \"position\":
-    {\n                \"x\": -26.010000228881837,\n                \"y\": 0.0,\n               
-    \"z\": 4.0\n            },\n            \"rotation\": {\n                \"x\":
-    0.0,\n                \"y\": 90.0,\n                \"z\": 0.0\n            }\n       
-    },\n        {\n            \"prefabName\": \"BLOCKING_Wall\",\n            \"pieceType\":
-    \"Blocking\",\n            \"position\": {\n                \"x\": -26.010000228881837,\n               
-    \"y\": 0.0,\n                \"z\": 10.000000953674317\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 90.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Pasillo_03\",\n            \"pieceType\": \"Pasillo\",\n            \"position\":
-    {\n                \"x\": -16.010000228881837,\n                \"y\": 0.0,\n               
-    \"z\": -4.0\n            },\n            \"rotation\": {\n                \"x\":
-    0.0,\n                \"y\": 270.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"Sala_03\",\n           
-    \"pieceType\": \"Sala\",\n            \"position\": {\n                \"x\":
-    -16.009998321533204,\n                \"y\": 0.0,\n                \"z\": -10.000000953674317\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 270.0,\n                \"z\": 0.0\n            }\n        },\n       
-    {\n            \"prefabName\": \"BLOCKING_Wall\",\n            \"pieceType\":
-    \"Blocking\",\n            \"position\": {\n                \"x\": -16.009998321533204,\n               
-    \"y\": 0.0,\n                \"z\": -16.000001907348634\n            },\n           
-    \"rotation\": {\n                \"x\": 0.0,\n                \"y\": 270.0,\n               
-    \"z\": 0.0\n            }\n        },\n        {\n            \"prefabName\":
-    \"Pasillo_03\",\n            \"pieceType\": \"Pasillo\",\n            \"position\":
-    {\n                \"x\": -12.009997367858887,\n                \"y\": 0.0,\n               
-    \"z\": -13.000000953674317\n            },\n            \"rotation\": {\n               
-    \"x\": 0.0,\n                \"y\": 180.0,\n                \"z\": 0.0\n           
-    }\n        },\n        {\n            \"prefabName\": \"BLOCKING_Wall\",\n           
-    \"pieceType\": \"Blocking\",\n            \"position\": {\n                \"x\":
-    -6.009997367858887,\n                \"y\": 0.0,\n                \"z\": -13.000000953674317\n           
-    },\n            \"rotation\": {\n                \"x\": 0.0,\n               
-    \"y\": 180.0,\n                \"z\": 0.0\n            }\n        }\n    ]\n}"
-  jsonFileName: level.json
-  autoSaveJson: 1
+    \"SalaFinal\",\n            \"position\": {\n                \"x\": -10.010000228881836,\n               
+    \"y\": 0.0,\n                \"z\": -4.0\n            },\n            \"rotation\":
+    {\n                \"x\": 0.0,\n                \"y\": 270.0,\n               
+    \"z\": 0.0\n            }\n        }\n    ]\n}"
   forcedRoomPrefabName: 
 --- !u!4 &2061379486
 Transform:
@@ -5629,6 +5019,7 @@ SceneRoots:
   - {fileID: 135981320}
   - {fileID: 504414656}
   - {fileID: 72501438}
-  - {fileID: 1123674616}
   - {fileID: 2061379486}
   - {fileID: 1971188574}
+  - {fileID: 1123674616}
+  - {fileID: 512634647}

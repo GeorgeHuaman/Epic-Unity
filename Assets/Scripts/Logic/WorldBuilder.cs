@@ -108,6 +108,9 @@ public class WorldBuilder : MonoBehaviour
 
         proceduralGenerator.forcedRoomPrefabName =
             config.parameters.room_prefab;
+
+        proceduralGenerator.useCorridors =
+            config.parameters.use_corridors;
     }
 
 }

@@ -22,21 +22,17 @@ public class ElementoEscena
     public float pos_y;
     public float pos_z;
     public float rot_y; 
-    public Dictionary<string, string> data; // Para textos de diálogos o preguntas
+    public Dictionary<string, string> data; // Para textos de diï¿½logos o preguntas
 
 }
 [Serializable]
 public class WorldParameters
 {
     public int length = 10;
-
     public float branch_probability = 0.3f;
-
     public string room_prefab = "";
-
     public string side = "both";
-
     public float maze_intensity = 0.5f;
-
     public int enemy_density = 0;
+    public bool use_corridors = true;
 }

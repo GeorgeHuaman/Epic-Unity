@@ -33,6 +33,9 @@ public class AiLevelManager : MonoBehaviour
 
         generator.forcedRoomPrefabName =
             config.parameters.room_prefab;
+
+        generator.useCorridors =
+            config.parameters.use_corridors;
     }
 
     void SpawnSceneElements(WorldConfig config)
@@ -41,7 +44,7 @@ public class AiLevelManager : MonoBehaviour
         {
             Debug.Log("Spawn: " + e.prefab_id);
 
-            // aquí haces instantiate
+            // aquï¿½ haces instantiate
         }
     }
 }

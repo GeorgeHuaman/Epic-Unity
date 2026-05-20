@@ -23,6 +23,7 @@ public class OpenAIConnector : MonoBehaviour
             1. TEMPLATE:
             - Usa 'template': 'linear' cuando el usuario pida:
               - niveles procedurales
+              - salas (rooms)
               - pasillos
               - laberintos
               - estructuras largas
@@ -40,23 +41,29 @@ public class OpenAIConnector : MonoBehaviour
             El template 'linear' usa un ProceduralLevelGenerator.
 
             PARÁMETROS DISPONIBLES:
-
             {
-              'length': int,
+              'length': int, (Este es el número TOTAL de salas que tendrá el nivel)
               'branch_probability': float,
               'room_prefab': string,
               'side': string,
               'maze_intensity': float,
-              'enemy_density': int
+              'enemy_density': int,
+              'use_corridors': bool (Si es false, las salas se conectan directamente sin pasillos)
             }
 
             DESCRIPCIÓN:
             - length:
-              Cantidad principal de segmentos del nivel.
+              Cantidad total de SALAS del nivel (incluyendo inicio y fin).
               Valores recomendados:
-              5 = corto
+              3 = nivel muy corto
+              5 = nivel corto
               10 = mediano
               20+ = largo
+
+            - use_corridors:
+              Define si se deben usar pasillos para conectar las salas.
+              Por defecto es true.
+              Si el usuario pide explícitamente ""sin pasillos"", ponlo en false.
 
             - branch_probability:
               Probabilidad de crear caminos secundarios.
@@ -122,10 +129,10 @@ public class OpenAIConnector : MonoBehaviour
             IDs DISPONIBLES:
 
             SKYBOX:
-            - 'sky_day'
-            - 'sky_mars'
-            - 'sky_night'
-            - 'sky_sunset'
+            - 'sky_day' (para día, sol)
+            - 'sky_mars' (para Marte, rojo, desierto)
+            - 'sky_night' (para noche, oscuridad)
+            - 'sky_sunset' (para atardecer)
 
             TEMPLATES:
             - 'PFB_Lab'

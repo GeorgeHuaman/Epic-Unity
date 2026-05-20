@@ -32,11 +32,14 @@ public class ProceduralLevelGenerator : MonoBehaviour
     public List<GameObject> pasilloPrefabs;
 
     [Header("Configuración de Generación")]
-    [Range(1, 20)]
+    [Tooltip("Número total de salas que tendrá el camino principal (incluyendo inicial y final)")]
+    [Range(2, 30)]
     public int mainPathLength = 10;
 
     [Range(0f, 1f)]
     public float branchProbability = 0.3f;
+
+    public bool useCorridors = true;
 
     [Header("Construcción Visual")]
     public float buildDelay = 0.15f;
@@ -45,13 +48,11 @@ public class ProceduralLevelGenerator : MonoBehaviour
     public LayerMask detectionLayer;
     public Vector3 overlapBoxSize = new Vector3(4f, 4f, 4f);
 
-    [Header("JSON")]
+    //[Header("JSON")]
     [TextArea(10, 30)]
+    [HideInInspector]
     public string generatedJson;
 
-    [Header("Save System")]
-    public string jsonFileName = "level.json";
-    public bool autoSaveJson = true;
 
     [Header("AI")]
     public string forcedRoomPrefabName;
@@ -69,6 +70,19 @@ public class ProceduralLevelGenerator : MonoBehaviour
         Instance = this;
     }
 
+    private void FindAndStoreNpcPositions(GameObject piece)
+    {
+        if (NPCFinder.Instance == null) return;
+
+        foreach (Transform child in piece.GetComponentsInChildren<Transform>())
+        {
+            if (child.name.StartsWith("NPC_"))
+            {
+                NPCFinder.Instance.RegistrarPosicionNPC(child.position);
+            }
+        }
+    }
+
     [ContextMenu("Generate")]
     public void Generate()
     {
@@ -79,6 +93,7 @@ public class ProceduralLevelGenerator : MonoBehaviour
     private IEnumerator GenerateCoroutine()
     {
         Clear();
+        if (NPCFinder.Instance != null) NPCFinder.Instance.LimpiarPosiciones();
 
         currentLevelData = new LevelData();
 
@@ -97,6 +112,7 @@ public class ProceduralLevelGenerator : MonoBehaviour
         generatedPieces.Add(startRoom);
 
         SavePieceData(startRoom, "SalaInicial");
+        FindAndStoreNpcPositions(startRoom);
 
         yield return new WaitForSeconds(buildDelay);
 
@@ -114,6 +130,7 @@ public class ProceduralLevelGenerator : MonoBehaviour
         );
 
         UIManager.Instance.configuracionActual.ordenSala = generatedJson;
+        SetPositionPlayer.Instance.Set();
     }
 
     private IEnumerator SpawnNextLevelCoroutine(
@@ -122,7 +139,19 @@ public class ProceduralLevelGenerator : MonoBehaviour
         PieceType parentType
     )
     {
-        if (iteration >= mainPathLength)
+        // Si usamos pasillos, el camino es Sala -> Pasillo -> Sala (alternado).
+        // Si no usamos pasillos, el camino es Sala -> Sala -> Sala.
+        int totalPiecesOnMainPath;
+        if (useCorridors)
+        {
+            totalPiecesOnMainPath = (mainPathLength - 1) * 2 - 1;
+        }
+        else
+        {
+            totalPiecesOnMainPath = mainPathLength - 2; // -2 porque ya tenemos la inicial y la final se pone al terminar.
+        }
+
+        if (iteration >= totalPiecesOnMainPath)
         {
             yield return StartCoroutine(
                 PlaceFinalRoomsOrWallsCoroutine(
@@ -153,10 +182,15 @@ public class ProceduralLevelGenerator : MonoBehaviour
 
             if (shouldAttemptSpawn)
             {
-                PieceType nextType =
-                    (parentType == PieceType.Sala)
-                    ? PieceType.Pasillo
-                    : PieceType.Sala;
+                PieceType nextType;
+                if (useCorridors)
+                {
+                    nextType = (parentType == PieceType.Sala) ? PieceType.Pasillo : PieceType.Sala;
+                }
+                else
+                {
+                    nextType = PieceType.Sala;
+                }
 
                 GameObject prefabToSpawn =
                     GetRandomPrefab(nextType);
@@ -182,6 +216,8 @@ public class ProceduralLevelGenerator : MonoBehaviour
                         nextPiece,
                         nextType.ToString()
                     );
+
+                    FindAndStoreNpcPositions(nextPiece);
 
                     Physics.SyncTransforms();
 
@@ -242,7 +278,9 @@ public class ProceduralLevelGenerator : MonoBehaviour
                     final,
                     "SalaFinal"
                 );
-            }
+
+                FindAndStoreNpcPositions(final);
+                }
             else
             {
                 PlaceBlockingObject(pivot);

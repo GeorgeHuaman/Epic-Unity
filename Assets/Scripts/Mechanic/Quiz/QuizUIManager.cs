@@ -17,7 +17,7 @@ public class QuizUIManager : MonoBehaviour
     [Header("Configuración VR")]
     public float escalaVR = 0.002f;
     private Camera camaraPrincipal;
-    private NPCQuiz quizActual;
+    private Quiz quizActual;
 
     private void Awake()
     {
@@ -51,7 +51,7 @@ public class QuizUIManager : MonoBehaviour
         return obj;
     }
 
-    public void MostrarQuiz(NPCQuiz data)
+    public void MostrarQuiz(Quiz data)
     {
         quizActual = data;
         textoPregunta.text = data.pregunta;
