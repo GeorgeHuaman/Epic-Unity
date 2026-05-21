@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float xRotation = 0f;
     private bool canMove = true;
+    private bool canLook = true;
 
     private InputAction moveAction;
     private InputAction lookAction;
@@ -27,26 +28,32 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (!canMove || moveAction == null || lookAction == null) return;
+        if (moveAction == null || lookAction == null) return;
 
         // 1. Mirar con el Mouse (Delta)
-        Vector2 lookValue = lookAction.ReadValue<Vector2>();
-        float mouseX = lookValue.x * mouseSensitivity * Time.deltaTime;
-        float mouseY = lookValue.y * mouseSensitivity * Time.deltaTime;
+        if (canLook)
+        {
+            Vector2 lookValue = lookAction.ReadValue<Vector2>();
+            float mouseX = lookValue.x * mouseSensitivity * Time.deltaTime;
+            float mouseY = lookValue.y * mouseSensitivity * Time.deltaTime;
 
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        playerCamera.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        transform.Rotate(Vector3.up * mouseX);
+            playerCamera.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+            transform.Rotate(Vector3.up * mouseX);
+        }
 
         // 2. Caminar con WASD
-        Vector2 moveValue = moveAction.ReadValue<Vector2>();
-        float x = moveValue.x;
-        float z = moveValue.y;
+        if (canMove)
+        {
+            Vector2 moveValue = moveAction.ReadValue<Vector2>();
+            float x = moveValue.x;
+            float z = moveValue.y;
 
-        Vector3 move = transform.right * x + transform.forward * z;
-        controller.Move(move * speed * Time.deltaTime);
+            Vector3 move = transform.right * x + transform.forward * z;
+            controller.Move(move * speed * Time.deltaTime);
+        }
 
         // Gravedad básica para que no flote
         controller.Move(Vector3.down * 9.8f * Time.deltaTime);
@@ -55,8 +62,16 @@ public class PlayerMovement : MonoBehaviour
     // Función para bloquear el movimiento cuando está leyendo o respondiendo un quiz
     public void SetMovement(bool state)
     {
-        //canMove = state;
-        //Cursor.lockState = state ? CursorLockMode.Locked : CursorLockMode.None;
-        //Cursor.visible = !state;
+        canMove = state;
+        canLook = state;
+        Cursor.lockState = state ? CursorLockMode.Locked : CursorLockMode.None;
+        Cursor.visible = !state;
+    }
+
+    public void SetCursorState(bool locked)
+    {
+        canLook = locked;
+        Cursor.lockState = locked ? CursorLockMode.Locked : CursorLockMode.None;
+        Cursor.visible = !locked;
     }
 }

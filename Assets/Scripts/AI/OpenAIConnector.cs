@@ -48,7 +48,8 @@ public class OpenAIConnector : MonoBehaviour
               'side': string,
               'maze_intensity': float,
               'enemy_density': int,
-              'use_corridors': bool (Si es false, las salas se conectan directamente sin pasillos)
+              'use_corridors': bool, (Si es false, las salas se conectan directamente sin pasillos)
+              'spawn_victory': bool (Si es true, se añade un punto de victoria al final del nivel)
             }
 
             DESCRIPCIÓN:
@@ -59,6 +60,10 @@ public class OpenAIConnector : MonoBehaviour
               5 = nivel corto
               10 = mediano
               20+ = largo
+
+            - spawn_victory:
+              Define si se debe crear un punto de victoria o meta al final del nivel.
+              Debe ser true si el usuario menciona 'victoria', 'ganar', 'meta', 'finalizar nivel', o similares.
 
             - use_corridors:
               Define si se deben usar pasillos para conectar las salas.
@@ -162,6 +167,7 @@ public class OpenAIConnector : MonoBehaviour
             - 'INT_Puerta_Quiz'
             - 'Room_Tomograph'
             - 'Room_Corridor'
+            - 'Victory'
 
             IMPORTANTE:
             - Responde SOLO JSON válido.
@@ -183,7 +189,8 @@ public class OpenAIConnector : MonoBehaviour
                 'side': 'both',
                 'maze_intensity': 0.6,
                 'enemy_density': 3,
-                'use_corridors': true
+                'use_corridors': true,
+                'spawn_victory': true
               },
               'elementos':
               [

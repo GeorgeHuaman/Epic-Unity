@@ -43,7 +43,7 @@ public class Mechanic_QuizDoor : MonoBehaviour, IConfigurable
                 deactivationCoroutine = null;
             }
             canvasQuiz.SetActive(true);
-            other.GetComponent<PlayerMovement>().SetMovement(false);
+            other.GetComponent<PlayerMovement>().SetCursorState(false);
         }
     }
 
@@ -52,7 +52,7 @@ public class Mechanic_QuizDoor : MonoBehaviour, IConfigurable
         if (other.CompareTag("Player"))
         {
             deactivationCoroutine = StartCoroutine(DesactivarQuizAlFinalDelFrame());
-            other.GetComponent<PlayerMovement>().SetMovement(true);
+            other.GetComponent<PlayerMovement>().SetCursorState(true);
         }
     }
 
@@ -103,7 +103,7 @@ public class Mechanic_QuizDoor : MonoBehaviour, IConfigurable
         // Desactivamos este Trigger para que el quiz no vuelva a aparecer
         GetComponent<Collider>().enabled = false;
 
-        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().SetMovement(true);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().SetCursorState(true);
 
     }
 

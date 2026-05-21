@@ -34,4 +34,5 @@ public class WorldParameters
     public float maze_intensity = 0.5f;
     public int enemy_density = 0;
     public bool use_corridors = true;
+    public bool spawn_victory = false;
 }

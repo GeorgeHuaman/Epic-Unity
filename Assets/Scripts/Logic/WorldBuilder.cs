@@ -111,6 +111,9 @@ public class WorldBuilder : MonoBehaviour
 
         proceduralGenerator.useCorridors =
             config.parameters.use_corridors;
+
+        proceduralGenerator.spawnVictoryAtEnd =
+            config.parameters.spawn_victory;
     }
 
 }

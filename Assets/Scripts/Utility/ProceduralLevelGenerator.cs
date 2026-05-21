@@ -25,6 +25,7 @@ public class ProceduralLevelGenerator : MonoBehaviour
     [Header("Prefabs Principales")]
     public GameObject salaInicialPrefab;
     public GameObject salaFinalPrefab;
+    public GameObject victoryPrefab;
     public List<GameObject> blockingPrefabs;
 
     [Header("Colecciones")]
@@ -40,6 +41,7 @@ public class ProceduralLevelGenerator : MonoBehaviour
     public float branchProbability = 0.3f;
 
     public bool useCorridors = true;
+    public bool spawnVictoryAtEnd = false;
 
     [Header("Construcción Visual")]
     public float buildDelay = 0.15f;
@@ -134,7 +136,6 @@ public class ProceduralLevelGenerator : MonoBehaviour
 
         generatedJson = JsonUtility.ToJson(currentLevelData, true);
         UIManager.Instance.configuracionActual.ordenSala = generatedJson;
-        SetPositionPlayer.Instance.Set();
 
         OnGenerationComplete?.Invoke();
     }
@@ -229,6 +230,19 @@ public class ProceduralLevelGenerator : MonoBehaviour
                 generatedPieces.Add(final);
                 SavePieceData(final, "SalaFinal");
                 FindAndStoreNpcPositions(final, mainPathLength - 1);
+
+                if (spawnVictoryAtEnd && victoryPrefab != null)
+                {
+                    GameObject victory = Instantiate(
+                        victoryPrefab,
+                        final.transform.position,
+                        final.transform.rotation,
+                        final.transform
+                    );
+                    victory.name = "Victory";
+                    generatedPieces.Add(victory);
+                    SavePieceData(victory, "Victory");
+                }
             }
             else
             {
@@ -280,6 +294,7 @@ public class ProceduralLevelGenerator : MonoBehaviour
     {
         if (prefabName == "SALA_INICIAL") return salaInicialPrefab;
         if (prefabName == "SALA_FINAL") return salaFinalPrefab;
+        if (prefabName == "Victory") return victoryPrefab;
         if (prefabName.StartsWith("BLOCKING_"))
         {
             string originalName = prefabName.Replace("BLOCKING_", "");
