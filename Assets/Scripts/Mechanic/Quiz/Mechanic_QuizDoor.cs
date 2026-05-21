@@ -69,13 +69,23 @@ public class Mechanic_QuizDoor : MonoBehaviour, IConfigurable
         string respuestaAlumno = respuestaInput.text.Trim().ToLower();
         string respuestaMeta = respuestaCorrecta.Trim().ToLower();
 
+        MetricaEvento metrica = new MetricaEvento
+            {
+                nombre_alumno = SessionData.NombreAlumno,
+                tipo_evento = "QUIZ_RESPONDIDO"
+            };
         if (respuestaAlumno == respuestaMeta)
         {
+            metrica.detalle = "CORRECTO: Pregunta -> " + pregunta;
+            StartCoroutine(FindObjectOfType<CloudManager>().EnviarMetrica(metrica));
             AbrirPuerta();
         }
         else
         {
             // Feedback de error (podr�a reproducir un sonido o cambiar color)
+            metrica.detalle = "ERROR: Respondió -> " + respuestaAlumno;
+            StartCoroutine(FindObjectOfType<CloudManager>().EnviarMetrica(metrica));
+
             respuestaInput.text = "";
             respuestaInput.placeholder.GetComponent<TMP_Text>().text = "Incorrecto. Intenta de nuevo...";
             respuestaInput.placeholder.GetComponent<TMP_Text>().color = Color.red;

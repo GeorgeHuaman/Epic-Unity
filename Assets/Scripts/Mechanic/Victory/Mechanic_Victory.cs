@@ -35,6 +35,14 @@ public class Mechanic_Victory : MonoBehaviour, IConfigurable
         // 2. Detener al jugador y liberar el mouse
         jugador.GetComponent<PlayerMovement>().SetMovement(false);
 
-        // (Aquí en el futuro agregaremos: EnviarMetricasAFirebase())
+        // Enviar la métrica de victoria
+        MetricaEvento metrica = new MetricaEvento
+        {
+            nombre_alumno = SessionData.NombreAlumno,
+            tipo_evento = "NIVEL_COMPLETADO",
+            detalle = "El alumno completó la clase con éxito."
+        };
+        StartCoroutine(FindObjectOfType<CloudManager>().EnviarMetrica(metrica));
+
     }
 }

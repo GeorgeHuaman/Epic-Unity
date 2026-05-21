@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     public TMP_InputField inputPrompt; // Para el prompt de generación
 
     [Header("UI Alumno")]
+    public TMP_InputField inputNombreAlumno;
     public GameObject panelAlumno;
     public TMP_InputField inputCodigoAlumno;
     public Button btnJugarAlumno;
@@ -83,8 +84,14 @@ public class UIManager : MonoBehaviour
     public void AlPresionarJugarAlumno()
     {
         string codigoInput = inputCodigoAlumno.text.Trim().ToUpper();
-        
+        string nombreInput = inputNombreAlumno.text.Trim();
+
         if (string.IsNullOrEmpty(codigoInput)) return;
+        if (string.IsNullOrEmpty(nombreInput)) nombreInput = "Alumno_Sin_Nombre";
+
+        // GUARDAMOS LOS DATOS EN LA SESIÓN GLOBAL
+        SessionData.CodigoClaseActual = codigoInput;
+        SessionData.NombreAlumno = nombreInput;
 
         btnJugarAlumno.interactable = false;
         inputCodigoAlumno.placeholder.GetComponent<TMP_Text>().text = "Buscando...";

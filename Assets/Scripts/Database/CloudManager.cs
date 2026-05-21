@@ -91,4 +91,52 @@ public class CloudManager : MonoBehaviour
             }
         }
     }
+
+    //Función para que el Alumno envíe un evento (Usa POST para crear listas)
+    public IEnumerator EnviarMetrica(MetricaEvento metrica)
+    {
+        metrica.timestamp = System.DateTime.UtcNow.ToString("o"); // Hora actual exacta
+        string json = JsonConvert.SerializeObject(metrica);
+
+        // Creamos una carpeta "metricas" y adentro una subcarpeta con el código de la clase
+        string url = databaseURL + "metricas/" + SessionData.CodigoClaseActual + ".json";
+
+        using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
+        {
+            byte[] bodyRaw = Encoding.UTF8.GetBytes(json);
+            request.uploadHandler = new UploadHandlerRaw(bodyRaw);
+            request.downloadHandler = new DownloadHandlerBuffer();
+            request.SetRequestHeader("Content-Type", "application/json");
+
+            yield return request.SendWebRequest();
+
+            if (request.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogError("Error al enviar métrica: " + request.error);
+            }
+        }
+    }
+
+    //Función para que el Docente descargue los resultados
+    public IEnumerator ObtenerMetricasClase(string codigoClase, System.Action<string> onComplete)
+    {
+        string url = databaseURL + "metricas/" + codigoClase + ".json";
+
+        using (UnityWebRequest request = UnityWebRequest.Get(url))
+        {
+            yield return request.SendWebRequest();
+
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+                // Devolvemos el JSON crudo con todos los registros
+                onComplete(request.downloadHandler.text);
+            }
+            else
+            {
+                Debug.LogError("Error al descargar métricas: " + request.error);
+                onComplete(null);
+            }
+        }
+    }
+
 }
