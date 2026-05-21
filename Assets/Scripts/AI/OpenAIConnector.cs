@@ -107,6 +107,18 @@ public class OpenAIConnector : MonoBehaviour
             Si el usuario pide NPCs, puertas, quizzes u objetos especiales,
             añádelos en 'elementos'.
 
+            - room_index:
+              Índice de la sala donde debe aparecer el elemento (basado en el orden de salas).
+              0 = Sala Inicial
+              1 = Sala 2
+              2 = Sala 3
+              ...
+              length - 1 = Sala Final
+
+              Si el usuario dice ""sala 3"", usa room_index: 2 (porque empezamos en 0).
+              Si el usuario dice ""al inicio"", usa room_index: 0.
+              Si el usuario dice ""al final"", usa room_index: length - 1.
+
             4. NPC GUÍA:
             ID:
             'NPC_Guia_Tutor'
@@ -114,6 +126,13 @@ public class OpenAIConnector : MonoBehaviour
             DATA:
             {
               'texto': '...'
+            }
+
+            FORMATO DE ELEMENTO:
+            {
+              'prefab_id': 'NPC_Guia_Tutor',
+              'room_index': int,
+              'data': { 'texto': '...' }
             }
 
             5. PUERTA QUIZ:
@@ -155,9 +174,7 @@ public class OpenAIConnector : MonoBehaviour
 
             {
               'sky_id': 'sky_day',
-
               'template': 'linear',
-
               'parameters':
               {
                 'length': 15,
@@ -165,18 +182,14 @@ public class OpenAIConnector : MonoBehaviour
                 'room_prefab': 'Sala_02',
                 'side': 'both',
                 'maze_intensity': 0.6,
-                'enemy_density': 3
+                'enemy_density': 3,
+                'use_corridors': true
               },
-
               'elementos':
               [
                 {
                   'prefab_id': 'NPC_Guia_Tutor',
-                  'pos_x': 0,
-                  'pos_y': 0,
-                  'pos_z': 2,
-                  'rot_y': 0,
-
+                  'room_index': 0,
                   'data':
                   {
                     'texto': 'Bienvenido al laboratorio'
@@ -185,7 +198,7 @@ public class OpenAIConnector : MonoBehaviour
               ]
             }
 
-        REGLA CRÍTICA:
+            REGLA CRÍTICA:
 
         Si el usuario especifica valores numéricos explícitos
         para:

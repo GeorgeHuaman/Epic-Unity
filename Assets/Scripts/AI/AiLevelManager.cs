@@ -14,10 +14,17 @@ public class AiLevelManager : MonoBehaviour
     {
         ApplyWorldConfig(config);
 
-        generator.Generate();
-        Debug.Log("1");
+        // Nos suscribimos al evento para spawnear elementos solo cuando el nivel esté listo
+        generator.OnGenerationComplete = () => {
+            if (NPCFinder.Instance != null)
+            {
+                NPCFinder.Instance.InstanciarElementos(config.elementos);
+            }
+            generator.OnGenerationComplete = null; 
+        };
 
-        SpawnSceneElements(config);
+        generator.Generate();
+        Debug.Log("Generación procedural iniciada...");
     }
 
     void ApplyWorldConfig(WorldConfig config)
@@ -25,26 +32,9 @@ public class AiLevelManager : MonoBehaviour
         if (config.parameters == null)
             return;
 
-        generator.mainPathLength =
-            config.parameters.length;
-
-        generator.branchProbability =
-            config.parameters.branch_probability;
-
-        generator.forcedRoomPrefabName =
-            config.parameters.room_prefab;
-
-        generator.useCorridors =
-            config.parameters.use_corridors;
+        generator.mainPathLength = config.parameters.length;
+        generator.branchProbability = config.parameters.branch_probability;
+        generator.forcedRoomPrefabName = config.parameters.room_prefab;
+        generator.useCorridors = config.parameters.use_corridors;
     }
-
-    void SpawnSceneElements(WorldConfig config)
-    {
-        foreach (var e in config.elementos)
-        {
-            Debug.Log("Spawn: " + e.prefab_id);
-
-            // aqu� haces instantiate
-        }
     }
-}
