@@ -37,6 +37,12 @@ public class WorldBuilder : MonoBehaviour
             {
                 ApplyProceduralParameters(config);
 
+                // Nos suscribimos al evento para spawnear elementos solo cuando el nivel esté listo
+                proceduralGenerator.OnGenerationComplete = () => {
+                    SpawnElementos(config);
+                    proceduralGenerator.OnGenerationComplete = null; 
+                };
+
                 proceduralGenerator.Generate();
 
                 proceduralGenerated = true;
@@ -61,38 +67,22 @@ public class WorldBuilder : MonoBehaviour
 
                 Debug.Log($"Cargado nivel base desde prefab: {config.template}");
             }
+
+            SpawnElementos(config);
         }
-        
-        // ELEMENTOS
-        if (config.elementos != null)
+        else if (!proceduralGenerated)
         {
-            foreach (var item in config.elementos)
-            {
-                GameObject prefab =
-                    prefabLibrary.Find(p => p != null && p.name == item.prefab_id);
-
-                if (prefab != null)
-                {
-                    Vector3 posicion =
-                        new Vector3(item.pos_x, item.pos_y, item.pos_z);
-
-                    Quaternion rotacion =
-                        Quaternion.Euler(0, item.rot_y, 0);
-
-                    GameObject obj =
-                        Instantiate(prefab,
-                            posicion,
-                            rotacion,
-                            this.transform);
-
-                    if (obj.TryGetComponent<IConfigurable>(out var configurable))
-                    {
-                        configurable.Setup(item.data);
-                    }
-                }
-            }
+            SpawnElementos(config);
         }
 
+    }
+
+    void SpawnElementos(WorldConfig config)
+    {
+        if (config.elementos != null && NPCFinder.Instance != null)
+        {
+            NPCFinder.Instance.InstanciarElementos(config.elementos);
+        }
     }
 
     void ApplyProceduralParameters(WorldConfig config)

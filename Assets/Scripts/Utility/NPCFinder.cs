@@ -6,8 +6,9 @@ public class NPCFinder : MonoBehaviour
     public static NPCFinder Instance { get; private set; }
 
     [Header("Posiciones Registradas")]
-    public Dictionary<int, Vector3> npcPositionsByRoom = new Dictionary<int, Vector3>();
+    public Dictionary<int, List<Vector3>> npcPositionsByRoom = new Dictionary<int, List<Vector3>>();
     public List<Vector3> npcPositions = new List<Vector3>();
+    private Dictionary<int, int> roomUsageCounter = new Dictionary<int, int>();
 
     private void Awake()
     {
@@ -28,6 +29,7 @@ public class NPCFinder : MonoBehaviour
     {
         npcPositions.Clear();
         npcPositionsByRoom.Clear();
+        roomUsageCounter.Clear();
     }
 
     /// <summary>
@@ -38,8 +40,9 @@ public class NPCFinder : MonoBehaviour
         npcPositions.Add(posicion);
         if (!npcPositionsByRoom.ContainsKey(roomIndex))
         {
-            npcPositionsByRoom.Add(roomIndex, posicion);
+            npcPositionsByRoom.Add(roomIndex, new List<Vector3>());
         }
+        npcPositionsByRoom[roomIndex].Add(posicion);
     }
 
     /// <summary>
@@ -47,9 +50,24 @@ public class NPCFinder : MonoBehaviour
     /// </summary>
     public Vector3? ObtenerPosicionEnSala(int roomIndex)
     {
-        if (npcPositionsByRoom.TryGetValue(roomIndex, out Vector3 pos))
+        if (npcPositionsByRoom.TryGetValue(roomIndex, out List<Vector3> positions))
         {
-            return pos;
+            if (!roomUsageCounter.ContainsKey(roomIndex))
+            {
+                roomUsageCounter[roomIndex] = 0;
+            }
+
+            int index = roomUsageCounter[roomIndex];
+            if (index < positions.Count)
+            {
+                roomUsageCounter[roomIndex]++;
+                return positions[index];
+            }
+            else
+            {
+                // Si ya usamos todos los puntos, repetimos el primero para no fallar
+                return positions[0];
+            }
         }
         return null;
     }
@@ -59,7 +77,7 @@ public class NPCFinder : MonoBehaviour
     {
         foreach (var entry in npcPositionsByRoom)
         {
-            Debug.Log($"Sala {entry.Key}: {entry.Value}");
+            Debug.Log($"Sala {entry.Key}: {entry.Value.Count} puntos registrados");
         }
     }
 
@@ -75,13 +93,12 @@ public class NPCFinder : MonoBehaviour
         }
 
         Debug.Log($"[NPCFinder] Iniciando instanciación de {elementos.Count} elementos.");
+        WorldBuilder builder = Object.FindAnyObjectByType<WorldBuilder>();
 
         foreach (var e in elementos)
         {
             Vector3 spawnPos = Vector3.zero;
             bool posFound = false;
-
-            Debug.Log($"[NPCFinder] Procesando {e.prefab_id}, room_index: {e.room_index}");
 
             // Si tiene índice de sala, buscamos la posición guardada
             if (e.room_index >= 0)
@@ -91,11 +108,10 @@ public class NPCFinder : MonoBehaviour
                 {
                     spawnPos = pos.Value;
                     posFound = true;
-                    Debug.Log($"[NPCFinder] Posición encontrada para sala {e.room_index}: {spawnPos}");
                 }
                 else
                 {
-                    Debug.LogWarning($"[NPCFinder] No se encontró punto NPC_ en la sala {e.room_index} para {e.prefab_id}. Posiciones registradas: {npcPositionsByRoom.Count}");
+                    Debug.LogWarning($"[NPCFinder] No se encontró punto NPC_ en la sala {e.room_index} para {e.prefab_id}.");
                 }
             }
             else
@@ -110,19 +126,22 @@ public class NPCFinder : MonoBehaviour
                 GameObject prefab = LoadPrefab(e.prefab_id);
                 if (prefab != null)
                 {
-                    GameObject instance = Instantiate(prefab, spawnPos, Quaternion.Euler(0, e.rot_y, 0));
+                    GameObject instance = Instantiate(prefab, spawnPos, Quaternion.Euler(0, e.rot_y, 0), builder != null ? builder.transform : null);
                     instance.name = e.prefab_id;
 
-                    if (instance.TryGetComponent<IConfigurable>(out var configurable))
+                    IConfigurable configurable = instance.GetComponent<IConfigurable>();
+                    if (configurable == null) configurable = instance.GetComponentInChildren<IConfigurable>();
+
+                    if (configurable != null)
                     {
                         configurable.Setup(e.data);
                     }
                     
-                    Debug.Log($"[NPCFinder] Spawneado {e.prefab_id} en sala {e.room_index}");
+                    Debug.Log($"[NPCFinder] Spawneado {e.prefab_id} en sala {e.room_index} en {spawnPos}");
                 }
                 else
                 {
-                    Debug.LogWarning($"[NPCFinder] No se encontró prefab para {e.prefab_id}");
+                    Debug.LogError($"[NPCFinder] ERROR: No se encontró prefab para ID '{e.prefab_id}'. Asegúrate de que esté en el prefabLibrary de WorldBuilder o en Resources/Prefabs/");
                 }
             }
         }

@@ -126,7 +126,7 @@ public class OpenAIConnector : MonoBehaviour
 
             4. NPC GUÍA:
             ID:
-            'NPC_Guia_Tutor'
+            'NPCs'
 
             DATA:
             {
@@ -135,7 +135,7 @@ public class OpenAIConnector : MonoBehaviour
 
             FORMATO DE ELEMENTO:
             {
-              'prefab_id': 'NPC_Guia_Tutor',
+              'prefab_id': 'NPCs',
               'room_index': int,
               'data': { 'texto': '...' }
             }
@@ -163,7 +163,7 @@ public class OpenAIConnector : MonoBehaviour
             - 'linear'
 
             ELEMENTOS:
-            - 'NPC_Guia_Tutor'
+            - 'NPCs'
             - 'INT_Puerta_Quiz'
             - 'Room_Tomograph'
             - 'Room_Corridor'
@@ -195,7 +195,7 @@ public class OpenAIConnector : MonoBehaviour
               'elementos':
               [
                 {
-                  'prefab_id': 'NPC_Guia_Tutor',
+                  'prefab_id': 'NPCs',
                   'room_index': 0,
                   'data':
                   {
