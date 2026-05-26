@@ -124,20 +124,32 @@ public class OpenAIConnector : MonoBehaviour
               Si el usuario dice ""al inicio"", usa room_index: 0.
               Si el usuario dice ""al final"", usa room_index: length - 1.
 
-            4. NPC GUÍA:
+            4. NPC (GUÍA o QUIZ):
             ID:
             'NPCs'
 
-            DATA:
+            Si el usuario pide un guía que hable, usa mode: 'guide'.
+            Si el usuario pide un NPC que haga preguntas o sea un examen, usa mode: 'quiz'.
+
+            DATA PARA 'guide':
             {
-              'texto': '...'
+              'mode': 'guide',
+              'texto': 'Mensaje que dirá el NPC'
             }
 
-            FORMATO DE ELEMENTO:
+            DATA PARA 'quiz':
+            {
+              'mode': 'quiz',
+              'pregunta': 'Texto de la pregunta',
+              'opciones': 'opción1;opción2;opción3;opción4', (Separadas por punto y coma)
+              'respuesta_correcta': int (Índice de la respuesta correcta, empezando en 0)
+            }
+
+            FORMATO DE ELEMENTO NPC:
             {
               'prefab_id': 'NPCs',
               'room_index': int,
-              'data': { 'texto': '...' }
+              'data': { ... }
             }
 
             5. PUERTA QUIZ:

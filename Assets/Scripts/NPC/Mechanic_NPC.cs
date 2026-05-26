@@ -11,21 +11,41 @@ public class Mechanic_NPC : MonoBehaviour, IConfigurable
 
     private string dialogoAsignado;
 
-    // Esta funciÛn es llamada por el WorldBuilder autom·ticamente
+    // Esta funci√≥n es llamada por el WorldBuilder autom√°ticamente
     public void Setup(Dictionary<string, string> data)
     {
-        // Extraemos el texto que la IA decidiÛ
+        string mode = data.ContainsKey("mode") ? data["mode"] : "guide";
+        Quiz quiz = GetComponent<Quiz>();
+
+        if (mode == "quiz" && quiz != null)
+        {
+            // Desactivar este componente y activar Quiz
+            quiz.enabled = true;
+            quiz.Setup(data);
+            
+            if (canvasDialogo != null) canvasDialogo.SetActive(false);
+            this.enabled = false;
+            return;
+        }
+
+        // Modo Gu√≠a (default)
+        if (quiz != null) quiz.enabled = false;
+        this.enabled = true;
+
+        // Extraemos el texto que la IA decidi√≥
         if (data.ContainsKey("texto"))
         {
             dialogoAsignado = data["texto"];
-            textoComponente.text = dialogoAsignado;
+            if (textoComponente != null) textoComponente.text = dialogoAsignado;
         }
 
-        canvasDialogo.SetActive(false);
+        if (canvasDialogo != null) canvasDialogo.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!enabled) return;
+
         if (other.CompareTag("Player"))
         {
             canvasDialogo.SetActive(true);
@@ -34,6 +54,8 @@ public class Mechanic_NPC : MonoBehaviour, IConfigurable
 
     private void OnTriggerExit(Collider other)
     {
+        if (!enabled) return;
+
         if (other.CompareTag("Player"))
         {
             canvasDialogo.SetActive(false);

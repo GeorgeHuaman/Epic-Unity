@@ -8,7 +8,7 @@ public class Mechanic_Victory : MonoBehaviour, IConfigurable
     public GameObject panelVictoria;
     public TMP_Text mensajeDespedida;
 
-    private string mensajeFinal = "¡Felicidades, has completado la clase!";
+    private string mensajeFinal = "ï¿½Felicidades, has completado la clase!";
 
     public void Setup(Dictionary<string, string> data)
     {
@@ -35,14 +35,14 @@ public class Mechanic_Victory : MonoBehaviour, IConfigurable
         // 2. Detener al jugador y liberar el mouse
         jugador.GetComponent<PlayerMovement>().SetMovement(false);
 
-        // Enviar la métrica de victoria
+        // Enviar la mï¿½trica de victoria
         MetricaEvento metrica = new MetricaEvento
         {
             nombre_alumno = SessionData.NombreAlumno,
             tipo_evento = "NIVEL_COMPLETADO",
-            detalle = "El alumno completó la clase con éxito."
+            detalle = "El alumno completï¿½ la clase con ï¿½xito."
         };
-        StartCoroutine(FindObjectOfType<CloudManager>().EnviarMetrica(metrica));
+        if (CloudManager.Instance != null) StartCoroutine(CloudManager.Instance.EnviarMetrica(metrica));
 
     }
 }

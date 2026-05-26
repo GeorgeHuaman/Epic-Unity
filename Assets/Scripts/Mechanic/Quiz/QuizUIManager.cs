@@ -74,6 +74,9 @@ public class QuizUIManager : MonoBehaviour
 
         ConfigurarCanvasSegunPlataforma();
         quizCanvas.gameObject.SetActive(true);
+
+        // BLOQUEAR MOVIMIENTO Y DESBLOQUEAR CURSOR USANDO INSTANCIA
+        if (PlayerMovement.Instance != null) PlayerMovement.Instance.SetMovement(false);
     }
 
     private void LimpiarRespuestas()
@@ -127,9 +130,38 @@ public class QuizUIManager : MonoBehaviour
 
     private void OnClickRespuesta(int index)
     {
-        Debug.Log(index == quizActual.indiceCorrecto ? "¡Correcto!" : "Incorrecto.");
-        CerrarQuiz();
+        bool esCorrecto = (index == quizActual.indiceCorrecto);
+
+        // PREPARAR MÉTRICA PARA FIREBASE
+        MetricaEvento metrica = new MetricaEvento
+        {
+            nombre_alumno = SessionData.NombreAlumno,
+            tipo_evento = "QUIZ_RESPONDIDO",
+            detalle = (esCorrecto ? "CORRECTO" : "ERROR") + 
+                      $" | Pregunta: {quizActual.pregunta} | Respondió: {quizActual.respuestas[index]}"
+        };
+
+        // ENVIAR A LA NUBE USANDO INSTANCIA
+        if (CloudManager.Instance != null) StartCoroutine(CloudManager.Instance.EnviarMetrica(metrica));
+
+        if (esCorrecto)
+        {
+            Debug.Log("¡Correcto!");
+            quizActual.isCompleted = true; // MARCAR COMO COMPLETADO
+            CerrarQuiz();
+        }
+        else
+        {
+            Debug.Log("Incorrecto.");
+            CerrarQuiz();
+        }
     }
 
-    public void CerrarQuiz() => quizCanvas.gameObject.SetActive(false);
+    public void CerrarQuiz()
+    {
+        quizCanvas.gameObject.SetActive(false);
+        
+        // REBLOQUEAR CURSOR Y ACTIVAR MOVIMIENTO USANDO INSTANCIA
+        if (PlayerMovement.Instance != null) PlayerMovement.Instance.SetMovement(true);
+    }
 }

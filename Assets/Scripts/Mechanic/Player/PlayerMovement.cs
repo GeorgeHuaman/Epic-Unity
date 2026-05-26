@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement Instance;
+
     public CharacterController controller;
     public Transform playerCamera;
 
@@ -15,6 +17,11 @@ public class PlayerMovement : MonoBehaviour
 
     private InputAction moveAction;
     private InputAction lookAction;
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+    }
 
     void Start()
     {

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
 using Newtonsoft.Json;
@@ -6,9 +6,16 @@ using System.Text;
 
 public class CloudManager : MonoBehaviour
 {
+    public static CloudManager Instance;
+
     [Header("Configuración Firebase")]
     // URL de la base de datos (Nota: Asegúrate de usar la URL de la Database, no de la Consola)
     public string databaseURL = "https://edtech-perumex-default-rtdb.firebaseio.com/";
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+    }
 
     // 1. Guardar en la nube (Ruta Docente)
     // Se usa IEnumerator para manejar la petición de forma asíncrona sin bloquear el juego
