@@ -64,6 +64,9 @@ public class ProceduralLevelGenerator : MonoBehaviour
     private List<GameObject> generatedPieces = new List<GameObject>();
     private LevelData currentLevelData = new LevelData();
 
+    private GameObject lastSalaPrefab;
+    private GameObject lastPasilloPrefab;
+
     private void Start()
     {
         Instance = this;
@@ -110,6 +113,9 @@ public class ProceduralLevelGenerator : MonoBehaviour
 
         if (salaInicialPrefab == null)
             yield break;
+
+        lastSalaPrefab = salaInicialPrefab;
+        lastPasilloPrefab = null;
 
         GameObject startRoom = Instantiate(
             salaInicialPrefab,
@@ -349,13 +355,34 @@ public class ProceduralLevelGenerator : MonoBehaviour
 
     private GameObject GetRandomPrefab(PieceType type)
     {
-        if (type == PieceType.Pasillo) return (pasilloPrefabs.Count > 0) ? pasilloPrefabs[Random.Range(0, pasilloPrefabs.Count)] : null;
+        if (type == PieceType.Pasillo)
+        {
+            if (pasilloPrefabs.Count == 0) return null;
+            if (pasilloPrefabs.Count == 1) return pasilloPrefabs[0];
+
+            List<GameObject> options = pasilloPrefabs.FindAll(p => p != lastPasilloPrefab);
+            GameObject selected = options[Random.Range(0, options.Count)];
+            lastPasilloPrefab = selected;
+            return selected;
+        }
+
         if (!string.IsNullOrEmpty(forcedRoomPrefabName))
         {
             GameObject forced = salaPrefabs.Find(x => x.name == forcedRoomPrefabName);
             if (forced != null) return forced;
         }
-        return (salaPrefabs.Count > 0) ? salaPrefabs[Random.Range(0, salaPrefabs.Count)] : null;
+
+        if (salaPrefabs.Count == 0) return null;
+        if (salaPrefabs.Count == 1)
+        {
+            lastSalaPrefab = salaPrefabs[0];
+            return salaPrefabs[0];
+        }
+
+        List<GameObject> salaOptions = salaPrefabs.FindAll(p => p != lastSalaPrefab);
+        GameObject selectedSala = salaOptions[Random.Range(0, salaOptions.Count)];
+        lastSalaPrefab = selectedSala;
+        return selectedSala;
     }
 
     public void Clear()
