@@ -6,29 +6,21 @@ public class AddressablesBootstrap : MonoBehaviour
 {
     IEnumerator Start()
     {
-        Debug.Log("Inicializando Addressables");
+        yield return Addressables.InitializeAsync();
+        Debug.Log("W");
+        string catalogUrl =
+            "https://pub-070e9e9f8f714c068c18e3f6e61a821a.r2.dev/Addressables/StandaloneWindows64/catalog.json";
 
-        var init = Addressables.InitializeAsync();
-        var check = Addressables.CheckForCatalogUpdates();
-        yield return check;
+        var handle = Addressables.LoadContentCatalogAsync(catalogUrl, true);
+        yield return handle;
 
-        if (check.Result != null && check.Result.Count > 0)
+        if (handle.Status == UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationStatus.Succeeded)
         {
-            yield return Addressables.UpdateCatalogs(check.Result);
+            Debug.Log("REMOTE CATALOG ACTIVE");
         }
-        while (!init.IsDone)
+        else
         {
-            Debug.Log("Progreso: " + init.PercentComplete);
-            yield return null;
+            Debug.LogError("FAILED TO LOAD REMOTE CATALOG");
         }
-
-        Debug.Log("Estado: " + init.Status);
-
-        if (init.OperationException != null)
-        {
-            Debug.LogError(init.OperationException);
-        }
-
-        Debug.Log("Addressables Inicializado");
     }
 }

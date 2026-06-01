@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using System;
 using System.Collections;
+using UnityEngine.AddressableAssets;
 
 public class TestSupabase : MonoBehaviour
 {
@@ -9,21 +10,21 @@ public class TestSupabase : MonoBehaviour
 
     IEnumerator Start()
     {
-        string url =
-        "https://vmmsekjngyulosommkmz.supabase.co/rest/v1/Worlds?select=*";
+        yield return Addressables.InitializeAsync();
+        Debug.Log("W");
+        string catalogUrl =
+            "https://pub-070e9e9f8f714c068c18e3f6e61a821a.r2.dev/Addressables/StandaloneWindows64/catalog.json";
 
-        UnityWebRequest request =
-            UnityWebRequest.Get(url);
+        var handle = Addressables.LoadContentCatalogAsync(catalogUrl, true);
+        yield return handle;
 
-        request.SetRequestHeader("apikey", apiKey);
-        request.SetRequestHeader("Authorization", "Bearer " + apiKey);
-
-        yield return request.SendWebRequest();
-
-        Debug.Log("Result = " + request.result);
-        Debug.Log("Error = " + request.error);
-
-        if (request.downloadHandler != null)
-            Debug.Log(request.downloadHandler.text);
+        if (handle.Status == UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationStatus.Succeeded)
+        {
+            Debug.Log("REMOTE CATALOG ACTIVE");
+        }
+        else
+        {
+            Debug.LogError("FAILED TO LOAD REMOTE CATALOG");
+        }
     }
 }
