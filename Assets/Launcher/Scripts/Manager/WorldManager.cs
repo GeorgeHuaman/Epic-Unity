@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class WorldManager : MonoBehaviour
@@ -20,6 +22,6 @@ public class WorldManager : MonoBehaviour
 
     public void LoadWorld(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        Addressables.LoadSceneAsync(sceneName);
     }
 }

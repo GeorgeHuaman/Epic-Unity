@@ -72,11 +72,13 @@
     <Compile Include="Assets\Scripts\UI\ManagerUI.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\AntiAliasing\FXAA\FXAA.cs" />
     <Compile Include="Assets\Scripts\AI\OpenAITester.cs" />
+    <Compile Include="Assets\Launcher\Scripts\Class\WorldWrapper.cs" />
     <Compile Include="Assets\Scripts\Logic\WorldDataModels.cs" />
     <Compile Include="Assets\Scripts\Database\SessionData.cs" />
     <Compile Include="Assets\Launcher\Scripts\Manager\UIManagerL.cs" />
     <Compile Include="Assets\Scripts\Utility\NPCFinder.cs" />
     <Compile Include="Assets\LAB\Scripts\MouseLook.cs" />
+    <Compile Include="Assets\Launcher\Scripts\WorldService.cs" />
     <Compile Include="Assets\Launcher\Scripts\Manager\GameManager.cs" />
     <Compile Include="Assets\Launcher\Scripts\Door.cs" />
     <Compile Include="Assets\Scripts\Database\CloudManager.cs" />
@@ -100,18 +102,24 @@
     <Compile Include="Assets\LAB\Standard Assets\Effects\ScreenSpaceReflection\ScreenSpaceReflection.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\Common\ImageEffectHelper.cs" />
     <Compile Include="Assets\Launcher\Scripts\Manager\WorldManager.cs" />
+    <Compile Include="Assets\Launcher\Scripts\Manager\SupaBaseManager.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\MotionBlur\Helpers\FrameBlendingFilter.cs" />
+    <Compile Include="Assets\Launcher\Scripts\Manager\LauncherManager.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\Common\MinAttribute.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\AmbientOcclusion\Helpers\Settings.cs" />
+    <Compile Include="Assets\Launcher\Scripts\Class\WorldData.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\TonemappingColorGrading\TonemappingColorGrading.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\AmbientOcclusion\AmbientOcclusion.cs" />
     <Compile Include="Assets\Launcher\Scripts\InteractionSystem.cs" />
     <Compile Include="Assets\Scripts\Mechanic\Player\PlayerMovement.cs" />
+    <Compile Include="Assets\Launcher\Scripts\WorldCardUI.cs" />
     <Compile Include="Assets\Launcher\Scripts\Interface\IInteractable.cs" />
+    <Compile Include="Assets\Launcher\Scripts\TestSupabase.cs" />
     <Compile Include="Assets\LAB\Scripts\ActionController.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\Common\RenderTextureUtility.cs" />
     <Compile Include="Assets\LAB\Scripts\CharacterMover.cs" />
     <Compile Include="Assets\Scripts\Logic\SaveManager.cs" />
+    <Compile Include="Assets\Launcher\Scripts\AddressablesBootstrap.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\TemporalAntiAliasing\TemporalAntiAliasing.cs" />
     <Compile Include="Assets\Launcher\Scripts\Bootstrap.cs" />
@@ -122,6 +130,7 @@
     <Compile Include="Assets\LAB\Standard Assets\Effects\AmbientOcclusion\Helpers\PropertyObserver.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\MotionBlur\Helpers\Settings.cs" />
     <Compile Include="Assets\Launcher\Scripts\MouseLookL.cs" />
+    <Compile Include="Assets\Launcher\Scripts\Manager\Manager.cs" />
     <Compile Include="Assets\Scripts\AI\OpenAIConnector.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +149,7 @@
     <None Include="Assets\LAB\Standard Assets\Effects\AntiAliasing\SMAA\Resources\SMAA.cginc" />
     <None Include="Assets\LAB\Standard Assets\Effects\AntiAliasing\FXAA\Resources\FXAA3.cginc" />
     <None Include="Assets\LAB\Shaders\Font.shader" />
+    <None Include="Assets\AddressableAssetsData\link.xml" />
     <None Include="Assets\LAB\Standard Assets\Effects\Bloom\Resources\Bloom.shader" />
     <None Include="Assets\LAB\Standard Assets\Effects\AntiAliasing\SMAA\Resources\SMAA.shader" />
     <None Include="Assets\LAB\Standard Assets\Effects\AmbientOcclusion\Resources\AmbientOcclusion.shader" />

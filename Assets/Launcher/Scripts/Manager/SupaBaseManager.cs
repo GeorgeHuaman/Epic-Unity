@@ -1,8 +1,13 @@
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class SupaBaseManager : MonoBehaviour
 {
-    public static GameManager Instance;
+    public static SupaBaseManager Instance;
+
+    [Header("Supabase")]
+    public string supabaseUrl;
+
+    public string anonKey;
 
     private void Awake()
     {
