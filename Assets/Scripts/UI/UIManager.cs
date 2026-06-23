@@ -27,11 +27,25 @@ public class UIManager : MonoBehaviour
     // Guardar la configuración actual temporalmente
     [HideInInspector]public WorldConfig configuracionActual; 
 
-    public static UIManager Instance;
+    private static UIManager _instance;
+    public static UIManager Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = Object.FindAnyObjectByType<UIManager>();
+            }
+            return _instance;
+        }
+    }
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
+        if (_instance == null || _instance == this)
+        {
+            _instance = this;
+        }
     }
 
     // Función para el botón de Generar

@@ -148,11 +148,13 @@ public class QuizUIManager : MonoBehaviour
         {
             Debug.Log("¡Correcto!");
             quizActual.isCompleted = true; // MARCAR COMO COMPLETADO
+            SfxAudioController.instance.CorrectSound();
             CerrarQuiz();
         }
         else
         {
             Debug.Log("Incorrecto.");
+            SfxAudioController.instance.IncorrectSound();
             CerrarQuiz();
         }
     }

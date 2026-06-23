@@ -44,7 +44,7 @@ public class OpenAIConnector : MonoBehaviour
             {
               'length': int, (Este es el número TOTAL de salas que tendrá el nivel)
               'branch_probability': float,
-              'room_prefab': string,
+              'room_prefab': string, (Dejar vacío '' para que el generador use salas aleatorias. Solo usar si se pide una sala específica para todo el nivel)
               'side': string,
               'maze_intensity': float,
               'enemy_density': int,
@@ -68,7 +68,7 @@ public class OpenAIConnector : MonoBehaviour
             - use_corridors:
               Define si se deben usar pasillos para conectar las salas.
               Por defecto es true.
-              Si el usuario pide explícitamente ""sin pasillos"", ponlo en false.
+              Si el usuario pide explícitamente 'sin pasillos', ponlo en false.
 
             - branch_probability:
               Probabilidad de crear caminos secundarios.
@@ -81,6 +81,8 @@ public class OpenAIConnector : MonoBehaviour
 
             - room_prefab:
               Nombre EXACTO del prefab de sala.
+              REGLA IMPORTANTE: Déjalo vacío ('') por defecto para permitir variedad de salas. 
+              Solo asígnale un valor si el usuario pide explícitamente que TODAS las salas sean de un tipo (ej: 'todas las salas tipo 01').
 
             SALAS DISPONIBLES:
             - 'Sala_01'
@@ -110,19 +112,21 @@ public class OpenAIConnector : MonoBehaviour
 
             3. ELEMENTOS:
             Si el usuario pide NPCs, puertas, quizzes u objetos especiales,
-            añádelos en 'elementos'.
+            añádelos TODOS en la lista ""elementos"". NO omitas ninguno.
 
             - room_index:
               Índice de la sala donde debe aparecer el elemento (basado en el orden de salas).
+              DEBE ser un número entre 0 y (length - 1).
+
               0 = Sala Inicial
               1 = Sala 2
               2 = Sala 3
               ...
-              length - 1 = Sala Final
+              length - 1 = Sala Final (Última sala)
 
-              Si el usuario dice ""sala 3"", usa room_index: 2 (porque empezamos en 0).
+              Si el usuario dice ""sala 3"", usa room_index: 2.
               Si el usuario dice ""al inicio"", usa room_index: 0.
-              Si el usuario dice ""al final"", usa room_index: length - 1.
+              Si el usuario dice ""al final"" o ""en la última sala"", usa room_index: (length - 1).
 
             4. NPC (GUÍA o QUIZ):
             ID:
@@ -142,7 +146,7 @@ public class OpenAIConnector : MonoBehaviour
               'mode': 'quiz',
               'pregunta': 'Texto de la pregunta',
               'opciones': 'opción1;opción2;opción3;opción4', (Separadas por punto y coma)
-              'respuesta_correcta': int (Índice de la respuesta correcta, empezando en 0)
+              'respuesta_correcta': 'int' (Índice de la respuesta correcta como STRING, empezando en '0')
             }
 
             FORMATO DE ELEMENTO NPC:
@@ -184,7 +188,8 @@ public class OpenAIConnector : MonoBehaviour
             IMPORTANTE:
             - Responde SOLO JSON válido.
             - NO expliques nada.
-            - NO uses markdown.
+            - NO uses markdown (```json ... ```).
+            - NO envuelvas el objeto en un array [ ]. Responde solo el objeto { }.
             - NO uses texto fuera del JSON.
             - Los números NO deben ir entre comillas.
 
@@ -197,7 +202,7 @@ public class OpenAIConnector : MonoBehaviour
               {
                 'length': 15,
                 'branch_probability': 0.7,
-                'room_prefab': 'Sala_02',
+                'room_prefab': '',
                 'side': 'both',
                 'maze_intensity': 0.6,
                 'enemy_density': 3,
@@ -265,7 +270,53 @@ public class OpenAIConnector : MonoBehaviour
                     JObject response = JObject.Parse(request.downloadHandler.text);
                     string content = response["choices"][0]["message"]["content"].ToString();
                     lastJsonReceived = content;
-                    WorldConfig config = JsonConvert.DeserializeObject<WorldConfig>(content);
+                    
+                    // Si la IA responde con un array [ { ... } ], tomamos el primer objeto
+                    if (content.Trim().StartsWith("[") && content.Trim().EndsWith("]"))
+                    {
+                        Debug.LogWarning("[OpenAIConnector] La IA devolvió un array en lugar de un objeto. Extrayendo el primer elemento.");
+                        JArray array = JArray.Parse(content);
+                        if (array.Count > 0)
+                        {
+                            content = array[0].ToString();
+                        }
+                    }
+
+                    // Parseamos manualmente para asegurar que no perdemos elementos por tipos de datos
+                    JObject jsonObj = JObject.Parse(content);
+                    WorldConfig config = jsonObj.ToObject<WorldConfig>();
+                    
+                    if (config != null && config.elementos != null)
+                    {
+                        // Sincronizamos elementos desde el JObject por si acaso
+                        JArray elementosArray = (JArray)jsonObj["elementos"];
+                        if (elementosArray != null && elementosArray.Count != config.elementos.Count)
+                        {
+                            Debug.LogWarning($"[OpenAIConnector] Mismatch detectado: JArray tiene {elementosArray.Count} y List tiene {config.elementos.Count}. Reintentando mapeo manual.");
+                            config.elementos = new List<ElementoEscena>();
+                            foreach (var item in elementosArray)
+                            {
+                                ElementoEscena el = item.ToObject<ElementoEscena>();
+                                // Aseguramos que 'data' se mapee correctamente
+                                el.data = new Dictionary<string, string>();
+                                JObject dataObj = (JObject)item["data"];
+                                if (dataObj != null)
+                                {
+                                    foreach (var property in dataObj.Properties())
+                                    {
+                                        el.data[property.Name] = property.Value.ToString();
+                                    }
+                                }
+                                config.elementos.Add(el);
+                            }
+                        }
+
+                        Debug.Log($"[OpenAIConnector] Finalizado. Procesados {config.elementos.Count} elementos.");
+                        foreach(var el in config.elementos)
+                        {
+                            Debug.Log($"  -> NPC en sala {el.room_index}");
+                        }
+                    }
                     
                     callback(config);
                 }

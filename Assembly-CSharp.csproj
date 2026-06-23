@@ -102,6 +102,7 @@
     <Compile Include="Assets\Scripts\Logic\SkyboxManager.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\MotionBlur\Helpers\Settings.cs" />
     <Compile Include="Assets\Scripts\AI\OpenAIConnector.cs" />
+    <Compile Include="Assets\SfxAudioController.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\AntiAliasing\IAntiAliasing.cs" />
     <Compile Include="Assets\Scripts\NPC\Mechanic_NPC.cs" />
     <Compile Include="Assets\LAB\Standard Assets\Effects\DepthOfField\DepthOfField.cs" />
@@ -129,6 +130,7 @@
     <None Include="Assets\LAB\Standard Assets\Effects\AntiAliasing\SMAA\Resources\SMAA.cginc" />
     <None Include="Assets\LAB\Standard Assets\Effects\AntiAliasing\FXAA\Resources\FXAA3.cginc" />
     <None Include="Assets\LAB\Shaders\Font.shader" />
+    <None Include="Assets\AddressableAssetsData\link.xml" />
     <None Include="Assets\LAB\Standard Assets\Effects\Bloom\Resources\Bloom.shader" />
     <None Include="Assets\LAB\Standard Assets\Effects\AntiAliasing\SMAA\Resources\SMAA.shader" />
     <None Include="Assets\LAB\Standard Assets\Effects\AmbientOcclusion\Resources\AmbientOcclusion.shader" />

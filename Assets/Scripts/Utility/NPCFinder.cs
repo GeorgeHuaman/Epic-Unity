@@ -3,7 +3,18 @@ using System.Collections.Generic;
 
 public class NPCFinder : MonoBehaviour
 {
-    public static NPCFinder Instance { get; private set; }
+    private static NPCFinder _instance;
+    public static NPCFinder Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = Object.FindAnyObjectByType<NPCFinder>();
+            }
+            return _instance;
+        }
+    }
 
     [Header("Posiciones Registradas")]
     public Dictionary<int, List<Vector3>> npcPositionsByRoom = new Dictionary<int, List<Vector3>>();
@@ -12,9 +23,9 @@ public class NPCFinder : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
+        if (_instance == null || _instance == this)
         {
-            Instance = this;
+            _instance = this;
         }
         else
         {
@@ -27,6 +38,7 @@ public class NPCFinder : MonoBehaviour
     /// </summary>
     public void LimpiarPosiciones()
     {
+        Debug.Log("[NPCFinder] Limpiando posiciones.");
         npcPositions.Clear();
         npcPositionsByRoom.Clear();
         roomUsageCounter.Clear();
@@ -37,6 +49,7 @@ public class NPCFinder : MonoBehaviour
     /// </summary>
     public void RegistrarPosicionNPC(int roomIndex, Vector3 posicion)
     {
+        Debug.Log($"[NPCFinder] Registrando punto en sala {roomIndex}: {posicion}");
         npcPositions.Add(posicion);
         if (!npcPositionsByRoom.ContainsKey(roomIndex))
         {

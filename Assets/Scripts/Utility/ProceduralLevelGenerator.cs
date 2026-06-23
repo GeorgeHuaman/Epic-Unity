@@ -142,7 +142,7 @@ public class ProceduralLevelGenerator : MonoBehaviour
 
         generatedJson = JsonUtility.ToJson(currentLevelData, true);
         UIManager.Instance.configuracionActual.ordenSala = generatedJson;
-
+        SetPositionPlayer.Instance.Set();
         OnGenerationComplete?.Invoke();
     }
 
@@ -187,12 +187,10 @@ public class ProceduralLevelGenerator : MonoBehaviour
                 if (useCorridors)
                 {
                     nextType = (parentType == PieceType.Sala) ? PieceType.Pasillo : PieceType.Sala;
-                    if (nextType == PieceType.Sala) nextRoomIndex++;
                 }
                 else
                 {
                     nextType = PieceType.Sala;
-                    nextRoomIndex++;
                 }
 
                 GameObject prefabToSpawn = GetRandomPrefab(nextType);
@@ -207,6 +205,7 @@ public class ProceduralLevelGenerator : MonoBehaviour
                     if (nextType == PieceType.Sala)
                     {
                         FindAndStoreNpcPositions(nextPiece, currentRoomIndex);
+                        nextRoomIndex++;
                     }
 
                     Physics.SyncTransforms();
